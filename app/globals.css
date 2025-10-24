@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #0b1220;
+}
+
+html, body { height: 100%; }
+body { background: var(--bg); color: #e2e8f0; }
+a { color: #7dd3fc }
+
