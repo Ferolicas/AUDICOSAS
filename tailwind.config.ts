@@ -8,12 +8,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0ea5e9',
-        accent: '#22c55e',
-        dark: '#0f172a'
+        primary: '#2563EB',
+        accent: '#D97706',
+        dark: '#1B2A4A',
+        navy: '#0F1B33',
       }
     }
   },
   plugins: []
 } satisfies Config
-
