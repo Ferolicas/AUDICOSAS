@@ -48,18 +48,21 @@ export default function RegisterModal() {
         className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden animate-[modalIn_0.3s_ease-out] max-h-[90vh] flex flex-col"
         onClick={e => e.stopPropagation()}
       >
-        <div className="px-8 pt-7 pb-5 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #1B2A4A, #2563EB)' }}>
+        <div className="px-8 pt-6 pb-5 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #1B2A4A, #2563EB)' }}>
           <div className="flex items-center justify-between">
-            <div>
-              <div className="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-2">
-                VALOR: $1,500 USD &mdash; HOY GRATIS
+            <div className="flex items-center gap-4">
+              <img src="/logoaudico.png" alt="AUDICO" className="h-10 w-auto flex-shrink-0 hidden sm:block" />
+              <div>
+                <div className="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-1.5">
+                  DIAGNÓSTICO VALORADO EN $1,500 USD &mdash; HOY SIN COSTO
+                </div>
+                <h2 className="text-lg font-bold text-white leading-tight">Agenda tu Evaluación ISO Personalizada</h2>
+                <p className="text-blue-200 text-sm mt-0.5">Un consultor experto visitará tu empresa sin compromiso.</p>
               </div>
-              <h2 className="text-xl font-bold text-white">Solicita tu Diagnóstico Gratuito</h2>
-              <p className="text-blue-200 text-sm mt-1">Sin compromiso. Un experto visitará tu empresa.</p>
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="text-white/70 hover:text-white transition-colors text-2xl leading-none font-light h-8 w-8 flex items-center justify-center rounded-full hover:bg-white/10 flex-shrink-0"
+              className="text-white/70 hover:text-white transition-colors text-2xl leading-none font-light h-8 w-8 flex items-center justify-center rounded-full hover:bg-white/10 flex-shrink-0 ml-2"
             >
               &times;
             </button>
