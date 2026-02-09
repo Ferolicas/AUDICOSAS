@@ -2,18 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --bg: #FAFBFC;
   --navy: #1B2A4A;
   --navy-deep: #0F1B33;
+  --blue: #2563EB;
+  --amber: #D97706;
+  --amber-light: #F59E0B;
 }
 
+html { scroll-behavior: smooth; }
 html, body { height: 100%; }
 body { background: var(--bg); color: #1E293B; }
-a { color: #2563EB; }
-a:hover { color: #1D4ED8; }
 
+/* Typography */
+h1, h2, h3, h4 { color: var(--navy); }
+
+/* Animations */
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.95) translateY(10px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(217, 119, 6, 0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out both;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* Accordion */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content > div {
+  overflow: hidden;
+}
+
+/* Timeline connector */
+.timeline-connector {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--blue), var(--amber));
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .timeline-connector {
+    left: 24px;
+  }
+}
+
+/* Section divider */
+.section-divider {
+  height: 4px;
+  background: linear-gradient(to right, var(--navy), var(--blue), var(--amber));
+  border-radius: 2px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(27, 42, 74, 0.12);
+}
+
+/* CTA button styles */
+.btn-primary {
+  @apply px-6 py-3.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold transition-all shadow-lg hover:shadow-xl cursor-pointer text-sm;
+}
+
+.btn-secondary {
+  @apply px-6 py-3.5 rounded-lg border-2 border-white text-white hover:bg-white hover:text-slate-900 font-bold transition-all cursor-pointer text-sm;
+}
+
+.btn-outline {
+  @apply px-6 py-3.5 rounded-lg border-2 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white font-bold transition-all cursor-pointer text-sm;
+}
+
+/* Stat card */
+.stat-card {
+  @apply bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-100;
+}
+
+/* Section pattern */
+.section-light { background: #FFFFFF; }
+.section-gray { background: #F8FAFC; }
+.section-navy { background: var(--navy); color: white; }
+.section-gradient { background: linear-gradient(135deg, #1B2A4A, #2563EB); color: white; }
