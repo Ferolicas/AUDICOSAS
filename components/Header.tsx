@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { href: '#soluciones', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
   { href: '#resultados', label: 'Resultados' },
-  { href: '#casos', label: 'Casos de Exito' },
+  { href: '#casos', label: 'Casos de Éxito' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contacto', label: 'Contacto' },
 ]
@@ -67,7 +67,7 @@ export default function Header() {
             onClick={() => setOpen(true)}
             className="ml-3 px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-all shadow-md hover:shadow-lg cursor-pointer text-sm animate-pulse-glow"
           >
-            Diagnostico Gratis
+            Diagnóstico Gratis
           </button>
         </nav>
 
@@ -108,7 +108,7 @@ export default function Header() {
                 onClick={() => { setOpen(true); setMobileOpen(false) }}
                 className="w-full px-5 py-3 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors cursor-pointer"
               >
-                Diagnostico Gratis
+                Diagnóstico Gratis
               </button>
             </div>
           </nav>

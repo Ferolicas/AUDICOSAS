@@ -17,54 +17,54 @@ const XIcon = () => <span className="text-red-500 font-bold text-lg leading-none
 /* ═══════════════════════════════════════════════ */
 
 const PROBLEMS = [
-  'Has perdido contratos porque te piden certificacion ISO y no la tienes',
-  'Tus procesos varian segun quien los ejecute, sin estandares claros',
+  'Has perdido contratos porque te piden certificación ISO y no la tienes',
+  'Tus procesos varían según quien los ejecute, sin estándares claros',
   'Desperdicias dinero en reprocesos, errores y materiales sin control',
-  'Tus costos energeticos estan fuera de control',
+  'Tus costos energéticos estan fuera de control',
   'Clientes se quejan de inconsistencias en calidad o entregas',
   'Todo depende de 2-3 personas clave y si faltan hay caos',
-  'Quieres participar en licitaciones publicas pero no cumples requisitos',
+  'Quieres participar en licitaciones públicas pero no cumples requisitos',
   'Sabes que tu competencia esta certificandose y quedas rezagado',
 ]
 
 const STATS = [
-  { value: '15-35%', label: 'Reduccion Costos Operativos', sub: 'Ahorro promedio primer ano: $50K-$120K', icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6' },
-  { value: '20-30%', label: 'Ahorro Energetico', sub: 'Menos consumo = mas rentabilidad', icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8' },
-  { value: '30-50%', label: 'Mas Contratos Ganados', sub: 'Acceso a mercados antes cerrados', icon: 'M6 9H4.5a2.5 2.5 0 010-5C6 4 8 5.5 8 8v1M18 9h1.5a2.5 2.5 0 000-5C18 4 16 5.5 16 8v1M8 9v10a2 2 0 002 2h4a2 2 0 002-2V9' },
-  { value: '12-18', label: 'Meses para ROI Completo', sub: 'Despues: ganancia pura ano tras ano', icon: 'M12 8v4l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0' },
+  { value: '15-35%', label: 'Reducción Costos Operativos', sub: 'Ahorro promedio primer año: $50K-$120K', icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6' },
+  { value: '20-30%', label: 'Ahorro Energético', sub: 'Menos consumo = más rentabilidad', icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8' },
+  { value: '30-50%', label: 'Más Contratos Ganados', sub: 'Acceso a mercados antes cerrados', icon: 'M6 9H4.5a2.5 2.5 0 010-5C6 4 8 5.5 8 8v1M18 9h1.5a2.5 2.5 0 000-5C18 4 16 5.5 16 8v1M8 9v10a2 2 0 002 2h4a2 2 0 002-2V9' },
+  { value: '12-18', label: 'Meses para ROI Completo', sub: 'Despues: ganancia pura año tras año', icon: 'M12 8v4l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0' },
   { value: '73%', label: 'De Grandes Empresas', sub: 'Solo contratan proveedores certificados', icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2' },
 ]
 
 const PHASES = [
   {
-    num: 1, title: 'Diagnostico Gratuito', duration: '1 semana', investment: '$0 (GRATIS)',
+    num: 1, title: 'Diagnóstico Gratuito', duration: '1 semana', investment: '$0 (GRATIS)',
     icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
     tasks: ['Visitamos tu empresa', 'Analizamos procesos actuales', 'Identificamos brechas vs. requisitos ISO', 'Detectamos oportunidades de ahorro', 'Calculamos ROI potencial para TU caso'],
-    deliverables: ['Reporte detallado de situacion actual', 'Plan de accion personalizado', 'Cotizacion transparente', 'Respuestas a todas tus dudas'],
+    deliverables: ['Reporte detallado de situación actual', 'Plan de acción personalizado', 'Cotizacion transparente', 'Respuestas a todas tus dudas'],
   },
   {
-    num: 2, title: 'Diseno a Tu Medida', duration: '3-4 semanas', investment: null,
+    num: 2, title: 'Diseño a Tu Medida', duration: '3-4 semanas', investment: null,
     icon: 'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z',
-    tasks: ['Disenamos procedimientos adaptados a tu realidad', 'Creamos documentacion que tu equipo entienda', 'Aprovechamos lo que ya funciona bien', 'Definimos indicadores relevantes'],
-    deliverables: ['Manual de calidad personalizado', 'Procedimientos operativos claros', 'Formatos practicos y usables', 'Mapa de procesos de tu empresa'],
+    tasks: ['Diseñamos procedimientos adaptados a tu realidad', 'Creamos documentación que tu equipo entienda', 'Aprovechamos lo que ya funciona bien', 'Definimos indicadores relevantes'],
+    deliverables: ['Manual de calidad personalizado', 'Procedimientos operativos claros', 'Formatos prácticos y usables', 'Mapa de procesos de tu empresa'],
   },
   {
-    num: 3, title: 'Implementacion Acompanada', duration: '3-5 meses', investment: null,
+    num: 3, title: 'Implementación Acompañada', duration: '3-5 meses', investment: null,
     icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
     tasks: ['Capacitamos a tu equipo completo', 'Implementamos sistemas paso a paso', 'Trabajamos codo a codo contigo', 'Medimos avances semanalmente'],
-    deliverables: ['Equipo capacitado y comprometido', 'Sistemas funcionando en operacion real', 'Indicadores siendo monitoreados', 'Cultura de mejora continua iniciada'],
+    deliverables: ['Equipo capacitado y comprometido', 'Sistemas funcionando en operación real', 'Indicadores siendo monitoreados', 'Cultura de mejora continua iniciada'],
   },
   {
-    num: 4, title: 'Preparacion para Auditoria', duration: '2-4 semanas', investment: null,
+    num: 4, title: 'Preparación para Auditoría', duration: '2-4 semanas', investment: null,
     icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
-    tasks: ['Auditoria interna simulada', 'Identificamos areas de mejora', 'Corregimos no conformidades', 'Preparamos a tu equipo para auditoria externa'],
-    deliverables: ['Tu empresa 100% lista', 'Equipo confiado y preparado', 'Documentacion completa y ordenada', 'Cero sorpresas en auditoria'],
+    tasks: ['Auditoría interna simulada', 'Identificamos areas de mejora', 'Corregimos no conformidades', 'Preparamos a tu equipo para auditoría externa'],
+    deliverables: ['Tu empresa 100% lista', 'Equipo confiado y preparado', 'Documentacion completa y ordenada', 'Cero sorpresas en auditoría'],
   },
   {
-    num: 5, title: 'Certificacion y Mejora Continua', duration: 'Permanente', investment: null,
+    num: 5, title: 'Certificación y Mejora Continua', duration: 'Permanente', investment: null,
     icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2',
-    tasks: ['Acompanamos en auditoria de certificacion', 'Soporte post-certificacion incluido', 'Asesoria para mantener sistemas', 'Preparacion para auditorias de seguimiento'],
-    deliverables: ['Certificado ISO oficial', 'Sistema que sigue generando valor', 'Soporte cuando lo necesites', 'Evolucion continua de tu empresa'],
+    tasks: ['Acompañamos en auditoría de certificación', 'Soporte post-certificación incluido', 'Asesoria para mantener sistemas', 'Preparación para auditorías de seguimiento'],
+    deliverables: ['Certificado ISO oficial', 'Sistema que sigue generando valor', 'Soporte cuando lo necesites', 'Evolución continua de tu empresa'],
   },
 ]
 
@@ -72,108 +72,108 @@ const CASES = [
   {
     sector: 'Manufactura', employees: 45, revenue: '$3M', time: '8 meses',
     certs: 'ISO 9001:2015 & ISO 14001:2015',
-    situation: 'Veniamos perdiendo contratos importantes porque nuestros clientes potenciales exigian certificacion ISO. Ademas, nuestros costos estaban fuera de control sin saber exactamente por que.',
-    challenges: ['$85,000 anuales en desperdicios de material', '$60,000 en reprocesos constantes', 'Contrato perdido de $180,000 por falta de certificacion', 'Quejas recurrentes de clientes por retrasos'],
+    situation: 'Veníamos perdiendo contratos importantes porque nuestros clientes potenciales exigían certificación ISO. Además, nuestros costos estaban fuera de control sin saber exactamente por que.',
+    challenges: ['$85,000 anuales en desperdicios de material', '$60,000 en reprocesos constantes', 'Contrato perdido de $180,000 por falta de certificación', 'Quejas recurrentes de clientes por retrasos'],
     results: [
       { label: 'Desperdicios reducidos', value: '-68%' },
       { label: 'Reprocesos eliminados', value: '-72%' },
       { label: 'Ahorro anual', value: '$98,000' },
-      { label: 'Nuevos contratos', value: '$340,000/ano' },
+      { label: 'Nuevos contratos', value: '$340,000/año' },
       { label: 'ROI completo', value: '10 meses' },
     ],
-    testimonial: 'La certificacion ISO cambio completamente nuestra empresa. No solo ganamos los contratos que antes perdiamos, nuestra operacion es mucho mas eficiente. La inversion se pago sola en poco mas de un ano.',
-    role: 'Director de Operaciones',
+    testimonial: 'La certificación ISO cambio completamente nuestra empresa. No solo ganamos los contratos que antes perdíamos, nuestra operación es mucho más eficiente. La inversión se pago sola en poco más de un año.',
+    role: 'Director de Operaciónes',
   },
   {
-    sector: 'Servicios de Ingenieria', employees: 28, revenue: '$1.8M', time: '7 meses',
+    sector: 'Servicios de Ingeniería', employees: 28, revenue: '$1.8M', time: '7 meses',
     certs: 'ISO 9001:2015',
-    situation: 'Queriamos profesionalizar la empresa para crecer, pero todo dependia de mi y de dos personas clave. No habia procesos documentados y cada proyecto se manejaba diferente.',
-    challenges: ['Alta rotacion de personal (45% anual)', 'Conocimiento solo en cabezas de fundadores', 'No podian participar en licitaciones grandes', 'Clientes corporativos pedian certificacion'],
+    situation: 'Queríamos profesionalizar la empresa para crecer, pero todo dependía de mi y de dos personas clave. No había procesos documentados y cada proyecto se manejaba diferente.',
+    challenges: ['Alta rotación de personal (45% anual)', 'Conocimiento solo en cabezas de fundadores', 'No podían participar en licitaciones grandes', 'Clientes corporativos pedian certificación'],
     results: [
-      { label: 'Rotacion personal', value: '-62%' },
-      { label: 'Satisfaccion clientes', value: '+38%' },
-      { label: 'Nuevos contratos', value: '$280,000/ano' },
-      { label: 'Capacitacion nuevos', value: '-55% tiempo' },
+      { label: 'Rotación personal', value: '-62%' },
+      { label: 'Satisfacción clientes', value: '+38%' },
+      { label: 'Nuevos contratos', value: '$280,000/año' },
+      { label: 'Capacitación nuevos', value: '-55% tiempo' },
       { label: 'Margen utilidad', value: '+22%' },
     ],
     testimonial: 'Ahora puedo delegar con confianza. Tenemos un sistema que funciona incluso cuando yo no estoy. Eso no tiene precio. Accedimos a contratos corporativos que antes nos estaban vedados.',
     role: 'Gerente General',
   },
   {
-    sector: 'Distribucion Industrial', employees: 62, revenue: '$5.2M', time: '9 meses',
+    sector: 'Distribución Industrial', employees: 62, revenue: '$5.2M', time: '9 meses',
     certs: 'ISO 9001:2015 & ISO 14001:2015',
-    situation: 'Nuestro mayor cliente corporativo nos dio un ultimatum: certificate en ISO o buscamos otro proveedor. Eso representaba 35% de nuestra facturacion.',
-    challenges: ['Riesgo de perder cliente principal ($1.8M anuales)', 'Inventarios mal controlados', 'Consumo energetico elevado en almacenes', 'Quejas por retrasos en entregas'],
+    situation: 'Nuestro mayor cliente corporativo nos dio un ultimatum: certificate en ISO o buscamos otro proveedor. Eso representaba 35% de nuestra facturación.',
+    challenges: ['Riesgo de perder cliente principal ($1.8M anuales)', 'Inventarios mal controlados', 'Consumo energético elevado en almacenes', 'Quejas por retrasos en entregas'],
     results: [
       { label: 'Cliente principal', value: 'RETENIDO' },
-      { label: 'Nuevos clientes corp.', value: '+$920,000/ano' },
+      { label: 'Nuevos clientes corp.', value: '+$920,000/año' },
       { label: 'Costos operativos', value: '-28%' },
-      { label: 'Consumo energetico', value: '-31%' },
+      { label: 'Consumo energético', value: '-31%' },
       { label: 'Entregas a tiempo', value: '97%' },
     ],
-    testimonial: 'No solo salvamos la relacion con nuestro cliente principal, sino que ahora somos proveedores preferentes. La certificacion nos abrio puertas que ni siquiera sabiamos que existian.',
+    testimonial: 'No solo salvamos la relación con nuestro cliente principal, sino que ahora somos proveedores preferentes. La certificación nos abrio puertas que ni siquiera sabíamos que existian.',
     role: 'Gerente General',
   },
 ]
 
 const DIFFERENTIATORS = [
-  { title: 'Consultores Certificados', desc: 'Especialistas certificados en ISO 9001, ISO 14001 e ISO 45001 con anos de experiencia practica real en multiples industrias.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
-  { title: 'Sistemas a Tu Medida', desc: 'Cero plantillas genericas. Disenamos cada procedimiento especificamente para TU empresa, TU sector, TU realidad operativa.', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
-  { title: 'Enfoque 100% Practico', desc: 'Trabajamos con resultados medibles desde el primer mes. Si no genera valor, no lo hacemos. Simple.', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-  { title: 'Sin Paralizar Operacion', desc: 'Implementamos sistemas de forma paralela a tu operacion diaria. Como remodelar tu casa mientras sigues viviendo en ella.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+  { title: 'Consultores Certificados', desc: 'Especialistas certificados en ISO 9001, ISO 14001 e ISO 45001 con años de experiencia practica real en múltiples industrias.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
+  { title: 'Sistemas a Tu Medida', desc: 'Cero plantillas genéricas. Diseñamos cada procedimiento específicamente para TU empresa, TU sector, TU realidad operativa.', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
+  { title: 'Enfoque 100% Práctico', desc: 'Trabajamos con resultados medibles desde el primer mes. Si no genera valor, no lo hacemos. Simple.', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+  { title: 'Sin Paralizar Operación', desc: 'Implementamos sistemas de forma paralela a tu operación diaria. Como remodelar tu casa mientras sigues viviendo en ella.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
   { title: 'Plazos Realistas y Cumplidos', desc: 'Cronograma claro desde dia uno con hitos medibles. Cumplimos lo que prometemos o extendemos soporte sin costo.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
-  { title: 'Empoderamos a Tu Equipo', desc: 'No creamos dependencia. Capacitamos a tu gente para que ELLOS sean los protagonistas. No necesitaras consultores eternamente.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
-  { title: 'Comunicacion Transparente', desc: 'Siempre sabras en que etapa estamos, que sigue y como vamos. Reuniones semanales. Acceso directo a tu consultor. Cero sorpresas.', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
-  { title: 'Garantia de Resultados', desc: 'Si no obtienes tu certificacion siguiendo nuestro metodo, seguimos trabajando sin costo adicional.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
-  { title: 'Soporte Post-Certificacion', desc: 'Incluimos soporte post-certificacion para auditorias de seguimiento, dudas y mejora continua. Estamos contigo a largo plazo.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
+  { title: 'Empoderamos a Tu Equipo', desc: 'No creamos dependencia. Capacitamos a tu gente para que ELLOS sean los protagonistas. No necesitarás consultores eternamente.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
+  { title: 'Comunicación Transparente', desc: 'Siempre sabrás en que etapa estamos, que sigue y como vamos. Reuniones semanales. Acceso directo a tu consultor. Cero sorpresas.', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
+  { title: 'Garantía de Resultados', desc: 'Si no obtienes tu certificación siguiendo nuestro método, seguimos trabajando sin costo adicional.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+  { title: 'Soporte Post-Certificación', desc: 'Incluimos soporte post-certificación para auditorías de seguimiento, dudas y mejora continua. Estamos contigo a largo plazo.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
 ]
 
 const FAQ_ITEMS = [
   {
-    question: 'Cuanto cuesta realmente certificarse en ISO?',
+    question: '¿Cuánto cuesta realmente certificarse en ISO?',
     answer: (
       <div className="space-y-3">
-        <p>La inversion tipica incluye consultoria + certificacion externa y varia segun el tamano y complejidad de tu empresa:</p>
+        <p>La inversión típica incluye consultoría + certificación externa y varía según el tamaño y complejidad de tu empresa:</p>
         <ul className="space-y-1">
-          <li><strong>Empresas pequenas (10-25 empleados):</strong> $15,000 - $20,000</li>
+          <li><strong>Empresas pequeñas (10-25 empleados):</strong> $15,000 - $20,000</li>
           <li><strong>Empresas medianas (25-100 empleados):</strong> $20,000 - $35,000</li>
           <li><strong>Empresas grandes (100+ empleados):</strong> $35,000 - $60,000</li>
         </ul>
-        <p className="font-medium text-slate-800">Pero aqui esta lo importante:</p>
+        <p className="font-medium text-slate-800">Pero aquí esta lo importante:</p>
         <p>Empresas certificadas ahorran en promedio <strong>$50,000-$120,000 anuales</strong> y ganan contratos adicionales por <strong>$80,000-$300,000 anuales</strong>.</p>
         <p className="text-amber-700 font-semibold">ROI real: 12-18 meses. La pregunta no es &quot;cuanto cuesta?&quot; sino &quot;cuanto pierdo cada mes sin certificarme?&quot;</p>
       </div>
     ),
   },
   {
-    question: 'Cuanto tiempo toma todo el proceso?',
+    question: '¿Cuánto tiempo toma todo el proceso?',
     answer: (
       <div className="space-y-2">
-        <p>Con nuestra metodologia estructurada: <strong>6-9 meses</strong> desde inicio hasta certificado en mano.</p>
+        <p>Con nuestra métodologia estructurada: <strong>6-9 meses</strong> desde inicio hasta certificado en mano.</p>
         <ul className="space-y-1">
-          <li>Diagnostico: 1 semana</li>
-          <li>Diseno de sistemas: 3-4 semanas</li>
-          <li>Implementacion: 3-5 meses</li>
-          <li>Preparacion auditoria: 2-4 semanas</li>
-          <li>Auditoria de certificacion: 2-3 dias</li>
+          <li>Diagnóstico: 1 semana</li>
+          <li>Diseño de sistemas: 3-4 semanas</li>
+          <li>Implementación: 3-5 meses</li>
+          <li>Preparación auditoría: 2-4 semanas</li>
+          <li>Auditoría de certificación: 2-3 dias</li>
         </ul>
-        <p>Lo importante: <strong>NO tienes que paralizar tu operacion</strong>. Todo se hace de forma paralela a tu negocio diario.</p>
+        <p>Lo importante: <strong>NO tienes que paralizar tu operación</strong>. Todo se hace de forma paralela a tu negocio diario.</p>
       </div>
     ),
   },
   {
-    question: 'Es muy complicado? Requiere mucho papeleo?',
+    question: '¿Es muy complicado? Requiere mucho papeleo?',
     answer: (
       <div className="space-y-3">
-        <p>Este es el <strong>mito #1</strong> que cuesta mas dinero a las empresas. La realidad: ISO te pide documentar SOLO lo esencial.</p>
+        <p>Este es el <strong>mito #1</strong> que cuesta más dinero a las empresas. La realidad: ISO te pide documentar SOLO lo esencial.</p>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="font-semibold text-red-600 mb-1">NO necesitas:</p>
-            <ul className="space-y-1 text-sm"><li>Manuales de 500 paginas que nadie lee</li><li>Formularios para cada respiracion</li><li>Burocracia absurda e innecesaria</li></ul>
+            <ul className="space-y-1 text-sm"><li>Manuales de 500 páginas que nadie lee</li><li>Formularios para cada respiración</li><li>Burocracia absurda e innecesaria</li></ul>
           </div>
           <div>
             <p className="font-semibold text-green-600 mb-1">SI necesitas:</p>
-            <ul className="space-y-1 text-sm"><li>Procedimientos claros de procesos criticos</li><li>Registros que demuestren lo que haces</li><li>Sistema simple de seguimiento y mejora</li></ul>
+            <ul className="space-y-1 text-sm"><li>Procedimientos claros de procesos críticos</li><li>Registros que demuestren lo que haces</li><li>Sistema simple de seguimiento y mejora</li></ul>
           </div>
         </div>
         <p>De hecho, empresas bien certificadas <strong>REDUCEN papeleo innecesario</strong>, no lo aumentan.</p>
@@ -181,102 +181,102 @@ const FAQ_ITEMS = [
     ),
   },
   {
-    question: 'Mi empresa es muy pequena para certificarse?',
+    question: '¿Mi empresa es muy pequeña para certificarse?',
     answer: (
       <div className="space-y-3">
-        <p>Tamano NO es el factor decisivo. El factor es: <strong>tu mercado objetivo valora o exige certificacion?</strong></p>
-        <p>Probablemente SI tiene sentido si: tienes 10+ empleados, vendes o quieres vender a gobierno/corporaciones, buscas profesionalizar para crecer, o has perdido contratos por falta de certificacion.</p>
-        <p>Hemos certificado empresas desde <strong>8 hasta 300 empleados</strong> exitosamente.</p>
+        <p>Tamano NO es el factor decisivo. El factor es: <strong>tu mercado objetivo valora o exige certificación?</strong></p>
+        <p>Probablemente SI tiene sentido si: tienes 10+ empleados, vendes o quieres vender a gobierno/corporaciones, buscas profesionalizar para crecer, o has perdido contratos por falta de certificación.</p>
+        <p>Hemos certificado empresas desde <strong>8 hasta 300 empleados</strong> éxitosamente.</p>
       </div>
     ),
   },
   {
-    question: 'Que pasa si no paso la auditoria de certificacion?',
+    question: '¿Qué pasa si no paso la auditoría de certificación?',
     answer: (
       <div className="space-y-2">
-        <p>Con nuestra metodologia, esto es extremadamente raro. De las <strong>40+ empresas</strong> que hemos preparado, el <strong>100% ha obtenido certificacion</strong> en su primera auditoria.</p>
-        <p>Pero si hipotetica mente no se obtiene: los auditores dan un plazo para corregir observaciones y <strong>nosotros seguimos trabajando contigo SIN COSTO ADICIONAL</strong> hasta que obtengas el certificado. Esto esta incluido en nuestra garantia.</p>
+        <p>Con nuestra métodologia, esto es extremadamente raro. De las <strong>40+ empresas</strong> que hemos preparado, el <strong>100% ha obtenido certificación</strong> en su primera auditoría.</p>
+        <p>Pero si hipotéticamente no se obtiene: los auditores dan un plazo para corregir observaciones y <strong>nosotros seguimos trabajando contigo SIN COSTO ADICIONAL</strong> hasta que obtengas el certificado. Esto esta incluido en nuestra garantía.</p>
       </div>
     ),
   },
   {
-    question: 'Debo certificarme en ISO 9001, ISO 14001 o ambas?',
+    question: '¿Debo certificarme en ISO 9001, ISO 14001 o ambas?',
     answer: (
       <div className="space-y-2">
-        <p><strong>ISO 9001:</strong> Si tus clientes exigen gestion de calidad, quieres optimizar procesos o participar en licitaciones.</p>
-        <p><strong>ISO 14001:</strong> Si quieres reducir consumos energeticos, tu industria tiene impacto ambiental o buscas financiamiento verde.</p>
-        <p><strong>Ambas:</strong> Los sistemas se integran, no se duplican. Implementarlas juntas es mas eficiente que hacerlas por separado.</p>
-        <p className="text-amber-700 font-semibold">En el diagnostico gratuito analizamos tu caso especifico y te recomendamos la mejor estrategia.</p>
+        <p><strong>ISO 9001:</strong> Si tus clientes exigen gestión de calidad, quieres optimizar procesos o participar en licitaciones.</p>
+        <p><strong>ISO 14001:</strong> Si quieres reducir consumos energéticos, tu industria tiene impacto ambiental o buscas financiamiento verde.</p>
+        <p><strong>Ambas:</strong> Los sistemas se integran, no se duplican. Implementarlas juntas es más eficiente que hacerlas por separado.</p>
+        <p className="text-amber-700 font-semibold">En el diagnóstico gratuito analizamos tu caso específico y te recomendamos la mejor estrategia.</p>
       </div>
     ),
   },
   {
-    question: 'El certificado tiene vigencia? Hay que renovar?',
+    question: '¿El certificado tiene vigencia? Hay que renovar?',
     answer: (
       <div className="space-y-2">
-        <p>Los certificados ISO tienen vigencia de <strong>3 anos</strong>.</p>
+        <p>Los certificados ISO tienen vigencia de <strong>3 años</strong>.</p>
         <ul className="space-y-1">
-          <li><strong>Ano 1:</strong> Auditoria de certificacion (te da el certificado)</li>
-          <li><strong>Ano 2-3:</strong> Auditorias de seguimiento (verifican que mantienes el sistema)</li>
-          <li><strong>Ano 4:</strong> Auditoria de recertificacion (renuevas por 3 anos mas)</li>
+          <li><strong>Año 1:</strong> Auditoría de certificación (te da el certificado)</li>
+          <li><strong>Año 2-3:</strong> Auditorías de seguimiento (verifican que mantienes el sistema)</li>
+          <li><strong>Año 4:</strong> Auditoría de recertificación (renuevas por 3 años mas)</li>
         </ul>
-        <p>Mantener el certificado es <strong>mas facil que obtenerlo inicialmente</strong>. Incluimos preparacion para tu primera auditoria de seguimiento.</p>
+        <p>Mantener el certificado es <strong>mas fácil que obtenerlo inicialmente</strong>. Incluimos preparación para tu primera auditoría de seguimiento.</p>
       </div>
     ),
   },
   {
-    question: 'Puedo certificarme sin consultoria externa?',
+    question: '¿Puedo certificarme sin consultoría externa?',
     answer: (
       <div className="space-y-2">
-        <p>Tecnicamente si, pero <strong>NO lo recomendamos</strong>. Sin consultor: tardaras 2-3x mas tiempo (18-24 meses), alta probabilidad de fallar en auditoria (80%+), e invertiras tiempo valioso que deberias dedicar a tu negocio.</p>
-        <p>Con consultoria profesional: experiencia de decenas de certificaciones exitosas, sistemas optimizados desde el inicio, y preparacion garantizada.</p>
+        <p>Técnicamente si, pero <strong>NO lo recomendamos</strong>. Sin consultor: tardarás 2-3x más tiempo (18-24 meses), alta probabilidad de fallar en auditoría (80%+), e invertirás tiempo valioso que deberías dedicar a tu negocio.</p>
+        <p>Con consultoría profesional: experiencia de decenas de certificaciónes éxitosas, sistemas optimizados desde el inicio, y preparación garantizada.</p>
       </div>
     ),
   },
   {
-    question: 'Que sectores o industrias pueden certificarse?',
+    question: '¿Qué sectores o industrias pueden certificarse?',
     answer: (
       <div className="space-y-2">
-        <p><strong>TODOS.</strong> Las normas ISO son aplicables a cualquier tipo de organizacion: manufactura, servicios, comercio, construccion, salud, educacion, transporte, agricultura, hoteleria y mas.</p>
-        <p>Las normas son genericas intencionalmente. Se enfocan en <strong>COMO gestionas tu organizacion</strong>, no en QUE produces o vendes. Si tu empresa tiene clientes, procesos, empleados y productos o servicios — puede certificarse.</p>
+        <p><strong>TODOS.</strong> Las normas ISO son aplicables a cualquier tipo de organización: manufactura, servicios, comercio, construcción, salud, educación, transporte, agricultura, hoteleria y más.</p>
+        <p>Las normas son genéricas intencionalmente. Se enfocan en <strong>COMO gestiónas tu organización</strong>, no en QUE produces o vendes. Si tu empresa tiene clientes, procesos, empleados y productos o servicios — puede certificarse.</p>
       </div>
     ),
   },
   {
-    question: 'Mis empleados tendran que hacer trabajo extra?',
+    question: '¿Mis empleados tendrán que hacer trabajo extra?',
     answer: (
       <div className="space-y-2">
-        <p><strong>Durante implementacion (3-5 meses):</strong> SI, habrá trabajo adicional temporal — capacitaciones, participacion en diseno de procedimientos, ajustar algunos habitos.</p>
-        <p><strong>Despues de implementacion:</strong> NO, menos trabajo. Con sistemas bien disenados: menos confusion, menos reprocesos, roles definidos, menos errores.</p>
-        <p className="font-semibold text-slate-800">Resultado: equipo mas eficiente que trabaja MEJOR, no MAS.</p>
+        <p><strong>Durante implementación (3-5 meses):</strong> SI, habrá trabajo adicional temporal — capacitaciónes, participación en diseño de procedimientos, ajustar algunos habitos.</p>
+        <p><strong>Despues de implementación:</strong> NO, menos trabajo. Con sistemas bien diseñados: menos confusión, menos reprocesos, roles definidos, menos errores.</p>
+        <p className="font-semibold text-slate-800">Resultado: equipo más eficiente que trabaja MEJOR, no MAS.</p>
       </div>
     ),
   },
   {
-    question: 'Tengo que certificarme con un organismo especifico?',
+    question: '¿Tengo que certificarme con un organismo específico?',
     answer: (
       <div className="space-y-2">
-        <p>NO estas obligado a uno especifico, PERO debe ser <strong>acreditado</strong> (SGS, Bureau Veritas, ICONTEC, TUV, AENOR, etc.).</p>
-        <p>Nosotros NO certificamos (somos consultores). Preparamos a tu empresa para que CUALQUIER organismo certificador acreditado te certifique. Te ayudamos a elegir el mas conveniente para tu caso.</p>
+        <p>NO estas obligado a uno específico, PERO debe ser <strong>acreditado</strong> (SGS, Bureau Veritas, ICONTEC, TUV, AENOR, etc.).</p>
+        <p>Nosotros NO certificamos (somos consultores). Preparamos a tu empresa para que CUALQUIER organismo certificador acreditado te certifique. Te ayudamos a elegir el más conveniente para tu caso.</p>
       </div>
     ),
   },
   {
-    question: 'Cual es la experiencia de AUDICO?',
+    question: '¿Cuál es la experiencia de AUDICO?',
     answer: (
       <div className="space-y-2">
-        <p>4 anos liderando el Sistema de Gestion de Calidad ISO 9001:2015 del proceso Atencion al Usuario de la Secretaria de Desarrollo Territorial y Participacion Ciudadana de la <strong>Alcaldia de Santiago de Cali</strong>.</p>
-        <p>Participamos y apoyamos <strong>dos recertificaciones</strong>, recibimos multiples auditorias internas y externas, y participamos como auditores internos. Equipo con formacion en Administracion de Empresas, Negocios Internacionales e Ingenieria de Sistemas.</p>
+        <p>4 años líderando el Sistema de Gestión de Calidad ISO 9001:2015 del proceso Atención al Usuario de la Secretaría de Desarrollo Territorial y Participación Ciudadana de la <strong>Alcaldía de Santiago de Cali</strong>.</p>
+        <p>Participamos y apoyamos <strong>dos recertificaciónes</strong>, recibimos múltiples auditorías internas y externas, y participamos como auditores internos. Equipo con formación en Administración de Empresas, Negocios Internacionales e Ingeniería de Sistemas.</p>
       </div>
     ),
   },
 ]
 
 const GUARANTEES = [
-  { title: 'Garantia de Certificacion', desc: 'Si sigues nuestro metodo y no obtienes certificacion, seguimos trabajando sin costo adicional hasta que la obtengas.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
-  { title: 'Garantia de Tiempo', desc: 'Si por nuestra responsabilidad excedemos los plazos acordados, extendemos soporte adicional sin cargo.', icon: 'M12 8v4l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0' },
-  { title: 'Confidencialidad Total', desc: 'Toda informacion de tu empresa esta protegida por acuerdo de confidencialidad. Lo que vemos en tu empresa, queda en tu empresa.', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
-  { title: 'Satisfaccion Garantizada', desc: 'Si en las primeras 2 semanas decides que no somos fit para tu empresa, cancelas sin penalizacion. Sin letra pequena.', icon: 'M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905a3.61 3.61 0 01-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5' },
+  { title: 'Garantía de Certificación', desc: 'Si sigues nuestro método y no obtienes certificación, seguimos trabajando sin costo adicional hasta que la obtengas.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+  { title: 'Garantía de Tiempo', desc: 'Si por nuestra responsabilidad excedemos los plazos acordados, extendemos soporte adicional sin cargo.', icon: 'M12 8v4l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0' },
+  { title: 'Confidencialidad Total', desc: 'Toda información de tu empresa esta protegida por acuerdo de confidencialidad. Lo que vemos en tu empresa, queda en tu empresa.', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
+  { title: 'Satisfacción Garantizada', desc: 'Si en las primeras 2 semanas decides que no somos fit para tu empresa, cancelas sin penalización. Sin letra pequeña.', icon: 'M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905a3.61 3.61 0 01-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5' },
 ]
 
 /* ═══════════════════════════════════════════════ */
@@ -296,27 +296,27 @@ export default function Page() {
         <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-28 lg:py-32">
           <div className="max-w-3xl">
             <div className="inline-block px-4 py-1.5 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-6 tracking-wide">
-              AUDITORIAS &middot; CONSULTORIA &middot; CERTIFICACION ISO
+              AUDITORIAS &middot; CONSULTORIA &middot; CERTIFICACIÓN ISO
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
-              Tu Empresa Pierde Contratos por No Tener{' '}
-              <span className="text-amber-400">Certificacion ISO?</span>
+              ¿Tu Empresa Pierde Contratos por No Tener{' '}
+              <span className="text-amber-400">Certificación ISO?</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-blue-100 leading-relaxed max-w-2xl">
-              Reduce costos hasta 35%, gana mas licitaciones y transforma tu empresa en lider certificado en solo 6-9 meses
+              Reduce costos hasta 35%, gana más licitaciones y transforma tu empresa en líder certificado en solo 6-9 meses
             </p>
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-blue-100">
-              <span className="flex items-center gap-2"><CheckIcon /> Reduccion de costos operativos 15-35%</span>
-              <span className="flex items-center gap-2"><CheckIcon /> Ahorro energetico 20-30%</span>
+              <span className="flex items-center gap-2"><CheckIcon /> Reducción de costos operativos 15-35%</span>
+              <span className="flex items-center gap-2"><CheckIcon /> Ahorro energético 20-30%</span>
               <span className="flex items-center gap-2"><CheckIcon /> Acceso a contratos exclusivos</span>
               <span className="flex items-center gap-2"><CheckIcon /> ROI garantizado en 12-18 meses</span>
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
               <button onClick={() => setOpen(true)} className="btn-primary text-base px-8 py-4 animate-pulse-glow">
-                Agenda Tu Diagnostico GRATUITO
+                Agenda Tu Diagnóstico GRATUITO
               </button>
               <a href="#casos" className="btn-secondary text-base px-8 py-4">
-                Ver Casos de Exito
+                Ver Casos de Éxito
               </a>
             </div>
           </div>
@@ -328,7 +328,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Reconoces Estas Situaciones en Tu Empresa?
+              ¿Reconoces Estas Situaciones en Tu Empresa?
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -341,7 +341,7 @@ export default function Page() {
           </div>
           <div className="mt-12 text-center">
             <p className="text-lg text-slate-600 max-w-xl mx-auto">
-              Si identificaste al menos 2 de estos problemas, la <strong className="text-slate-900">certificacion ISO es exactamente lo que tu empresa necesita.</strong>
+              Si identificaste al menos 2 de estos problemas, la <strong className="text-slate-900">certificación ISO es exactamente lo que tu empresa necesita.</strong>
             </p>
             <a href="#soluciones" className="inline-block mt-6 btn-outline">
               Descubre Como Solucionarlo
@@ -358,7 +358,7 @@ export default function Page() {
               ISO 9001 e ISO 14001: Tu Ventaja Competitiva
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              Transforma problemas en oportunidades con sistemas de gestion certificados que generan resultados medibles
+              Transforma problemas en oportunidades con sistemas de gestión certificados que generan resultados medibles
             </p>
           </div>
 
@@ -371,9 +371,9 @@ export default function Page() {
                 </svg>
               </div>
               <div className="text-xs font-bold text-blue-600 tracking-widest mb-1">ISO 9001:2015</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Sistema de Gestion de Calidad</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Sistema de Gestión de Calidad</h3>
               <ul className="space-y-2.5">
-                {['Procesos documentados y estandarizados', 'Reduccion de costos operativos 15-35%', 'Clientes mas satisfechos (+25-45%)', 'Acceso a licitaciones exclusivas', 'Decisiones basadas en datos reales', 'Mejora continua sistematizada'].map((item) => (
+                {['Procesos documentados y estandarizados', 'Reducción de costos operativos 15-35%', 'Clientes más satisfechos (+25-45%)', 'Acceso a licitaciones exclusivas', 'Decisiones basadas en datos reales', 'Mejora continua sistematizada'].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
                     <CheckIcon /><span>{item}</span>
                   </li>
@@ -389,9 +389,9 @@ export default function Page() {
                 </svg>
               </div>
               <div className="text-xs font-bold text-green-600 tracking-widest mb-1">ISO 14001:2015</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Sistema de Gestion Ambiental</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Sistema de Gestión Ambiental</h3>
               <ul className="space-y-2.5">
-                {['Ahorro energetico 20-30%', 'Reduccion de desperdicios y consumos', 'Cumplimiento legal garantizado', 'Mejor imagen corporativa', 'Acceso a financiamiento verde', 'Sostenibilidad con rentabilidad'].map((item) => (
+                {['Ahorro energético 20-30%', 'Reducción de desperdicios y consumos', 'Cumplimiento legal garantizado', 'Mejor imagen corporativa', 'Acceso a financiamiento verde', 'Sostenibilidad con rentabilidad'].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
                     <CheckIcon /><span>{item}</span>
                   </li>
@@ -435,7 +435,7 @@ export default function Page() {
             ))}
           </div>
           <p className="mt-10 text-center text-blue-100 text-sm max-w-xl mx-auto">
-            Estos numeros no son proyecciones. Son resultados reales de empresas que tomaron la decision de certificarse.
+            Estos números no son proyecciones. Son resultados reales de empresas que tomaron la decisión de certificarse.
           </p>
           <div className="mt-6 text-center">
             <button onClick={() => setOpen(true)} className="btn-primary text-base">
@@ -450,7 +450,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Nuestro Metodo: Simple, Practico y Efectivo
+              Nuestro Método: Simple, Práctico y Efectivo
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
               En 5 fases claras llevamos tu empresa de donde esta hoy a certificada y generando resultados
@@ -477,7 +477,7 @@ export default function Page() {
                   <div className="flex-1 p-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Que hacemos</h4>
+                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Qué hacemos</h4>
                         <ul className="space-y-2">
                           {phase.tasks.map((t) => (
                             <li key={t} className="flex items-start gap-2 text-sm text-slate-600">
@@ -490,7 +490,7 @@ export default function Page() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">Que obtienes</h4>
+                        <h4 className="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">Qué obtienes</h4>
                         <ul className="space-y-2">
                           {phase.deliverables.map((d) => (
                             <li key={d} className="flex items-start gap-2 text-sm text-slate-600">
@@ -509,7 +509,7 @@ export default function Page() {
           <div className="mt-12 text-center">
             <div className="inline-block bg-amber-50 border border-amber-200 rounded-2xl px-8 py-5">
               <div className="text-2xl font-extrabold text-slate-900">TIEMPO TOTAL: 6-9 MESES</div>
-              <div className="text-amber-700 font-medium mt-1">desde diagnostico hasta certificacion</div>
+              <div className="text-amber-700 font-medium mt-1">desde diagnóstico hasta certificación</div>
             </div>
             <div className="mt-6">
               <button onClick={() => setOpen(true)} className="btn-primary text-base">
@@ -528,7 +528,7 @@ export default function Page() {
               Empresas Reales, Resultados Reales
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              Conoce como organizaciones transformaron su operacion y rentabilidad
+              Conoce como organizaciónes transformaron su operación y rentabilidad
             </p>
           </div>
 
@@ -541,7 +541,7 @@ export default function Page() {
                   <span className="text-sm font-semibold text-slate-800">{c.sector}</span>
                   <div className="flex flex-wrap gap-3 text-xs text-slate-500">
                     <span>{c.employees} empleados</span>
-                    <span>Facturacion: {c.revenue}/ano</span>
+                    <span>Facturación: {c.revenue}/año</span>
                     <span>{c.certs}</span>
                     <span>{c.time}</span>
                   </div>
@@ -555,7 +555,7 @@ export default function Page() {
 
                   {/* Challenges */}
                   <div className="mb-6">
-                    <h4 className="text-xs font-bold text-red-600 uppercase tracking-widest mb-3">Desafios</h4>
+                    <h4 className="text-xs font-bold text-red-600 uppercase tracking-widest mb-3">Desafíos</h4>
                     <div className="grid md:grid-cols-2 gap-2">
                       {c.challenges.map((ch) => (
                         <div key={ch} className="flex items-start gap-2 text-sm text-slate-600">
@@ -592,9 +592,9 @@ export default function Page() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-lg text-slate-700 font-semibold mb-4">Tu empresa puede ser nuestro proximo caso de exito.</p>
+            <p className="text-lg text-slate-700 font-semibold mb-4">Tu empresa puede ser nuestro próximo caso de éxito.</p>
             <button onClick={() => setOpen(true)} className="btn-primary text-base">
-              Agenda Tu Diagnostico Gratuito
+              Agenda Tu Diagnóstico Gratuito
             </button>
           </div>
         </div>
@@ -605,10 +605,10 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Por Que Mas de 40 Empresas Han Confiado en Nosotros?
+              ¿Por Qué Más de 40 Empresas Han Confiado en Nosotros?
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              No todas las consultorias son iguales. Esto es lo que nos hace diferentes.
+              No todas las consultorías son iguales. Esto es lo que nos hace diferentes.
             </p>
           </div>
 
@@ -626,7 +626,7 @@ export default function Page() {
 
           <div className="mt-12 text-center">
             <p className="text-slate-600 max-w-xl mx-auto">
-              No elegimos clientes solo por facturacion. Elegimos <strong className="text-slate-900">empresas comprometidas con la excelencia</strong>. Si ese es tu caso, trabajemos juntos.
+              No elegimos clientes solo por facturación. Elegimos <strong className="text-slate-900">empresas comprometidas con la excelencia</strong>. Si ese es tu caso, trabajemos juntos.
             </p>
             <button onClick={() => setOpen(true)} className="mt-6 btn-primary">
               Quiero Trabajar Con Expertos Comprometidos
@@ -643,30 +643,30 @@ export default function Page() {
               Preguntas Frecuentes
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              Resolvemos las dudas mas comunes de empresarios como tu
+              Resolvemos las dudas más comunes de empresarios como tu
             </p>
           </div>
 
           <Accordion items={FAQ_ITEMS} />
 
           <div className="mt-10 text-center bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
-            <p className="text-lg font-semibold text-slate-800">Tienes otra pregunta?</p>
-            <p className="text-sm text-slate-600 mt-1">Agenda tu diagnostico gratuito y resolvemos TODAS tus dudas personalmente.</p>
+            <p className="text-lg font-semibold text-slate-800">¿Tienes otra pregunta?</p>
+            <p className="text-sm text-slate-600 mt-1">Agenda tu diagnóstico gratuito y resolvemos TODAS tus dudas personalmente.</p>
             <button onClick={() => setOpen(true)} className="mt-4 btn-primary">
-              Agendar Diagnostico y Resolver Mis Dudas
+              Agendar Diagnóstico y Resolver Mis Dudas
             </button>
           </div>
         </div>
       </section>
 
       {/* ══════════ GUARANTEES ══════════ */}
-      <section id="garantias" className="section-light py-20">
+      <section id="garantías" className="section-light py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Tu Inversion Esta Protegida
+              Tu Inversión Esta Protegida
             </h2>
-            <p className="mt-4 text-slate-600 text-lg">Nuestras garantias</p>
+            <p className="mt-4 text-slate-600 text-lg">Nuestras garantías</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -693,22 +693,22 @@ export default function Page() {
             {/* Left - Text */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Listo Para Transformar Tu Empresa?
+                ¿Listo Para Transformar Tu Empresa?
               </h2>
               <p className="mt-4 text-xl text-blue-100">
-                El primer paso es el mas facil. Y es completamente <strong className="text-amber-400">GRATIS</strong>.
+                El primer paso es el más fácil. Y es completamente <strong className="text-amber-400">GRATIS</strong>.
               </p>
 
               <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                <div className="text-amber-400 font-bold text-sm mb-3">EN TU DIAGNOSTICO PERSONALIZADO:</div>
+                <div className="text-amber-400 font-bold text-sm mb-3">EN TU DIAGNÓSTICO PERSONALIZADO:</div>
                 <ul className="space-y-2.5">
                   {[
-                    'Visitamos tu empresa y conocemos tu operacion real',
-                    'Analizamos tus procesos actuales y documentacion existente',
+                    'Visitamos tu empresa y conocemos tu operación real',
+                    'Analizamos tus procesos actuales y documentación existente',
                     'Identificamos brechas especificas vs. requisitos ISO',
                     'Detectamos oportunidades concretas de ahorro en TU caso',
                     'Calculamos ROI potencial personalizado para tu empresa',
-                    'Te entregamos plan de accion detallado con tiempos y costos',
+                    'Te entregamos plan de acción detallado con tiempos y costos',
                     'Respondemos TODAS tus preguntas sin compromiso',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-blue-100">
@@ -739,7 +739,7 @@ export default function Page() {
                   </a>
                 </div>
                 <div className="text-xs text-blue-300">
-                  Lunes a Viernes: 8:00 AM - 6:00 PM &middot; Sabados: 9:00 AM - 1:00 PM
+                  Lunes a Viernes: 8:00 AM - 6:00 PM &middot; Sábados: 9:00 AM - 1:00 PM
                 </div>
               </div>
             </div>
@@ -748,30 +748,30 @@ export default function Page() {
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
               <div className="text-center mb-6">
                 <div className="inline-block px-4 py-1.5 bg-amber-100 text-amber-700 text-xs font-bold rounded-full mb-3">
-                  CUPOS LIMITADOS: 8 DIAGNOSTICOS AL MES
+                  CUPOS LIMITADOS: 8 DIAGNÓSTICOS AL MES
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Solicita Tu Diagnostico</h3>
+                <h3 className="text-xl font-bold text-slate-900">Solicita Tu Diagnóstico</h3>
               </div>
 
               <button
                 onClick={() => setOpen(true)}
                 className="w-full py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold transition-all shadow-lg hover:shadow-xl text-lg cursor-pointer animate-pulse-glow"
               >
-                SOLICITAR DIAGNOSTICO GRATUITO
+                SOLICITAR DIAGNÓSTICO GRATUITO
               </button>
 
               <div className="mt-6 space-y-3 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2"><path d="M20 6L9 17l-5-5" /></svg>
-                  Sin compromiso ni presion
+                  Sin compromiso ni presión
                 </div>
                 <div className="flex items-center gap-2">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2"><path d="M20 6L9 17l-5-5" /></svg>
-                  Sin letra pequena
+                  Sin letra pequeña
                 </div>
                 <div className="flex items-center gap-2">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2"><path d="M20 6L9 17l-5-5" /></svg>
-                  Informacion valiosa que puedes usar
+                  Información valiosa que puedes usar
                 </div>
                 <div className="flex items-center gap-2">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2"><path d="M20 6L9 17l-5-5" /></svg>

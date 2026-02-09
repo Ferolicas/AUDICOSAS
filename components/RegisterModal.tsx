@@ -54,8 +54,8 @@ export default function RegisterModal() {
               <div className="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-2">
                 VALOR: $1,500 USD &mdash; HOY GRATIS
               </div>
-              <h2 className="text-xl font-bold text-white">Solicita tu Diagnostico Gratuito</h2>
-              <p className="text-blue-200 text-sm mt-1">Sin compromiso. Un experto visitara tu empresa.</p>
+              <h2 className="text-xl font-bold text-white">Solicita tu Diagnóstico Gratuito</h2>
+              <p className="text-blue-200 text-sm mt-1">Sin compromiso. Un experto visitará tu empresa.</p>
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -74,7 +74,7 @@ export default function RegisterModal() {
               </svg>
             </div>
             <h3 className="text-xl font-bold text-slate-900">Solicitud Recibida</h3>
-            <p className="text-slate-600 mt-2">Te contactaremos en las proximas 24 horas para agendar tu diagnostico.</p>
+            <p className="text-slate-600 mt-2">Te contactaremos en las proximas 24 horas para agendar tu diagnóstico.</p>
           </div>
         ) : (
           <form onSubmit={onSubmit} className="px-8 py-5 space-y-4 overflow-y-auto">
@@ -116,10 +116,10 @@ export default function RegisterModal() {
               </div>
             </div>
             <div>
-              <label className={labelClass}>Certificacion de interes</label>
+              <label className={labelClass}>Certificación de interes</label>
               <select name="serviceInterest" className={inputClass}>
                 <option value="">Selecciona</option>
-                <optgroup label="Certificaciones ISO">
+                <optgroup label="Certificaciónes ISO">
                   <option value="ISO 9001 (Calidad)">ISO 9001 (Calidad)</option>
                   <option value="ISO 14001 (Ambiental)">ISO 14001 (Ambiental)</option>
                   <option value="ISO 45001 (SST)">ISO 45001 (Seguridad y Salud)</option>
@@ -127,8 +127,8 @@ export default function RegisterModal() {
                   <option value="Sistema Integrado">Sistema Integrado (9001 + 14001 + 45001)</option>
                 </optgroup>
                 <optgroup label="Otros servicios">
-                  <option value="Gestion Empresarial">Gestion Empresarial</option>
-                  <option value="Proyectos">Formulacion de Proyectos</option>
+                  <option value="Gestión Empresarial">Gestión Empresarial</option>
+                  <option value="Proyectos">Formulación de Proyectos</option>
                   <option value="Mercadeo y Ventas">Mercadeo y Ventas</option>
                   <option value="Web + SEO">Web + SEO</option>
                   <option value="No estoy seguro">No estoy seguro</option>
@@ -137,7 +137,7 @@ export default function RegisterModal() {
             </div>
             <div>
               <label className={labelClass}>Mensaje (opcional)</label>
-              <textarea name="message" placeholder="Cuentanos brevemente tu situacion o necesidad..." className={inputClass} rows={2} />
+              <textarea name="message" placeholder="Cuentanos brevemente tu situación o necesidad..." className={inputClass} rows={2} />
             </div>
 
             <label className="text-xs text-slate-500 flex items-start gap-2">
@@ -157,7 +157,7 @@ export default function RegisterModal() {
               disabled={loading}
               className="w-full py-3.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold transition-all shadow-lg hover:shadow-xl text-sm disabled:opacity-60 cursor-pointer"
             >
-              {loading ? 'Enviando...' : 'SOLICITAR MI DIAGNOSTICO GRATUITO'}
+              {loading ? 'Enviando...' : 'SOLICITAR MI DIAGNÓSTICO GRATUITO'}
             </button>
 
             <div className="flex items-center justify-center gap-4 text-[11px] text-slate-400 pt-1">
