@@ -76,8 +76,8 @@ export default function RegisterModal() {
                 <path d="M20 6L9 17l-5-5" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-slate-900">Solicitud Recibida</h3>
-            <p className="text-slate-600 mt-2">Te contactaremos en las proximas 24 horas para agendar tu diagnóstico.</p>
+            <h3 className="text-xl font-bold text-slate-900">¡Solicitud Recibida!</h3>
+            <p className="text-slate-600 mt-2">Un agente de AUDICO te contactará en las próximas <strong>24 horas</strong> para agendar tu diagnóstico gratuito.</p>
           </div>
         ) : (
           <form onSubmit={onSubmit} className="px-8 py-5 space-y-4 overflow-y-auto">

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sanityRead, sanityWrite } from '@/lib/sanity.server'
 import groq from 'groq'
-import { sendMail } from '@/lib/email'
 
 const ClientSchema = z.object({
   name: z.string().min(2),
@@ -22,7 +21,7 @@ export async function POST(req: NextRequest){
     const body = await req.json()
     const data = ClientSchema.parse(body)
     const wants = (data.subscribe === true || data.subscribe === 'true')
-    const doc = await sanityWrite.create({
+    const doc = await sanityWrite().create({
       _type: 'client',
       name: data.name,
       email: data.email,
@@ -35,15 +34,9 @@ export async function POST(req: NextRequest){
       subscribed: wants
     })
     if(wants){
-      await sanityWrite.createIfNotExists({ _id: `subscriber-${data.email}`, _type: 'subscriber', email: data.email, name: data.name, client: { _type: 'reference', _ref: doc._id }, unsubscribed: false })
+      const subId = `subscriber-${data.email.replace(/[^a-zA-Z0-9._-]/g, '_')}`
+      await sanityWrite().createIfNotExists({ _id: subId, _type: 'subscriber', email: data.email, name: data.name, client: { _type: 'reference', _ref: doc._id }, unsubscribed: false })
     }
-    const welcome = `
-      <h2>¡Gracias por registrarte en AUDICO S.A.S.!</h2>
-      <p>Hemos recibido tu solicitud y un consultor te contactará pronto.</p>
-      <p><b>Interés:</b> ${data.serviceInterest || '—'}</p>
-      <p>Si deseas escribirnos directo: audicoempresarial@gmail.com</p>
-    `
-    try{ await sendMail(data.email, 'Bienvenido a AUDICO S.A.S.', welcome) }catch{}
     return NextResponse.json({ ok: true, id: doc._id })
   }catch(err:any){
     return NextResponse.json({ error: err.message || 'Error' }, { status: 400 })
@@ -53,10 +46,9 @@ export async function POST(req: NextRequest){
 export async function GET(){
   try{
     const query = groq`*[_type == "client"]|order(_createdAt desc){_id, name, email, phone, company, employees, sector, serviceInterest, message, subscribed, _createdAt}`
-    const clients = await sanityRead.fetch(query)
+    const clients = await sanityRead().fetch(query)
     return NextResponse.json({ clients })
   }catch(err:any){
     return NextResponse.json({ error: err.message || 'Error' }, { status: 500 })
   }
 }
-

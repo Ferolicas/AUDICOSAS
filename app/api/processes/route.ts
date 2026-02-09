@@ -16,7 +16,7 @@ export async function POST(req: NextRequest){
   try{
     const body = await req.json()
     const data = ProcSchema.parse(body)
-    const doc = await sanityWrite.create({ _type: 'process', title: data.title, stage: data.stage, status: data.status, dueDate: data.dueDate || null, notes: data.notes || null, client: { _type: 'reference', _ref: data.clientId } })
+    const doc = await sanityWrite().create({ _type: 'process', title: data.title, stage: data.stage, status: data.status, dueDate: data.dueDate || null, notes: data.notes || null, client: { _type: 'reference', _ref: data.clientId } })
     return NextResponse.json({ ok: true, id: doc._id })
   }catch(err:any){
     return NextResponse.json({ error: err.message || 'Error' }, { status: 400 })
@@ -28,10 +28,9 @@ export async function GET(req: NextRequest){
     const { searchParams } = new URL(req.url)
     const clientId = searchParams.get('clientId')
     const q = clientId ? groq`*[_type=='process' && client._ref==$clientId]|order(_createdAt desc)` : groq`*[_type=='process']|order(_createdAt desc)`
-    const data = await sanityRead.fetch(q, { clientId: clientId || undefined })
+    const data = await sanityRead().fetch(q, { clientId: clientId || undefined })
     return NextResponse.json({ processes: data })
   }catch(err:any){
     return NextResponse.json({ error: err.message || 'Error' }, { status: 500 })
   }
 }
-

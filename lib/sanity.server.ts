@@ -19,19 +19,15 @@ function buildClient(withToken: boolean): SanityClient {
 let _read: SanityClient | null = null
 let _write: SanityClient | null = null
 
-export const sanityRead = new Proxy({} as SanityClient, {
-  get(_, prop) {
-    if (!_read) _read = buildClient(false)
-    return (_read as any)[prop]
-  },
-})
+export function sanityRead(): SanityClient {
+  if (!_read) _read = buildClient(false)
+  return _read
+}
 
-export const sanityWrite = new Proxy({} as SanityClient, {
-  get(_, prop) {
-    if (!_write) _write = buildClient(true)
-    return (_write as any)[prop]
-  },
-})
+export function sanityWrite(): SanityClient {
+  if (!_write) _write = buildClient(true)
+  return _write
+}
 
 export function requireWrite() {
   if (!token) throw new Error('SANITY_WRITE_TOKEN no configurado')

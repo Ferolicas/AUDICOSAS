@@ -5,7 +5,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   try{
     const body = await req.json()
     const { id } = await params
-    await sanityWrite.patch(id).set(body).commit()
+    await sanityWrite().patch(id).set(body).commit()
     return NextResponse.json({ ok: true })
   }catch(err:any){
     return NextResponse.json({ error: err.message || 'Error' }, { status: 400 })
@@ -15,7 +15,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 export async function DELETE(_req: NextRequest, { params }: { params: Promise<{ id: string }> }){
   try{
     const { id } = await params
-    await sanityWrite.delete(id)
+    await sanityWrite().delete(id)
     return NextResponse.json({ ok: true })
   }catch(err:any){
     return NextResponse.json({ error: err.message || 'Error' }, { status: 400 })
