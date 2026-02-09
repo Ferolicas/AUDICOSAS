@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sanityRead, sanityWrite } from '@/lib/sanity.server'
 import groq from 'groq'
-import { sendMail } from '@/lib/email'
+import { Resend } from 'resend'
 
 const NewsSchema = z.object({
   title: z.string().min(3),
@@ -26,8 +26,9 @@ export async function POST(req: NextRequest){
     let sent = 0
     const html = `<div style="font-family:system-ui,Segoe UI,Arial"><h2>${data.title}</h2>${data.content}</div>`
     try{
-      if(emails.length){
-        await sendMail(emails, data.title, html)
+      if(emails.length && process.env.RESEND_API_KEY){
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        await resend.emails.send({ from: 'AUDICO S.A.S. <contacto@audicoiso.com>', to: emails, subject: data.title, html })
         sent = emails.length
         await sanityWrite().patch(doc._id).set({ sentAt: new Date().toISOString() }).commit()
       }

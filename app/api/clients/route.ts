@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sanityRead, sanityWrite } from '@/lib/sanity.server'
 import groq from 'groq'
+import { sendClientConfirmation, sendAdminNotification } from '@/lib/email'
 
 const ClientSchema = z.object({
   name: z.string().min(2),
@@ -37,6 +38,12 @@ export async function POST(req: NextRequest){
       const subId = `subscriber-${data.email.replace(/[^a-zA-Z0-9._-]/g, '_')}`
       await sanityWrite().createIfNotExists({ _id: subId, _type: 'subscriber', email: data.email, name: data.name, client: { _type: 'reference', _ref: doc._id }, unsubscribed: false })
     }
+    // Send emails in parallel (non-blocking, don't fail the request)
+    Promise.all([
+      sendClientConfirmation(data),
+      sendAdminNotification(data),
+    ]).catch(() => {})
+
     return NextResponse.json({ ok: true, id: doc._id })
   }catch(err:any){
     return NextResponse.json({ error: err.message || 'Error' }, { status: 400 })
