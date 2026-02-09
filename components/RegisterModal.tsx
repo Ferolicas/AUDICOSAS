@@ -95,14 +95,23 @@ export default function RegisterModal() {
               <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Servicio de interés</label>
               <select name="serviceInterest" className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                 <option value="">Selecciona un servicio</option>
-                <option value="ISO 9001">Auditoría ISO 9001</option>
-                <option value="ISO 14001">Auditoría ISO 14001</option>
-                <option value="ISO 45001">Auditoría ISO 45001</option>
-                <option value="SIG">Sistemas Integrados de Gestión</option>
-                <option value="Gestión Empresarial">Gestión Empresarial</option>
-                <option value="Proyectos">Formulación de Proyectos</option>
-                <option value="Mercadeo">Mercadeo y Ventas</option>
-                <option value="Web + SEO">Web + SEO</option>
+                <optgroup label="Auditorías">
+                  <option value="Auditoría ISO 9001">Auditoría ISO 9001</option>
+                  <option value="Auditoría ISO 14001">Auditoría ISO 14001</option>
+                  <option value="Auditoría ISO 45001">Auditoría ISO 45001</option>
+                </optgroup>
+                <optgroup label="Diagnósticos">
+                  <option value="Diagnóstico ISO 9001">Diagnóstico ISO 9001</option>
+                  <option value="Diagnóstico ISO 14001">Diagnóstico ISO 14001</option>
+                  <option value="Diagnóstico ISO 45001">Diagnóstico ISO 45001</option>
+                </optgroup>
+                <optgroup label="Otros servicios">
+                  <option value="Diseño de Sistema de Gestión">Diseño de Sistema de Gestión</option>
+                  <option value="Gestión Empresarial">Gestión Empresarial</option>
+                  <option value="Proyectos">Formulación de Proyectos</option>
+                  <option value="Mercadeo">Mercadeo y Ventas</option>
+                  <option value="Web + SEO">Web + SEO</option>
+                </optgroup>
               </select>
             </div>
             <div>
