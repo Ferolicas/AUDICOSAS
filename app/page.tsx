@@ -135,13 +135,15 @@ const FAQ_ITEMS = [
       <div className="space-y-3">
         <p>La inversión típica incluye consultoría + certificación externa y varía según el tamaño y complejidad de tu empresa:</p>
         <ul className="space-y-1">
-          <li><strong>Empresas pequeñas (10-25 empleados):</strong> $15,000 - $20,000</li>
-          <li><strong>Empresas medianas (25-100 empleados):</strong> $20,000 - $35,000</li>
-          <li><strong>Empresas grandes (100+ empleados):</strong> $35,000 - $60,000</li>
+          <li><strong>Microempresa (1-10 empleados):</strong> COP $8.000.000 - $15.000.000</li>
+          <li><strong>Pequeña empresa (11-50 empleados):</strong> COP $15.000.000 - $28.000.000</li>
+          <li><strong>Mediana empresa (51-200 empleados):</strong> COP $28.000.000 - $55.000.000</li>
+          <li><strong>Mediana-Grande (201-500 empleados):</strong> COP $55.000.000 - $95.000.000</li>
+          <li><strong>Gran empresa (+500 empleados):</strong> COP $95.000.000 - $200.000.000+</li>
         </ul>
         <p className="font-medium text-slate-800">Pero aquí esta lo importante:</p>
-        <p>Empresas certificadas ahorran en promedio <strong>$50,000-$120,000 anuales</strong> y ganan contratos adicionales por <strong>$80,000-$300,000 anuales</strong>.</p>
-        <p className="text-amber-700 font-semibold">ROI real: 12-18 meses. La pregunta no es &quot;cuanto cuesta?&quot; sino &quot;cuanto pierdo cada mes sin certificarme?&quot;</p>
+        <p>Empresas certificadas ahorran en promedio <strong>$25.000.000-$60.000.000 anuales</strong> y ganan contratos adicionales por <strong>$40.000.000-$200.000.000 anuales</strong>.</p>
+        <p className="text-amber-700 font-semibold">ROI real: 12-18 meses. La pregunta no es &quot;cuánto cuesta?&quot; sino &quot;cuánto pierdo cada mes sin certificarme?&quot;</p>
       </div>
     ),
   },
@@ -264,9 +266,12 @@ const FAQ_ITEMS = [
   {
     question: '¿Cuál es la experiencia de AUDICO?',
     answer: (
-      <div className="space-y-2">
-        <p>4 años líderando el Sistema de Gestión de Calidad ISO 9001:2015 del proceso Atención al Usuario de la Secretaría de Desarrollo Territorial y Participación Ciudadana de la <strong>Alcaldía de Santiago de Cali</strong>.</p>
-        <p>Participamos y apoyamos <strong>dos recertificaciónes</strong>, recibimos múltiples auditorías internas y externas, y participamos como auditores internos. Equipo con formación en Administración de Empresas, Negocios Internacionales e Ingeniería de Sistemas.</p>
+      <div className="space-y-3">
+        <p>Experiencia de <strong>4 años</strong> liderando el Sistema de Gestión de Calidad ISO 9001:2015 del proceso Atención al Usuario de la Secretaría de Desarrollo Territorial y Participación Ciudadana de la <strong>Alcaldía de Santiago de Cali</strong>; experiencia de 4 años en atención de auditorías internas y externas-ICONTEC; experiencia en dos Recertificaciones del ICONTEC.</p>
+        <div className="mt-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+          <p className="font-semibold text-blue-800 mb-2">Nuestro Equipo</p>
+          <p className="text-sm text-slate-700">Equipo con formación profesional en <strong>Administración de Empresas y Negocios Internacionales</strong>, y en <strong>Ingeniería de Sistemas</strong>; con especializaciones en Proyectos de Desarrollo, y en Sistemas Integrados de Gestión (Normas ISO 9001:2015, 14001:2015, 45001:2018); Certificación como <strong>Auditor Interno</strong> en las Normas ISO 9001:2015, 14001:2015, 45001:2018.</p>
+        </div>
       </div>
     ),
   },
@@ -293,31 +298,42 @@ export default function Page() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500 rounded-full blur-[120px]" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full blur-[150px]" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-28 lg:py-32">
-          <div className="max-w-3xl">
-            <div className="inline-block px-4 py-1.5 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-6 tracking-wide">
-              AUDITORIAS &middot; CONSULTORIA &middot; CERTIFICACIÓN ISO
+        <div className="relative mx-auto max-w-7xl px-4 pt-6 md:pt-10 lg:pt-12 pb-12 md:pb-16 lg:pb-20">
+          <div className="grid lg:grid-cols-[1fr_45%] gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="inline-block px-4 py-1.5 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-6 tracking-wide">
+                AUDITORIAS &middot; CONSULTORIA &middot; CERTIFICACIÓN ISO
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+                ¿Tu Empresa Pierde Contratos por No Tener{' '}
+                <span className="text-amber-400">Certificación ISO?</span>
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-blue-100 leading-relaxed max-w-2xl">
+                Reduce costos hasta 35%, gana más licitaciones y transforma tu empresa en líder certificado en solo 6-9 meses
+              </p>
+              <div className="mt-6 flex flex-wrap gap-4 text-sm text-blue-100">
+                <span className="flex items-center gap-2"><CheckIcon /> Reducción de costos operativos 15-35%</span>
+                <span className="flex items-center gap-2"><CheckIcon /> Ahorro energético 20-30%</span>
+                <span className="flex items-center gap-2"><CheckIcon /> Acceso a contratos exclusivos</span>
+                <span className="flex items-center gap-2"><CheckIcon /> ROI garantizado en 12-18 meses</span>
+              </div>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <button onClick={() => setOpen(true)} className="btn-primary text-base px-8 py-4 animate-pulse-glow">
+                  Agenda Tu Diagnóstico GRATUITO
+                </button>
+                <a href="#casos" className="btn-secondary text-base px-8 py-4">
+                  Ver Casos de Éxito
+                </a>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
-              ¿Tu Empresa Pierde Contratos por No Tener{' '}
-              <span className="text-amber-400">Certificación ISO?</span>
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-blue-100 leading-relaxed max-w-2xl">
-              Reduce costos hasta 35%, gana más licitaciones y transforma tu empresa en líder certificado en solo 6-9 meses
-            </p>
-            <div className="mt-6 flex flex-wrap gap-4 text-sm text-blue-100">
-              <span className="flex items-center gap-2"><CheckIcon /> Reducción de costos operativos 15-35%</span>
-              <span className="flex items-center gap-2"><CheckIcon /> Ahorro energético 20-30%</span>
-              <span className="flex items-center gap-2"><CheckIcon /> Acceso a contratos exclusivos</span>
-              <span className="flex items-center gap-2"><CheckIcon /> ROI garantizado en 12-18 meses</span>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <button onClick={() => setOpen(true)} className="btn-primary text-base px-8 py-4 animate-pulse-glow">
-                Agenda Tu Diagnóstico GRATUITO
-              </button>
-              <a href="#casos" className="btn-secondary text-base px-8 py-4">
-                Ver Casos de Éxito
-              </a>
+            <div className="hidden lg:flex justify-end items-center self-stretch">
+              <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl" style={{ height: '90%' }}>
+                <img
+                  src="/imagen.png"
+                  alt="AUDICO ISO - Consultoría y Certificación"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
