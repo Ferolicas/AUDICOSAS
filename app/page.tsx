@@ -20,18 +20,18 @@ const PROBLEMS = [
   'Has perdido contratos porque te piden certificación ISO y no la tienes',
   'Tus procesos varían según quien los ejecute, sin estándares claros',
   'Desperdicias dinero en reprocesos, errores y materiales sin control',
-  'Tus costos energéticos estan fuera de control',
+  'Tus costos energéticos están fuera de control',
   'Clientes se quejan de inconsistencias en calidad o entregas',
   'Todo depende de 2-3 personas clave y si faltan hay caos',
   'Quieres participar en licitaciones públicas pero no cumples requisitos',
-  'Sabes que tu competencia esta certificandose y quedas rezagado',
+  'Sabes que tu competencia está certificándose y quedas rezagado',
 ]
 
 const STATS = [
   { value: '15-35%', label: 'Reducción Costos Operativos', sub: 'Ahorro promedio primer año: $50K-$120K', icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6' },
   { value: '20-30%', label: 'Ahorro Energético', sub: 'Menos consumo = más rentabilidad', icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8' },
   { value: '30-50%', label: 'Más Contratos Ganados', sub: 'Acceso a mercados antes cerrados', icon: 'M6 9H4.5a2.5 2.5 0 010-5C6 4 8 5.5 8 8v1M18 9h1.5a2.5 2.5 0 000-5C18 4 16 5.5 16 8v1M8 9v10a2 2 0 002 2h4a2 2 0 002-2V9' },
-  { value: '12-18', label: 'Meses para ROI Completo', sub: 'Despues: ganancia pura año tras año', icon: 'M12 8v4l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0' },
+  { value: '12-18', label: 'Meses para ROI Completo', sub: 'Después: ganancia pura año tras año', icon: 'M12 8v4l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0' },
   { value: '73%', label: 'De Grandes Empresas', sub: 'Solo contratan proveedores certificados', icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2' },
 ]
 
@@ -40,7 +40,7 @@ const PHASES = [
     num: 1, title: 'Diagnóstico Gratuito', duration: '1 semana', investment: '$0 (GRATIS)',
     icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
     tasks: ['Visitamos tu empresa', 'Analizamos procesos actuales', 'Identificamos brechas vs. requisitos ISO', 'Detectamos oportunidades de ahorro', 'Calculamos ROI potencial para TU caso'],
-    deliverables: ['Reporte detallado de situación actual', 'Plan de acción personalizado', 'Cotizacion transparente', 'Respuestas a todas tus dudas'],
+    deliverables: ['Reporte detallado de situación actual', 'Plan de acción personalizado', 'Cotización transparente', 'Respuestas a todas tus dudas'],
   },
   {
     num: 2, title: 'Diseño a Tu Medida', duration: '3-4 semanas', investment: null,
@@ -57,13 +57,13 @@ const PHASES = [
   {
     num: 4, title: 'Preparación para Auditoría', duration: '2-4 semanas', investment: null,
     icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
-    tasks: ['Auditoría interna simulada', 'Identificamos areas de mejora', 'Corregimos no conformidades', 'Preparamos a tu equipo para auditoría externa'],
-    deliverables: ['Tu empresa 100% lista', 'Equipo confiado y preparado', 'Documentacion completa y ordenada', 'Cero sorpresas en auditoría'],
+    tasks: ['Auditoría interna simulada', 'Identificamos áreas de mejora', 'Corregimos no conformidades', 'Preparamos a tu equipo para auditoría externa'],
+    deliverables: ['Tu empresa 100% lista', 'Equipo confiado y preparado', 'Documentación completa y ordenada', 'Cero sorpresas en auditoría'],
   },
   {
     num: 5, title: 'Certificación y Mejora Continua', duration: 'Permanente', investment: null,
     icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2',
-    tasks: ['Acompañamos en auditoría de certificación', 'Soporte post-certificación incluido', 'Asesoria para mantener sistemas', 'Preparación para auditorías de seguimiento'],
+    tasks: ['Acompañamos en auditoría de certificación', 'Soporte post-certificación incluido', 'Asesoría para mantener sistemas', 'Preparación para auditorías de seguimiento'],
     deliverables: ['Certificado ISO oficial', 'Sistema que sigue generando valor', 'Soporte cuando lo necesites', 'Evolución continua de tu empresa'],
   },
 ]
@@ -72,7 +72,7 @@ const CASES = [
   {
     sector: 'Manufactura', employees: 45, revenue: '$3M', time: '8 meses',
     certs: 'ISO 9001:2015 & ISO 14001:2015',
-    situation: 'Veníamos perdiendo contratos importantes porque nuestros clientes potenciales exigían certificación ISO. Además, nuestros costos estaban fuera de control sin saber exactamente por que.',
+    situation: 'Veníamos perdiendo contratos importantes porque nuestros clientes potenciales exigían certificación ISO. Además, nuestros costos estaban fuera de control sin saber exactamente por qué.',
     challenges: ['$85,000 anuales en desperdicios de material', '$60,000 en reprocesos constantes', 'Contrato perdido de $180,000 por falta de certificación', 'Quejas recurrentes de clientes por retrasos'],
     results: [
       { label: 'Desperdicios reducidos', value: '-68%' },
@@ -81,14 +81,14 @@ const CASES = [
       { label: 'Nuevos contratos', value: '$340,000/año' },
       { label: 'ROI completo', value: '10 meses' },
     ],
-    testimonial: 'La certificación ISO cambio completamente nuestra empresa. No solo ganamos los contratos que antes perdíamos, nuestra operación es mucho más eficiente. La inversión se pago sola en poco más de un año.',
-    role: 'Director de Operaciónes',
+    testimonial: 'La certificación ISO cambió completamente nuestra empresa. No solo ganamos los contratos que antes perdíamos, nuestra operación es mucho más eficiente. La inversión se pagó sola en poco más de un año.',
+    role: 'Director de Operaciones',
   },
   {
     sector: 'Servicios de Ingeniería', employees: 28, revenue: '$1.8M', time: '7 meses',
     certs: 'ISO 9001:2015',
-    situation: 'Queríamos profesionalizar la empresa para crecer, pero todo dependía de mi y de dos personas clave. No había procesos documentados y cada proyecto se manejaba diferente.',
-    challenges: ['Alta rotación de personal (45% anual)', 'Conocimiento solo en cabezas de fundadores', 'No podían participar en licitaciones grandes', 'Clientes corporativos pedian certificación'],
+    situation: 'Queríamos profesionalizar la empresa para crecer, pero todo dependía de mí y de dos personas clave. No había procesos documentados y cada proyecto se manejaba diferente.',
+    challenges: ['Alta rotación de personal (45% anual)', 'Conocimiento solo en cabezas de fundadores', 'No podían participar en licitaciones grandes', 'Clientes corporativos pedían certificación'],
     results: [
       { label: 'Rotación personal', value: '-62%' },
       { label: 'Satisfacción clientes', value: '+38%' },
@@ -102,7 +102,7 @@ const CASES = [
   {
     sector: 'Distribución Industrial', employees: 62, revenue: '$5.2M', time: '9 meses',
     certs: 'ISO 9001:2015 & ISO 14001:2015',
-    situation: 'Nuestro mayor cliente corporativo nos dio un ultimatum: certificate en ISO o buscamos otro proveedor. Eso representaba 35% de nuestra facturación.',
+    situation: 'Nuestro mayor cliente corporativo nos dio un ultimátum: certifícate en ISO o buscamos otro proveedor. Eso representaba 35% de nuestra facturación.',
     challenges: ['Riesgo de perder cliente principal ($1.8M anuales)', 'Inventarios mal controlados', 'Consumo energético elevado en almacenes', 'Quejas por retrasos en entregas'],
     results: [
       { label: 'Cliente principal', value: 'RETENIDO' },
@@ -111,19 +111,19 @@ const CASES = [
       { label: 'Consumo energético', value: '-31%' },
       { label: 'Entregas a tiempo', value: '97%' },
     ],
-    testimonial: 'No solo salvamos la relación con nuestro cliente principal, sino que ahora somos proveedores preferentes. La certificación nos abrio puertas que ni siquiera sabíamos que existian.',
+    testimonial: 'No solo salvamos la relación con nuestro cliente principal, sino que ahora somos proveedores preferentes. La certificación nos abrió puertas que ni siquiera sabíamos que existían.',
     role: 'Gerente General',
   },
 ]
 
 const DIFFERENTIATORS = [
-  { title: 'Consultores Certificados', desc: 'Especialistas certificados en ISO 9001, ISO 14001 e ISO 45001 con años de experiencia practica real en múltiples industrias.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
+  { title: 'Consultores Certificados', desc: 'Especialistas certificados en ISO 9001, ISO 14001 e ISO 45001 con años de experiencia práctica real en múltiples industrias.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
   { title: 'Sistemas a Tu Medida', desc: 'Cero plantillas genéricas. Diseñamos cada procedimiento específicamente para TU empresa, TU sector, TU realidad operativa.', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
   { title: 'Enfoque 100% Práctico', desc: 'Trabajamos con resultados medibles desde el primer mes. Si no genera valor, no lo hacemos. Simple.', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
   { title: 'Sin Paralizar Operación', desc: 'Implementamos sistemas de forma paralela a tu operación diaria. Como remodelar tu casa mientras sigues viviendo en ella.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
-  { title: 'Plazos Realistas y Cumplidos', desc: 'Cronograma claro desde dia uno con hitos medibles. Cumplimos lo que prometemos o extendemos soporte sin costo.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+  { title: 'Plazos Realistas y Cumplidos', desc: 'Cronograma claro desde día uno con hitos medibles. Cumplimos lo que prometemos o extendemos soporte sin costo.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
   { title: 'Empoderamos a Tu Equipo', desc: 'No creamos dependencia. Capacitamos a tu gente para que ELLOS sean los protagonistas. No necesitarás consultores eternamente.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
-  { title: 'Comunicación Transparente', desc: 'Siempre sabrás en que etapa estamos, que sigue y como vamos. Reuniones semanales. Acceso directo a tu consultor. Cero sorpresas.', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
+  { title: 'Comunicación Transparente', desc: 'Siempre sabrás en qué etapa estamos, qué sigue y cómo vamos. Reuniones semanales. Acceso directo a tu consultor. Cero sorpresas.', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
   { title: 'Garantía de Resultados', desc: 'Si no obtienes tu certificación siguiendo nuestro método, seguimos trabajando sin costo adicional.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
   { title: 'Soporte Post-Certificación', desc: 'Incluimos soporte post-certificación para auditorías de seguimiento, dudas y mejora continua. Estamos contigo a largo plazo.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
 ]
@@ -141,7 +141,7 @@ const FAQ_ITEMS = [
           <li><strong>Mediana-Grande (201-500 empleados):</strong> COP $55.000.000 - $95.000.000</li>
           <li><strong>Gran empresa (+500 empleados):</strong> COP $95.000.000 - $200.000.000+</li>
         </ul>
-        <p className="font-medium text-slate-800">Pero aquí esta lo importante:</p>
+        <p className="font-medium text-slate-800">Pero aquí está lo importante:</p>
         <p>Empresas certificadas ahorran en promedio <strong>$25.000.000-$60.000.000 anuales</strong> y ganan contratos adicionales por <strong>$40.000.000-$200.000.000 anuales</strong>.</p>
         <p className="text-amber-700 font-semibold">ROI real: 12-18 meses. La pregunta no es &quot;cuánto cuesta?&quot; sino &quot;cuánto pierdo cada mes sin certificarme?&quot;</p>
       </div>
@@ -151,13 +151,13 @@ const FAQ_ITEMS = [
     question: '¿Cuánto tiempo toma todo el proceso?',
     answer: (
       <div className="space-y-2">
-        <p>Con nuestra métodologia estructurada: <strong>6-9 meses</strong> desde inicio hasta certificado en mano.</p>
+        <p>Con nuestra metodología estructurada: <strong>6-9 meses</strong> desde inicio hasta certificado en mano.</p>
         <ul className="space-y-1">
           <li>Diagnóstico: 1 semana</li>
           <li>Diseño de sistemas: 3-4 semanas</li>
           <li>Implementación: 3-5 meses</li>
           <li>Preparación auditoría: 2-4 semanas</li>
-          <li>Auditoría de certificación: 2-3 dias</li>
+          <li>Auditoría de certificación: 2-3 días</li>
         </ul>
         <p>Lo importante: <strong>NO tienes que paralizar tu operación</strong>. Todo se hace de forma paralela a tu negocio diario.</p>
       </div>
@@ -186,7 +186,7 @@ const FAQ_ITEMS = [
     question: '¿Mi empresa es muy pequeña para certificarse?',
     answer: (
       <div className="space-y-3">
-        <p>Tamano NO es el factor decisivo. El factor es: <strong>tu mercado objetivo valora o exige certificación?</strong></p>
+        <p>Tamaño NO es el factor decisivo. El factor es: <strong>tu mercado objetivo valora o exige certificación?</strong></p>
         <p>Probablemente SI tiene sentido si: tienes 10+ empleados, vendes o quieres vender a gobierno/corporaciones, buscas profesionalizar para crecer, o has perdido contratos por falta de certificación.</p>
         <p>Hemos certificado empresas desde <strong>8 hasta 300 empleados</strong> éxitosamente.</p>
       </div>
@@ -196,8 +196,8 @@ const FAQ_ITEMS = [
     question: '¿Qué pasa si no paso la auditoría de certificación?',
     answer: (
       <div className="space-y-2">
-        <p>Con nuestra métodologia, esto es extremadamente raro. De las <strong>40+ empresas</strong> que hemos preparado, el <strong>100% ha obtenido certificación</strong> en su primera auditoría.</p>
-        <p>Pero si hipotéticamente no se obtiene: los auditores dan un plazo para corregir observaciones y <strong>nosotros seguimos trabajando contigo SIN COSTO ADICIONAL</strong> hasta que obtengas el certificado. Esto esta incluido en nuestra garantía.</p>
+        <p>Con nuestra metodología, esto es extremadamente raro. De las <strong>40+ empresas</strong> que hemos preparado, el <strong>100% ha obtenido certificación</strong> en su primera auditoría.</p>
+        <p>Pero si hipotéticamente no se obtiene: los auditores dan un plazo para corregir observaciones y <strong>nosotros seguimos trabajando contigo SIN COSTO ADICIONAL</strong> hasta que obtengas el certificado. Esto está incluido en nuestra garantía.</p>
       </div>
     ),
   },
@@ -220,9 +220,9 @@ const FAQ_ITEMS = [
         <ul className="space-y-1">
           <li><strong>Año 1:</strong> Auditoría de certificación (te da el certificado)</li>
           <li><strong>Año 2-3:</strong> Auditorías de seguimiento (verifican que mantienes el sistema)</li>
-          <li><strong>Año 4:</strong> Auditoría de recertificación (renuevas por 3 años mas)</li>
+          <li><strong>Año 4:</strong> Auditoría de recertificación (renuevas por 3 años más)</li>
         </ul>
-        <p>Mantener el certificado es <strong>mas fácil que obtenerlo inicialmente</strong>. Incluimos preparación para tu primera auditoría de seguimiento.</p>
+        <p>Mantener el certificado es <strong>más fácil que obtenerlo inicialmente</strong>. Incluimos preparación para tu primera auditoría de seguimiento.</p>
       </div>
     ),
   },
@@ -230,8 +230,8 @@ const FAQ_ITEMS = [
     question: '¿Puedo certificarme sin consultoría externa?',
     answer: (
       <div className="space-y-2">
-        <p>Técnicamente si, pero <strong>NO lo recomendamos</strong>. Sin consultor: tardarás 2-3x más tiempo (18-24 meses), alta probabilidad de fallar en auditoría (80%+), e invertirás tiempo valioso que deberías dedicar a tu negocio.</p>
-        <p>Con consultoría profesional: experiencia de decenas de certificaciónes éxitosas, sistemas optimizados desde el inicio, y preparación garantizada.</p>
+        <p>Técnicamente sí, pero <strong>NO lo recomendamos</strong>. Sin consultor: tardarás 2-3x más tiempo (18-24 meses), alta probabilidad de fallar en auditoría (80%+), e invertirás tiempo valioso que deberías dedicar a tu negocio.</p>
+        <p>Con consultoría profesional: experiencia de decenas de certificaciones exitosas, sistemas optimizados desde el inicio, y preparación garantizada.</p>
       </div>
     ),
   },
@@ -239,8 +239,8 @@ const FAQ_ITEMS = [
     question: '¿Qué sectores o industrias pueden certificarse?',
     answer: (
       <div className="space-y-2">
-        <p><strong>TODOS.</strong> Las normas ISO son aplicables a cualquier tipo de organización: manufactura, servicios, comercio, construcción, salud, educación, transporte, agricultura, hoteleria y más.</p>
-        <p>Las normas son genéricas intencionalmente. Se enfocan en <strong>COMO gestiónas tu organización</strong>, no en QUE produces o vendes. Si tu empresa tiene clientes, procesos, empleados y productos o servicios — puede certificarse.</p>
+        <p><strong>TODOS.</strong> Las normas ISO son aplicables a cualquier tipo de organización: manufactura, servicios, comercio, construcción, salud, educación, transporte, agricultura, hotelería y más.</p>
+        <p>Las normas son genéricas intencionalmente. Se enfocan en <strong>CÓMO gestionas tu organización</strong>, no en QUE produces o vendes. Si tu empresa tiene clientes, procesos, empleados y productos o servicios — puede certificarse.</p>
       </div>
     ),
   },
@@ -248,9 +248,9 @@ const FAQ_ITEMS = [
     question: '¿Mis empleados tendrán que hacer trabajo extra?',
     answer: (
       <div className="space-y-2">
-        <p><strong>Durante implementación (3-5 meses):</strong> SI, habrá trabajo adicional temporal — capacitaciónes, participación en diseño de procedimientos, ajustar algunos habitos.</p>
-        <p><strong>Despues de implementación:</strong> NO, menos trabajo. Con sistemas bien diseñados: menos confusión, menos reprocesos, roles definidos, menos errores.</p>
-        <p className="font-semibold text-slate-800">Resultado: equipo más eficiente que trabaja MEJOR, no MAS.</p>
+        <p><strong>Durante implementación (3-5 meses):</strong> SI, habrá trabajo adicional temporal — capacitaciones, participación en diseño de procedimientos, ajustar algunos hábitos.</p>
+        <p><strong>Después de implementación:</strong> NO, menos trabajo. Con sistemas bien diseñados: menos confusión, menos reprocesos, roles definidos, menos errores.</p>
+        <p className="font-semibold text-slate-800">Resultado: equipo más eficiente que trabaja MEJOR, no MÁS.</p>
       </div>
     ),
   },
@@ -258,7 +258,7 @@ const FAQ_ITEMS = [
     question: '¿Tengo que certificarme con un organismo específico?',
     answer: (
       <div className="space-y-2">
-        <p>NO estas obligado a uno específico, PERO debe ser <strong>acreditado</strong> (SGS, Bureau Veritas, ICONTEC, TUV, AENOR, etc.).</p>
+        <p>NO estás obligado a uno específico, PERO debe ser <strong>acreditado</strong> (SGS, Bureau Veritas, ICONTEC, TUV, AENOR, etc.).</p>
         <p>Nosotros NO certificamos (somos consultores). Preparamos a tu empresa para que CUALQUIER organismo certificador acreditado te certifique. Te ayudamos a elegir el más conveniente para tu caso.</p>
       </div>
     ),
@@ -280,7 +280,7 @@ const FAQ_ITEMS = [
 const GUARANTEES = [
   { title: 'Garantía de Certificación', desc: 'Si sigues nuestro método y no obtienes certificación, seguimos trabajando sin costo adicional hasta que la obtengas.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
   { title: 'Garantía de Tiempo', desc: 'Si por nuestra responsabilidad excedemos los plazos acordados, extendemos soporte adicional sin cargo.', icon: 'M12 8v4l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0' },
-  { title: 'Confidencialidad Total', desc: 'Toda información de tu empresa esta protegida por acuerdo de confidencialidad. Lo que vemos en tu empresa, queda en tu empresa.', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
+  { title: 'Confidencialidad Total', desc: 'Toda información de tu empresa está protegida por acuerdo de confidencialidad. Lo que vemos en tu empresa, queda en tu empresa.', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
   { title: 'Satisfacción Garantizada', desc: 'Si en las primeras 2 semanas decides que no somos fit para tu empresa, cancelas sin penalización. Sin letra pequeña.', icon: 'M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905a3.61 3.61 0 01-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5' },
 ]
 
@@ -360,7 +360,7 @@ export default function Page() {
               Si identificaste al menos 2 de estos problemas, la <strong className="text-slate-900">certificación ISO es exactamente lo que tu empresa necesita.</strong>
             </p>
             <a href="#soluciones" className="inline-block mt-6 btn-outline">
-              Descubre Como Solucionarlo
+              Descubre Cómo Solucionarlo
             </a>
           </div>
         </div>
@@ -469,7 +469,7 @@ export default function Page() {
               Nuestro Método: Simple, Práctico y Efectivo
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              En 5 fases claras llevamos tu empresa de donde esta hoy a certificada y generando resultados
+              En 5 fases claras llevamos tu empresa de donde está hoy a certificada y generando resultados
             </p>
           </div>
 
@@ -544,7 +544,7 @@ export default function Page() {
               Empresas Reales, Resultados Reales
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              Conoce como organizaciónes transformaron su operación y rentabilidad
+              Conoce como organizaciones transformaron su operación y rentabilidad
             </p>
           </div>
 
@@ -659,7 +659,7 @@ export default function Page() {
               Preguntas Frecuentes
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              Resolvemos las dudas más comunes de empresarios como tu
+              Resolvemos las dudas más comunes de empresarios como tú
             </p>
           </div>
 
@@ -680,7 +680,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Tu Inversión Esta Protegida
+              Tu Inversión Está Protegida
             </h2>
             <p className="mt-4 text-slate-600 text-lg">Nuestras garantías</p>
           </div>
@@ -721,7 +721,7 @@ export default function Page() {
                   {[
                     'Visitamos tu empresa y conocemos tu operación real',
                     'Analizamos tus procesos actuales y documentación existente',
-                    'Identificamos brechas especificas vs. requisitos ISO',
+                    'Identificamos brechas específicas vs. requisitos ISO',
                     'Detectamos oportunidades concretas de ahorro en TU caso',
                     'Calculamos ROI potencial personalizado para tu empresa',
                     'Te entregamos plan de acción detallado con tiempos y costos',
