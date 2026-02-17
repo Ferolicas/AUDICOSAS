@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: '#casos', label: 'Casos de Éxito' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contacto', label: 'Contacto' },
+  { href: '#contacto', label: 'Web + SEO' },
 ]
 
 export default function Header() {
@@ -38,7 +39,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'shadow-lg backdrop-blur-md bg-[#1B2A4A]/95'
           : 'bg-[#1B2A4A]'
@@ -60,9 +61,6 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a href="/admin" className="ml-2 px-3 py-2 text-sm text-slate-400 hover:text-white transition-colors rounded-md hover:bg-white/10">
-            Admin
-          </a>
           <button
             onClick={() => setOpen(true)}
             className="ml-3 px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-all shadow-md hover:shadow-lg cursor-pointer text-sm animate-pulse-glow"

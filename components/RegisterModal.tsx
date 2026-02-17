@@ -54,7 +54,7 @@ export default function RegisterModal() {
               <img src="/logoaudico.png" alt="AUDICO" className="h-10 w-auto flex-shrink-0 hidden sm:block" />
               <div>
                 <div className="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-1.5">
-                  DIAGNÓSTICO VALORADO EN $1,500 USD &mdash; HOY SIN COSTO
+                  DIAGNÓSTICO VALORADO EN $1.500.000 &mdash; HOY SIN COSTO
                 </div>
                 <h2 className="text-lg font-bold text-white leading-tight">Agenda tu Evaluación ISO Personalizada</h2>
                 <p className="text-blue-200 text-sm mt-0.5">Un consultor experto visitará tu empresa sin compromiso.</p>

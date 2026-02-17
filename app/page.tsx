@@ -25,6 +25,8 @@ const PROBLEMS = [
   'Todo depende de 2-3 personas clave y si faltan hay caos',
   'Quieres participar en licitaciones públicas pero no cumples requisitos',
   'Sabes que tu competencia está certificándose y quedas rezagado',
+  'Has recibido multas o sanciones por no cumplir con las normas ambientales',
+  'Te han hecho reclamaciones por incumplir los tiempos de entrega',
 ]
 
 const STATS = [
@@ -117,12 +119,12 @@ const CASES = [
 ]
 
 const DIFFERENTIATORS = [
-  { title: 'Consultores Certificados', desc: 'Especialistas certificados en ISO 9001, ISO 14001 e ISO 45001 con años de experiencia práctica real en múltiples industrias.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
+  { title: 'Consultores Certificados', desc: 'Especialistas certificados en ISO 9001, ISO 14001 e ISO 45001 con años de experiencia práctica real.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
   { title: 'Sistemas a Tu Medida', desc: 'Cero plantillas genéricas. Diseñamos cada procedimiento específicamente para TU empresa, TU sector, TU realidad operativa.', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
   { title: 'Enfoque 100% Práctico', desc: 'Trabajamos con resultados medibles desde el primer mes. Si no genera valor, no lo hacemos. Simple.', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
   { title: 'Sin Paralizar Operación', desc: 'Implementamos sistemas de forma paralela a tu operación diaria. Como remodelar tu casa mientras sigues viviendo en ella.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
   { title: 'Plazos Realistas y Cumplidos', desc: 'Cronograma claro desde día uno con hitos medibles. Cumplimos lo que prometemos o extendemos soporte sin costo.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
-  { title: 'Empoderamos a Tu Equipo', desc: 'No creamos dependencia. Capacitamos a tu gente para que ELLOS sean los protagonistas. No necesitarás consultores eternamente.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
+  { title: 'Empoderamos a Tu Equipo', desc: 'No creamos dependencia. Capacitamos a tu gente para que ELLOS sean los protagonistas.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
   { title: 'Comunicación Transparente', desc: 'Siempre sabrás en qué etapa estamos, qué sigue y cómo vamos. Reuniones semanales. Acceso directo a tu consultor. Cero sorpresas.', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
   { title: 'Garantía de Resultados', desc: 'Si no obtienes tu certificación siguiendo nuestro método, seguimos trabajando sin costo adicional.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
   { title: 'Soporte Post-Certificación', desc: 'Incluimos soporte post-certificación para auditorías de seguimiento, dudas y mejora continua. Estamos contigo a largo plazo.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
@@ -133,7 +135,7 @@ const FAQ_ITEMS = [
     question: '¿Cuánto cuesta realmente certificarse en ISO?',
     answer: (
       <div className="space-y-3">
-        <p>La inversión típica incluye consultoría + certificación externa y varía según el tamaño y complejidad de tu empresa:</p>
+        <p>La inversión típica por norma incluye consultoría + certificación externa y varía según el tamaño y complejidad de tu empresa:</p>
         <ul className="space-y-1">
           <li><strong>Microempresa (1-10 empleados):</strong> COP $8.000.000 - $15.000.000</li>
           <li><strong>Pequeña empresa (11-50 empleados):</strong> COP $15.000.000 - $28.000.000</li>
@@ -167,7 +169,7 @@ const FAQ_ITEMS = [
     question: '¿Es muy complicado? Requiere mucho papeleo?',
     answer: (
       <div className="space-y-3">
-        <p>Este es el <strong>mito #1</strong> que cuesta más dinero a las empresas. La realidad: ISO te pide documentar SOLO lo esencial.</p>
+        <p>Este es el <strong>mito #1</strong> que le cuesta más dinero a las empresas. La realidad: ISO te pide documentar SOLO lo esencial.</p>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="font-semibold text-red-600 mb-1">NO necesitas:</p>
@@ -187,7 +189,7 @@ const FAQ_ITEMS = [
     answer: (
       <div className="space-y-3">
         <p>Tamaño NO es el factor decisivo. El factor es: <strong>tu mercado objetivo valora o exige certificación?</strong></p>
-        <p>Probablemente SI tiene sentido si: tienes 10+ empleados, vendes o quieres vender a gobierno/corporaciones, buscas profesionalizar para crecer, o has perdido contratos por falta de certificación.</p>
+        <p>Probablemente SI tiene sentido si: vendes o quieres vender a gobierno/corporaciones, buscas profesionalizar para crecer, o has perdido contratos por falta de certificación.</p>
         <p>Hemos certificado empresas desde <strong>8 hasta 300 empleados</strong> éxitosamente.</p>
       </div>
     ),
@@ -196,7 +198,7 @@ const FAQ_ITEMS = [
     question: '¿Qué pasa si no paso la auditoría de certificación?',
     answer: (
       <div className="space-y-2">
-        <p>Con nuestra metodología, esto es extremadamente raro. De las <strong>40+ empresas</strong> que hemos preparado, el <strong>100% ha obtenido certificación</strong> en su primera auditoría.</p>
+        <p>Con nuestra metodología es extremadamente raro que no obtengas la certificación en la primera auditoría.</p>
         <p>Pero si hipotéticamente no se obtiene: los auditores dan un plazo para corregir observaciones y <strong>nosotros seguimos trabajando contigo SIN COSTO ADICIONAL</strong> hasta que obtengas el certificado. Esto está incluido en nuestra garantía.</p>
       </div>
     ),
@@ -230,7 +232,7 @@ const FAQ_ITEMS = [
     question: '¿Puedo certificarme sin consultoría externa?',
     answer: (
       <div className="space-y-2">
-        <p>Técnicamente sí, pero <strong>NO lo recomendamos</strong>. Sin consultor: tardarás 2-3x más tiempo (18-24 meses), alta probabilidad de fallar en auditoría (80%+), e invertirás tiempo valioso que deberías dedicar a tu negocio.</p>
+        <p>Técnicamente sí, pero <strong>NO lo recomendamos</strong>. Sin consultor: tardarás 2 a 3 veces más tiempo (18-24 meses), alta probabilidad de fallar en auditoría (80%+), e invertirás tiempo valioso que deberías dedicar a tu negocio.</p>
         <p>Con consultoría profesional: experiencia de decenas de certificaciones exitosas, sistemas optimizados desde el inicio, y preparación garantizada.</p>
       </div>
     ),
@@ -248,8 +250,8 @@ const FAQ_ITEMS = [
     question: '¿Mis empleados tendrán que hacer trabajo extra?',
     answer: (
       <div className="space-y-2">
-        <p><strong>Durante implementación (3-5 meses):</strong> SI, habrá trabajo adicional temporal — capacitaciones, participación en diseño de procedimientos, ajustar algunos hábitos.</p>
-        <p><strong>Después de implementación:</strong> NO, menos trabajo. Con sistemas bien diseñados: menos confusión, menos reprocesos, roles definidos, menos errores.</p>
+        <p><strong>Ocasionalmente, durante la implementación (3-5 meses):</strong> SI, habrá trabajo adicional temporal — capacitaciones, participación en diseño de procedimientos, ajustar algunos hábitos.</p>
+        <p><strong>Después de la implementación:</strong> NO, menos trabajo. Con sistemas bien diseñados: menos confusión, menos reprocesos, roles definidos, menos errores.</p>
         <p className="font-semibold text-slate-800">Resultado: equipo más eficiente que trabaja MEJOR, no MÁS.</p>
       </div>
     ),
@@ -264,13 +266,32 @@ const FAQ_ITEMS = [
     ),
   },
   {
-    question: '¿Cuál es la experiencia de AUDICO?',
+    question: '¿Cuál es la experiencia de nuestro equipo?',
     answer: (
       <div className="space-y-3">
         <p>Experiencia de <strong>4 años</strong> liderando el Sistema de Gestión de Calidad ISO 9001:2015 del proceso Atención al Usuario de la Secretaría de Desarrollo Territorial y Participación Ciudadana de la <strong>Alcaldía de Santiago de Cali</strong>; experiencia de 4 años en atención de auditorías internas y externas-ICONTEC; experiencia en dos Recertificaciones del ICONTEC.</p>
         <div className="mt-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
           <p className="font-semibold text-blue-800 mb-2">Nuestro Equipo</p>
           <p className="text-sm text-slate-700">Equipo con formación profesional en <strong>Administración de Empresas y Negocios Internacionales</strong>, y en <strong>Ingeniería de Sistemas</strong>; con especializaciones en Proyectos de Desarrollo, y en Sistemas Integrados de Gestión (Normas ISO 9001:2015, 14001:2015, 45001:2018); Certificación como <strong>Auditor Interno</strong> en las Normas ISO 9001:2015, 14001:2015, 45001:2018.</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    question: '¿Cuáles son las diferencias entre auditoría, consultoría y certificación?',
+    answer: (
+      <div className="space-y-3">
+        <div>
+          <p className="font-semibold text-slate-800">Auditoría</p>
+          <p>Es el proceso de evaluación para determinar si una organización cumple con los requisitos de una norma.</p>
+        </div>
+        <div>
+          <p className="font-semibold text-slate-800">Consultoría</p>
+          <p>Es un servicio de asesoría y acompañamiento para ayudar a las empresas a que cumplan con los requisitos de la norma.</p>
+        </div>
+        <div>
+          <p className="font-semibold text-slate-800">Certificación</p>
+          <p>Es el reconocimiento formal y oficial otorgado por un organismo acreditado como ICONTEC, SGS, Bureau Veritas, entre otras, que indica que el sistema de gestión de la empresa cumple con los requisitos de la norma ISO.</p>
         </div>
       </div>
     ),
@@ -621,10 +642,10 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
-              ¿Por Qué Más de 40 Empresas Han Confiado en Nosotros?
+              ¿Por Qué Confiar en Nosotros?
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              No todas las consultorías son iguales. Esto es lo que nos hace diferentes.
+              Porque parte de nuestro equipo ha trabajado como líder de calidad con entidades como la Alcaldía de Cali.
             </p>
           </div>
 
@@ -733,7 +754,7 @@ export default function Page() {
                   ))}
                 </ul>
                 <div className="mt-4 flex items-center gap-3">
-                  <span className="text-slate-400 line-through text-sm">Valor: $1,500 USD</span>
+                  <span className="text-slate-400 line-through text-sm">Valor: $1.500.000</span>
                   <span className="text-amber-400 font-extrabold text-xl">$0 GRATIS</span>
                 </div>
               </div>
@@ -749,9 +770,9 @@ export default function Page() {
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.332-1.543l-.382-.228-2.65.889.889-2.65-.228-.382A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" /></svg>
                     WhatsApp
                   </a>
-                  <a href="mailto:audicoempresarial@gmail.com" className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors">
+                  <a href="mailto:contacto@audicoiso.com" className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><path d="M22 6l-10 7L2 6" /></svg>
-                    audicoempresarial@gmail.com
+                    contacto@audicoiso.com
                   </a>
                 </div>
                 <div className="text-xs text-blue-300">
