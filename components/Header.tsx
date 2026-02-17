@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useModal } from './ModalContext'
 
-const NAV_LINKS = [
+const NAV_LINKS: { href: string; label: string; external?: boolean }[] = [
   { href: '#soluciones', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
   { href: '#resultados', label: 'Resultados' },
   { href: '#casos', label: 'Casos de Éxito' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contacto', label: 'Contacto' },
-  { href: '#contacto', label: 'Web + SEO' },
+  { href: 'https://www.olcagroup.org/', label: 'Web + SEO', external: true },
 ]
 
 export default function Header() {
@@ -54,8 +54,9 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <a
-              key={link.href}
+              key={link.label}
               href={link.href}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/10"
             >
               {link.label}
@@ -93,9 +94,10 @@ export default function Header() {
           <nav className="flex flex-col px-4 py-4 space-y-1">
             {NAV_LINKS.map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 onClick={handleNavClick}
+                {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="px-4 py-3 text-slate-200 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
               >
                 {link.label}
