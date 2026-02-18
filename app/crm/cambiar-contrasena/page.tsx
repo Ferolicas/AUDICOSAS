@@ -51,7 +51,7 @@ export default function CambiarContrasenaPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ background: 'linear-gradient(135deg, #0F1B33 0%, #1B2A4A 40%, #2563EB 100%)' }}">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ background: 'linear-gradient(135deg, #0F1B33 0%, #1B2A4A 40%, #2563EB 100%)' }}>
       <div className="w-full max-w-md">
         <div className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 p-8">
           <div className="flex flex-col items-center mb-8">
