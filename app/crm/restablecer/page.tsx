@@ -18,7 +18,6 @@ function ResetForm() {
   const [success, setSuccess] = useState("")
   const [loading, setLoading] = useState(false)
 
-  // Request reset
   async function handleRequestReset(e: React.FormEvent) {
     e.preventDefault()
     setError("")
@@ -46,7 +45,6 @@ function ResetForm() {
     }
   }
 
-  // Confirm reset with token
   async function handleConfirmReset(e: React.FormEvent) {
     e.preventDefault()
     setError("")
@@ -85,9 +83,9 @@ function ResetForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-xl border p-8">
+        <div className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 p-8">
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">
             <div className="w-20 h-20 mb-4">
@@ -100,10 +98,10 @@ function ResetForm() {
                 priority
               />
             </div>
-            <h1 className="text-2xl font-bold text-blue-900">
+            <h1 className="text-2xl font-bold text-white">
               {tokenParam ? "Nueva contraseña" : "Restablecer contraseña"}
             </h1>
-            <p className="text-gray-500 text-sm mt-1 text-center">
+            <p className="text-slate-400 text-sm mt-1 text-center">
               {tokenParam
                 ? "Ingresa tu nueva contraseña"
                 : "Te enviaremos instrucciones a tu correo"
@@ -113,12 +111,12 @@ function ResetForm() {
 
           {/* Messages */}
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+            <div className="mb-4 p-3 bg-red-900/30 border border-red-700 rounded-lg text-red-300 text-sm">
               {error}
             </div>
           )}
           {success && (
-            <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm flex items-start gap-2">
+            <div className="mb-4 p-3 bg-green-900/30 border border-green-700 rounded-lg text-green-300 text-sm flex items-start gap-2">
               <Check className="w-5 h-5 mt-0.5 flex-shrink-0" />
               <span>{success}</span>
             </div>
@@ -128,7 +126,7 @@ function ResetForm() {
           {tokenParam ? (
             <form onSubmit={handleConfirmReset} className="space-y-4">
               <div>
-                <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="newPassword" className="block text-sm font-medium text-slate-300 mb-1">
                   Nueva contraseña
                 </label>
                 <input
@@ -138,12 +136,12 @@ function ResetForm() {
                   value={newPassword}
                   onChange={e => setNewPassword(e.target.value)}
                   placeholder="Mínimo 6 caracteres"
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  className="w-full px-4 py-2.5 bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                   autoComplete="new-password"
                 />
               </div>
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-slate-300 mb-1">
                   Confirmar contraseña
                 </label>
                 <input
@@ -153,14 +151,14 @@ function ResetForm() {
                   value={confirmPassword}
                   onChange={e => setConfirmPassword(e.target.value)}
                   placeholder="Repite la contraseña"
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  className="w-full px-4 py-2.5 bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                   autoComplete="new-password"
                 />
               </div>
               <button
                 type="submit"
                 disabled={loading || !!success}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center gap-2"
+                className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -175,7 +173,7 @@ function ResetForm() {
           ) : (
             <form onSubmit={handleRequestReset} className="space-y-4">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
                   Correo electrónico
                 </label>
                 <input
@@ -185,14 +183,14 @@ function ResetForm() {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="correo@ejemplo.com"
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  className="w-full px-4 py-2.5 bg-slate-800 border border-slate-600 text-white placeholder-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                   autoComplete="email"
                 />
               </div>
               <button
                 type="submit"
                 disabled={loading || !!success}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center gap-2"
+                className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -210,7 +208,7 @@ function ResetForm() {
           <div className="mt-6 text-center">
             <Link
               href="/crm/login"
-              className="text-sm text-blue-600 hover:text-blue-800 hover:underline inline-flex items-center gap-1"
+              className="text-sm text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center gap-1"
             >
               <ArrowLeft className="w-4 h-4" />
               Volver al inicio de sesión
