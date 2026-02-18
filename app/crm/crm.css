@@ -1,4 +1,6 @@
 /* CRM shadcn/ui CSS Variables - Tailwind v3 compatible */
+/* Applied globally so Radix portals (dropdowns, dialogs) inherit them */
+:root,
 .crm-root {
   --background: 0 0% 100%;
   --foreground: 0 0% 9%;

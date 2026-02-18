@@ -38,7 +38,7 @@ function LoadingScreen() {
           />
           <div className="relative w-20 h-20 animate-pulse">
             <Image
-              src="/logoaudico.png"
+              src="/logocarga.png"
               alt="AUDICO ISO"
               width={80}
               height={80}
