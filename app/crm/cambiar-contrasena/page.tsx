@@ -55,7 +55,7 @@ export default function CambiarContrasenaPage() {
       <div className="w-full max-w-md">
         <div className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 p-8">
           <div className="flex flex-col items-center mb-8">
-            <div className="w-60 h-60 mb-4">
+            <div className="w-60 mb-4">
               <Image
                 src="/logoaudico.png"
                 alt="AUDICO ISO"
