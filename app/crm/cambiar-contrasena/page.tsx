@@ -2,15 +2,12 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import Link from "next/link"
 import Image from "next/image"
-import { Eye, EyeOff, UserPlus } from "lucide-react"
+import { Eye, EyeOff, KeyRound } from "lucide-react"
 
-export default function RegistroPage() {
+export default function CambiarContrasenaPage() {
   const router = useRouter()
-  const [nombre, setNombre] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [newPassword, setNewPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState("")
@@ -20,11 +17,11 @@ export default function RegistroPage() {
     e.preventDefault()
     setError("")
 
-    if (password.length < 6) {
+    if (newPassword.length < 6) {
       setError("La contraseña debe tener al menos 6 caracteres")
       return
     }
-    if (password !== confirmPassword) {
+    if (newPassword !== confirmPassword) {
       setError("Las contraseñas no coinciden")
       return
     }
@@ -32,15 +29,15 @@ export default function RegistroPage() {
     setLoading(true)
 
     try {
-      const res = await fetch("/api/crm/auth/register", {
+      const res = await fetch("/api/crm/auth/change-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, email, password, confirmPassword }),
+        body: JSON.stringify({ newPassword, confirmPassword }),
       })
       const data = await res.json()
 
       if (!res.ok) {
-        setError(data.error || "Error al registrarse")
+        setError(data.error || "Error al cambiar contraseña")
         return
       }
 
@@ -54,10 +51,9 @@ export default function RegistroPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl border p-8">
-          {/* Logo */}
           <div className="flex flex-col items-center mb-8">
             <div className="w-20 h-20 mb-4">
               <Image
@@ -69,62 +65,34 @@ export default function RegistroPage() {
                 priority
               />
             </div>
-            <h1 className="text-2xl font-bold text-blue-900">Crear cuenta</h1>
-            <p className="text-gray-500 text-sm mt-1">Regístrate en AUDICO CRM</p>
+            <h1 className="text-2xl font-bold text-blue-900">Cambiar contraseña</h1>
+            <p className="text-gray-500 text-sm mt-1 text-center">
+              Por seguridad, debes crear una contraseña personal
+            </p>
           </div>
 
-          {/* Error */}
+          <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-amber-800 text-sm">
+            Es tu primer inicio de sesión. Crea una contraseña segura para continuar.
+          </div>
+
           {error && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
               {error}
             </div>
           )}
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
-                Nombre completo
-              </label>
-              <input
-                id="nombre"
-                type="text"
-                required
-                value={nombre}
-                onChange={e => setNombre(e.target.value)}
-                placeholder="Tu nombre"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                autoComplete="name"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Correo electrónico
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="correo@ejemplo.com"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                autoComplete="email"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                Contraseña
+              <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                Nueva contraseña
               </label>
               <div className="relative">
                 <input
-                  id="password"
+                  id="newPassword"
                   type={showPassword ? "text" : "password"}
                   required
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
+                  value={newPassword}
+                  onChange={e => setNewPassword(e.target.value)}
                   placeholder="Mínimo 6 caracteres"
                   className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition pr-12"
                   autoComplete="new-password"
@@ -164,20 +132,12 @@ export default function RegistroPage() {
                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               ) : (
                 <>
-                  <UserPlus className="w-5 h-5" />
-                  Crear cuenta
+                  <KeyRound className="w-5 h-5" />
+                  Guardar contraseña
                 </>
               )}
             </button>
           </form>
-
-          {/* Login link */}
-          <div className="mt-6 text-center text-sm text-gray-500">
-            ¿Ya tienes cuenta?{" "}
-            <Link href="/crm/login" className="text-blue-600 hover:text-blue-800 font-medium hover:underline">
-              Inicia sesión
-            </Link>
-          </div>
         </div>
       </div>
     </div>

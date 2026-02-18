@@ -50,6 +50,19 @@ export default defineType({
       initialValue: 'activo',
     }),
     defineField({
+      name: 'mustChangePassword',
+      title: 'Debe cambiar contraseña',
+      type: 'boolean',
+      initialValue: true,
+      hidden: true,
+    }),
+    defineField({
+      name: 'clienteRef',
+      title: 'Cliente vinculado',
+      type: 'reference',
+      to: [{ type: 'crmCliente' }],
+    }),
+    defineField({
       name: 'resetToken',
       title: 'Token de restablecimiento',
       type: 'string',

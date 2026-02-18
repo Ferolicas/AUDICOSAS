@@ -32,7 +32,11 @@ export default function LoginPage() {
         return
       }
 
-      router.push("/crm")
+      if (data.mustChangePassword) {
+        router.push("/crm/cambiar-contrasena")
+      } else {
+        router.push("/crm")
+      }
       router.refresh()
     } catch {
       setError("Error de conexión")
@@ -42,7 +46,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl border p-8">
           {/* Logo */}
@@ -136,12 +140,9 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Register link */}
+          {/* Help text */}
           <div className="mt-6 text-center text-sm text-gray-500">
-            ¿No tienes cuenta?{" "}
-            <Link href="/crm/registro" className="text-blue-600 hover:text-blue-800 font-medium hover:underline">
-              Regístrate
-            </Link>
+            Si no tienes cuenta, contacta al administrador de AUDICO.
           </div>
         </div>
       </div>

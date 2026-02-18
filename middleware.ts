@@ -9,7 +9,7 @@ const JWT_SECRET = new TextEncoder().encode(
 const COOKIE_NAME = 'crm-session'
 
 // Auth pages that don't require session
-const AUTH_PAGES = ['/crm/login', '/crm/registro', '/crm/restablecer']
+const AUTH_PAGES = ['/crm/login', '/crm/restablecer', '/crm/cambiar-contrasena']
 
 // Legacy protected routes (landing admin + APIs)
 const LEGACY_PREFIXES = ['/admin', '/api/clients', '/api/newsletters', '/api/processes']
