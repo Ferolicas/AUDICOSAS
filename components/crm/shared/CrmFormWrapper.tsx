@@ -20,7 +20,7 @@ export function CrmFormWrapper({ title, backHref, children, onSubmit, loading }:
         <Link href={backHref}>
           <Button variant="ghost" size="icon"><ArrowLeft className="w-5 h-5" /></Button>
         </Link>
-        <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+        <h1 className="text-2xl font-bold text-slate-100">{title}</h1>
       </div>
       <Card>
         <CardContent className="p-6">

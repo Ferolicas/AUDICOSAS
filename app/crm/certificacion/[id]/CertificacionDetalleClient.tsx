@@ -29,11 +29,11 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
         </Link>
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900">{c.clienteNombre}</h1>
+            <h1 className="text-2xl font-bold text-slate-100">{c.clienteNombre}</h1>
             <StatusBadge status={c.estado} />
             <PriorityIndicator priority={c.prioridad as 'Urgente' | 'Alta' | 'Media' | 'Baja'} />
           </div>
-          <p className="text-gray-500">{c.codigo}</p>
+          <p className="text-slate-400">{c.codigo}</p>
         </div>
         <div className="flex gap-2">
           <Link href={`/crm/certificacion/${c._id}/editar`}>
@@ -46,7 +46,7 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Normas</p>
+            <p className="text-sm text-slate-400">Normas</p>
             <div className="flex gap-1 flex-wrap mt-1">
               {c.normas?.map(n => <Badge key={n} variant="outline">{n}</Badge>)}
             </div>
@@ -54,19 +54,19 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Consultor Líder</p>
+            <p className="text-sm text-slate-400">Consultor Líder</p>
             <p className="text-lg font-semibold">{c.consultorLider}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Valor Proyecto</p>
+            <p className="text-sm text-slate-400">Valor Proyecto</p>
             <p className="text-lg font-semibold">{c.valorProyecto ? formatCOP(c.valorProyecto) : '-'}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Fechas</p>
+            <p className="text-sm text-slate-400">Fechas</p>
             <p className="text-sm">{c.fechaInicio ? format(new Date(c.fechaInicio), 'dd MMM yy', { locale: es }) : '-'} → {c.fechaObjetivo ? format(new Date(c.fechaObjetivo), 'dd MMM yy', { locale: es }) : '-'}</p>
           </CardContent>
         </Card>
@@ -94,9 +94,9 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
               const faseData = c.fases?.find(f => f.numero === num)
 
               return (
-                <div key={num} className={`p-4 rounded-lg border-2 ${isCurrent ? 'border-blue-500 bg-blue-50' : isComplete ? 'border-green-200 bg-green-50' : 'border-gray-200'}`}>
+                <div key={num} className={`p-4 rounded-lg border-2 ${isCurrent ? 'border-blue-500 bg-blue-900/30' : isComplete ? 'border-green-200 bg-green-50' : 'border-slate-700'}`}>
                   <div className="flex items-center gap-3 mb-2">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold ${isComplete ? 'bg-green-500' : isCurrent ? 'bg-blue-500' : 'bg-gray-300'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold ${isComplete ? 'bg-green-500' : isCurrent ? 'bg-blue-500' : 'bg-slate-600'}`}>
                       {isComplete ? <CheckCircle2 className="w-5 h-5" /> : num}
                     </div>
                     <div className="flex-1">
@@ -111,22 +111,22 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
                       {faseData.avance != null && <Progress value={faseData.avance} className="h-1.5 mb-3" />}
                       {faseData.tareas && faseData.tareas.length > 0 && (
                         <div className="space-y-1 mt-2">
-                          <p className="text-xs font-medium text-gray-500 uppercase">Tareas</p>
+                          <p className="text-xs font-medium text-slate-400 uppercase">Tareas</p>
                           {faseData.tareas.map((t, i) => (
                             <div key={i} className="flex items-center gap-2 text-sm">
-                              {t.completada ? <CheckCircle2 className="w-4 h-4 text-green-500" /> : <Circle className="w-4 h-4 text-gray-300" />}
-                              <span className={t.completada ? 'line-through text-gray-400' : ''}>{t.nombre}</span>
+                              {t.completada ? <CheckCircle2 className="w-4 h-4 text-green-500" /> : <Circle className="w-4 h-4 text-slate-600" />}
+                              <span className={t.completada ? 'line-through text-slate-500' : ''}>{t.nombre}</span>
                             </div>
                           ))}
                         </div>
                       )}
                       {faseData.entregables && faseData.entregables.length > 0 && (
                         <div className="space-y-1 mt-2">
-                          <p className="text-xs font-medium text-gray-500 uppercase">Entregables</p>
+                          <p className="text-xs font-medium text-slate-400 uppercase">Entregables</p>
                           {faseData.entregables.map((e, i) => (
                             <div key={i} className="flex items-center gap-2 text-sm">
-                              {e.completado ? <CheckCircle2 className="w-4 h-4 text-green-500" /> : <Circle className="w-4 h-4 text-gray-300" />}
-                              <span className={e.completado ? 'line-through text-gray-400' : ''}>{e.nombre}</span>
+                              {e.completado ? <CheckCircle2 className="w-4 h-4 text-green-500" /> : <Circle className="w-4 h-4 text-slate-600" />}
+                              <span className={e.completado ? 'line-through text-slate-500' : ''}>{e.nombre}</span>
                             </div>
                           ))}
                         </div>
@@ -154,12 +154,12 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
               { fase: 6, nombre: 'Certificación', docs: 'Selección OC, preparación final, registro' },
             ].map(f => (
               <Link key={f.fase} href={`/crm/documentos/${f.fase}/${c._id}`} target="_blank">
-                <div className="border rounded-lg p-4 hover:bg-gray-50 hover:border-blue-300 transition-colors cursor-pointer">
+                <div className="border rounded-lg p-4 hover:bg-slate-700/50 hover:border-blue-300 transition-colors cursor-pointer">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold ${c.faseActual > f.fase ? 'bg-green-500' : c.faseActual === f.fase ? 'bg-blue-500' : 'bg-gray-300'}`}>{f.fase}</span>
+                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold ${c.faseActual > f.fase ? 'bg-green-500' : c.faseActual === f.fase ? 'bg-blue-500' : 'bg-slate-600'}`}>{f.fase}</span>
                     <span className="font-medium text-sm">{f.nombre}</span>
                   </div>
-                  <p className="text-xs text-gray-500 ml-8">{f.docs}</p>
+                  <p className="text-xs text-slate-400 ml-8">{f.docs}</p>
                 </div>
               </Link>
             ))}

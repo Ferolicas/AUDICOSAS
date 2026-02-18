@@ -12,7 +12,7 @@ import { format } from "date-fns"
 import { es } from "date-fns/locale"
 
 const COLUMNAS = [
-  { estado: 'Por hacer', color: 'bg-gray-500', label: 'Por Hacer' },
+  { estado: 'Por hacer', color: 'bg-slate-500', label: 'Por Hacer' },
   { estado: 'En progreso', color: 'bg-blue-500', label: 'En Progreso' },
   { estado: 'En revisión', color: 'bg-yellow-500', label: 'En Revisión' },
   { estado: 'Completado', color: 'bg-green-500', label: 'Completado' },
@@ -23,8 +23,8 @@ export default function DesarrolloKanbanClient({ proyectos }: { proyectos: CrmDe
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Desarrollo</h1>
-          <p className="text-gray-600">Proyectos internos de desarrollo y mejora</p>
+          <h1 className="text-3xl font-bold text-slate-100">Desarrollo</h1>
+          <p className="text-slate-400">Proyectos internos de desarrollo y mejora</p>
         </div>
         <Link href="/crm/desarrollo/nuevo">
           <Button><Plus className="w-4 h-4 mr-2" />Nuevo Proyecto</Button>
@@ -40,23 +40,23 @@ export default function DesarrolloKanbanClient({ proyectos }: { proyectos: CrmDe
                 <span className="font-semibold text-sm">{col.label}</span>
                 <Badge className="bg-white/20 text-white">{items.length}</Badge>
               </div>
-              <div className="bg-gray-100 rounded-b-lg p-3 space-y-3 min-h-[200px]">
+              <div className="bg-slate-700 rounded-b-lg p-3 space-y-3 min-h-[200px]">
                 {items.map(p => (
                   <Card key={p._id} className="hover:shadow-md transition-shadow cursor-pointer">
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between mb-2">
-                        <h4 className="font-semibold text-sm text-gray-900 flex-1">{p.nombre}</h4>
+                        <h4 className="font-semibold text-sm text-slate-100 flex-1">{p.nombre}</h4>
                         <PriorityIndicator priority={p.prioridad as 'Urgente' | 'Alta' | 'Media' | 'Baja'} />
                       </div>
-                      <p className="text-xs text-gray-600 mb-2 line-clamp-2">{p.descripcion}</p>
+                      <p className="text-xs text-slate-400 mb-2 line-clamp-2">{p.descripcion}</p>
                       <Badge variant="outline" className="text-xs mb-2">{p.categoria}</Badge>
                       <div className="space-y-1 mt-2">
-                        <div className="flex justify-between text-xs text-gray-500">
+                        <div className="flex justify-between text-xs text-slate-400">
                           <span>Avance</span><span>{p.avance}%</span>
                         </div>
                         <Progress value={p.avance} className="h-1.5" />
                       </div>
-                      <div className="flex justify-between mt-2 text-xs text-gray-500">
+                      <div className="flex justify-between mt-2 text-xs text-slate-400">
                         <span>{p.responsable}</span>
                         <span>{p.fechaLimite ? format(new Date(p.fechaLimite), 'dd MMM', { locale: es }) : ''}</span>
                       </div>
@@ -64,7 +64,7 @@ export default function DesarrolloKanbanClient({ proyectos }: { proyectos: CrmDe
                   </Card>
                 ))}
                 {items.length === 0 && (
-                  <p className="text-sm text-gray-400 text-center py-8">Sin proyectos</p>
+                  <p className="text-sm text-slate-500 text-center py-8">Sin proyectos</p>
                 )}
               </div>
             </div>

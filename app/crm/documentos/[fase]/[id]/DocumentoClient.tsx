@@ -35,14 +35,14 @@ export default function DocumentoClient({ fase, certificacion: c, cliente: cl }:
   return (
     <div className="max-w-4xl mx-auto">
       {/* Toolbar - hidden on print */}
-      <div className="no-print p-4 bg-gray-50 border-b flex items-center justify-between sticky top-0 z-10">
+      <div className="no-print p-4 bg-slate-800/50 border-b flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-3">
           <Link href={`/crm/certificacion/${c._id}`}>
             <Button variant="ghost" size="icon"><ArrowLeft className="w-5 h-5" /></Button>
           </Link>
           <div>
             <h1 className="font-bold text-lg">Fase {fase}: {FASE_NOMBRES[fase]}</h1>
-            <p className="text-sm text-gray-500">{c.codigo} - {c.clienteNombre}</p>
+            <p className="text-sm text-slate-400">{c.codigo} - {c.clienteNombre}</p>
           </div>
         </div>
         <Button onClick={() => window.print()}>
@@ -55,7 +55,7 @@ export default function DocumentoClient({ fase, certificacion: c, cliente: cl }:
         {/* Header */}
         <div className="text-center border-b-2 border-gray-800 pb-6">
           <h1 className="text-2xl font-bold tracking-wide">AUDICO S.A.S.</h1>
-          <p className="text-sm text-gray-600 mt-1">Auditoría, Diagnóstico y Consultoría Organizacional</p>
+          <p className="text-sm text-slate-400 mt-1">Auditoría, Diagnóstico y Consultoría Organizacional</p>
           <h2 className="text-xl font-semibold mt-4">FASE {fase}: {FASE_NOMBRES[fase]?.toUpperCase()}</h2>
           <p className="text-sm mt-2">Proyecto: {c.codigo} | Normas: {c.normas?.join(', ')}</p>
         </div>
@@ -85,7 +85,7 @@ export default function DocumentoClient({ fase, certificacion: c, cliente: cl }:
           <h3 className="text-lg font-bold border-b pb-2 mb-4">Documentos de la Fase {fase}</h3>
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="bg-gray-100">
+              <tr className="bg-slate-700">
                 <th className="border p-2 text-left">Documento</th>
                 <th className="border p-2 text-center w-24">Estado</th>
                 <th className="border p-2 text-center w-32">Fecha</th>
@@ -110,19 +110,19 @@ export default function DocumentoClient({ fase, certificacion: c, cliente: cl }:
           <div className="text-center">
             <div className="border-t border-gray-800 pt-2 mt-16">
               <p className="font-semibold">{c.consultorLider}</p>
-              <p className="text-gray-600">Consultor AUDICO S.A.S.</p>
+              <p className="text-slate-400">Consultor AUDICO S.A.S.</p>
             </div>
           </div>
           <div className="text-center">
             <div className="border-t border-gray-800 pt-2 mt-16">
               <p className="font-semibold">Representante de la Dirección</p>
-              <p className="text-gray-600">{c.clienteNombre}</p>
+              <p className="text-slate-400">{c.clienteNombre}</p>
             </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="text-center text-xs text-gray-400 border-t pt-4 mt-8">
+        <div className="text-center text-xs text-slate-500 border-t pt-4 mt-8">
           <p>AUDICO S.A.S. | NIT 000.000.000-0 | Cali, Colombia</p>
           <p>audicoempresarial@gmail.com | +57 316 137 4657</p>
         </div>
@@ -159,16 +159,16 @@ function Fase1Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
       </section>
       <section>
         <h3 className="text-lg font-bold border-b pb-2 mb-4">3. Política de Calidad (Borrador)</h3>
-        <div className="bg-gray-50 border p-4 text-sm italic">
+        <div className="bg-slate-800/50 border p-4 text-sm italic">
           <p>&ldquo;{c.clienteNombre} se compromete a satisfacer los requisitos de sus clientes y partes interesadas, cumpliendo con los requisitos legales y reglamentarios aplicables, mediante la implementación y mejora continua de un Sistema de Gestión basado en {c.normas?.join(', ')}, orientado a la excelencia operativa y la generación de valor sostenible.&rdquo;</p>
         </div>
-        <p className="text-xs text-gray-500 mt-2">* Esta política debe ser revisada y aprobada por la Alta Dirección.</p>
+        <p className="text-xs text-slate-400 mt-2">* Esta política debe ser revisada y aprobada por la Alta Dirección.</p>
       </section>
       <section>
         <h3 className="text-lg font-bold border-b pb-2 mb-4">4. Cronograma del Proyecto</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Fase</th>
               <th className="border p-2 text-left">Actividad</th>
               <th className="border p-2 text-center">Duración Est.</th>
@@ -203,7 +203,7 @@ function Fase2Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
         <h3 className="text-lg font-bold border-b pb-2 mb-4">1. Análisis de Contexto (PESTEL)</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Factor</th>
               <th className="border p-2 text-left">Descripción</th>
               <th className="border p-2 text-left">Impacto</th>
@@ -224,7 +224,7 @@ function Fase2Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
         <h3 className="text-lg font-bold border-b pb-2 mb-4">2. Partes Interesadas</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Parte Interesada</th>
               <th className="border p-2 text-left">Necesidades y Expectativas</th>
               <th className="border p-2 text-left">Requisitos Pertinentes</th>
@@ -245,7 +245,7 @@ function Fase2Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
         <h3 className="text-lg font-bold border-b pb-2 mb-4">3. Análisis de Riesgos y Oportunidades</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Tipo</th>
               <th className="border p-2 text-left">Descripción</th>
               <th className="border p-2 text-center">Probabilidad</th>
@@ -268,8 +268,8 @@ function Fase2Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
       </section>
       <section>
         <h3 className="text-lg font-bold border-b pb-2 mb-4">4. Mapa de Procesos</h3>
-        <div className="border p-4 text-center text-sm text-gray-500">
-          <div className="bg-blue-50 border border-blue-200 p-3 mb-2 rounded font-semibold">PROCESOS ESTRATÉGICOS</div>
+        <div className="border p-4 text-center text-sm text-slate-400">
+          <div className="bg-blue-900/30 border border-blue-700 p-3 mb-2 rounded font-semibold">PROCESOS ESTRATÉGICOS</div>
           <div className="flex gap-2 justify-center my-2">
             <div className="bg-green-50 border border-green-200 p-3 rounded flex-1">PROCESOS MISIONALES / OPERATIVOS</div>
           </div>
@@ -303,8 +303,8 @@ function Fase3Content({ certificacion: c }: { certificacion: CrmCertificacion })
               ['Norma(s) Aplicable(s)', c.normas?.join(', ') || ''],
             ].map(([label, value]) => (
               <tr key={label}>
-                <td className="border p-2 font-medium bg-gray-50 w-1/3">{label}</td>
-                <td className="border p-2">{value || <span className="text-gray-400">[Completar]</span>}</td>
+                <td className="border p-2 font-medium bg-slate-800/50 w-1/3">{label}</td>
+                <td className="border p-2">{value || <span className="text-slate-500">[Completar]</span>}</td>
               </tr>
             ))}
           </tbody>
@@ -314,7 +314,7 @@ function Fase3Content({ certificacion: c }: { certificacion: CrmCertificacion })
         <h3 className="text-lg font-bold border-b pb-2 mb-4">2. Lista de Procedimientos Documentados</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Código</th>
               <th className="border p-2 text-left">Procedimiento</th>
               <th className="border p-2 text-center">Versión</th>
@@ -337,7 +337,7 @@ function Fase3Content({ certificacion: c }: { certificacion: CrmCertificacion })
         <h3 className="text-lg font-bold border-b pb-2 mb-4">3. Control de Formatos y Registros</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Código</th>
               <th className="border p-2 text-left">Formato</th>
               <th className="border p-2 text-left">Proceso</th>
@@ -367,7 +367,7 @@ function Fase4Content({ certificacion: c }: { certificacion: CrmCertificacion })
         <h3 className="text-lg font-bold border-b pb-2 mb-4">1. Plan de Comunicación</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Qué Comunicar</th>
               <th className="border p-2 text-left">A Quién</th>
               <th className="border p-2 text-left">Cuándo</th>
@@ -397,7 +397,7 @@ function Fase4Content({ certificacion: c }: { certificacion: CrmCertificacion })
         <h3 className="text-lg font-bold border-b pb-2 mb-4">2. Plan de Formación</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Tema</th>
               <th className="border p-2 text-left">Dirigido a</th>
               <th className="border p-2 text-center">Duración</th>
@@ -434,7 +434,7 @@ function Fase4Content({ certificacion: c }: { certificacion: CrmCertificacion })
         </div>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-center">N°</th>
               <th className="border p-2 text-left">Nombre</th>
               <th className="border p-2 text-left">Cargo</th>
@@ -464,7 +464,7 @@ function Fase5Content({ certificacion: c }: { certificacion: CrmCertificacion })
         <h3 className="text-lg font-bold border-b pb-2 mb-4">1. Programa de Auditoría</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Proceso / Área</th>
               <th className="border p-2 text-left">Cláusulas</th>
               <th className="border p-2 text-center">Fecha</th>
@@ -493,7 +493,7 @@ function Fase5Content({ certificacion: c }: { certificacion: CrmCertificacion })
         </div>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-center">Hora</th>
               <th className="border p-2 text-left">Actividad</th>
               <th className="border p-2 text-left">Auditado</th>
@@ -525,7 +525,7 @@ function Fase5Content({ certificacion: c }: { certificacion: CrmCertificacion })
         <p className="text-sm mb-2">Norma: {c.normas?.[0] || '[Norma]'}</p>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Cláusula</th>
               <th className="border p-2 text-left">Pregunta / Requisito</th>
               <th className="border p-2 text-center">C/NC/NA</th>
@@ -558,7 +558,7 @@ function Fase5Content({ certificacion: c }: { certificacion: CrmCertificacion })
         <h3 className="text-lg font-bold border-b pb-2 mb-4">4. Registro de Hallazgos</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-center">N°</th>
               <th className="border p-2 text-left">Tipo</th>
               <th className="border p-2 text-left">Cláusula</th>
@@ -590,7 +590,7 @@ function Fase6Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
         <h3 className="text-lg font-bold border-b pb-2 mb-4">1. Selección de Organismo Certificador</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Criterio</th>
               <th className="border p-2 text-center">Organismo A</th>
               <th className="border p-2 text-center">Organismo B</th>
@@ -613,7 +613,7 @@ function Fase6Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
                 <td className="border p-2 text-center">&nbsp;</td>
               </tr>
             ))}
-            <tr className="bg-gray-50 font-semibold">
+            <tr className="bg-slate-800/50 font-semibold">
               <td className="border p-2">TOTAL</td>
               <td className="border p-2 text-center">&nbsp;</td>
               <td className="border p-2 text-center">&nbsp;</td>
@@ -626,7 +626,7 @@ function Fase6Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
         <h3 className="text-lg font-bold border-b pb-2 mb-4">2. Preparación Final</h3>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-slate-700">
               <th className="border p-2 text-left">Actividad</th>
               <th className="border p-2 text-center">Estado</th>
               <th className="border p-2 text-left">Responsable</th>
@@ -669,8 +669,8 @@ function Fase6Content({ certificacion: c, cliente: cl }: { certificacion: CrmCer
               ['Auditor Líder (OC)', ''],
             ].map(([label, value]) => (
               <tr key={label}>
-                <td className="border p-2 font-medium bg-gray-50 w-1/3">{label}</td>
-                <td className="border p-2">{value || <span className="text-gray-400">[Completar]</span>}</td>
+                <td className="border p-2 font-medium bg-slate-800/50 w-1/3">{label}</td>
+                <td className="border p-2">{value || <span className="text-slate-500">[Completar]</span>}</td>
               </tr>
             ))}
           </tbody>

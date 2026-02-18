@@ -20,10 +20,10 @@ export default function AuditoriaDetalleClient({ auditoria: a }: { auditoria: Cr
         </Link>
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900">{a.clienteNombre}</h1>
+            <h1 className="text-2xl font-bold text-slate-100">{a.clienteNombre}</h1>
             <StatusBadge status={a.estado} />
           </div>
-          <p className="text-gray-500">{a.codigo} · {a.tipo}</p>
+          <p className="text-slate-400">{a.codigo} · {a.tipo}</p>
         </div>
         <Link href={`/crm/auditoria/${a._id}/editar`}>
           <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
@@ -31,10 +31,10 @@ export default function AuditoriaDetalleClient({ auditoria: a }: { auditoria: Cr
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Tipo</p><p className="font-semibold">{a.tipo}</p></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Auditor Líder</p><p className="font-semibold">{a.auditorLider}</p></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Fecha</p><p className="font-semibold">{a.fechaInicio ? format(new Date(a.fechaInicio), 'dd MMM', { locale: es }) : '-'} — {a.fechaFin ? format(new Date(a.fechaFin), 'dd MMM yyyy', { locale: es }) : '-'}</p></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Normas</p><div className="flex gap-1 flex-wrap mt-1">{a.normas?.map(n => <Badge key={n} variant="outline" className="text-xs">{n}</Badge>)}</div></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Tipo</p><p className="font-semibold">{a.tipo}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Auditor Líder</p><p className="font-semibold">{a.auditorLider}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Fecha</p><p className="font-semibold">{a.fechaInicio ? format(new Date(a.fechaInicio), 'dd MMM', { locale: es }) : '-'} — {a.fechaFin ? format(new Date(a.fechaFin), 'dd MMM yyyy', { locale: es }) : '-'}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Normas</p><div className="flex gap-1 flex-wrap mt-1">{a.normas?.map(n => <Badge key={n} variant="outline" className="text-xs">{n}</Badge>)}</div></CardContent></Card>
       </div>
 
       {a.resultado && (
@@ -47,15 +47,15 @@ export default function AuditoriaDetalleClient({ auditoria: a }: { auditoria: Cr
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-4 bg-red-50 rounded-lg">
                 <p className="text-3xl font-bold text-red-600">{a.numNCMayores ?? 0}</p>
-                <p className="text-sm text-gray-600">NC Mayores</p>
+                <p className="text-sm text-slate-400">NC Mayores</p>
               </div>
               <div className="text-center p-4 bg-orange-50 rounded-lg">
                 <p className="text-3xl font-bold text-orange-600">{a.numNCMenores ?? 0}</p>
-                <p className="text-sm text-gray-600">NC Menores</p>
+                <p className="text-sm text-slate-400">NC Menores</p>
               </div>
               <div className="text-center p-4 bg-yellow-50 rounded-lg">
                 <p className="text-3xl font-bold text-yellow-600">{a.numObservaciones ?? 0}</p>
-                <p className="text-sm text-gray-600">Observaciones</p>
+                <p className="text-sm text-slate-400">Observaciones</p>
               </div>
             </div>
           </CardContent>
@@ -81,7 +81,7 @@ export default function AuditoriaDetalleClient({ auditoria: a }: { auditoria: Cr
                     <TableCell><StatusBadge status={h.tipo} /></TableCell>
                     <TableCell className="font-mono text-sm">{h.clausula}</TableCell>
                     <TableCell className="max-w-xs">{h.descripcion}</TableCell>
-                    <TableCell className="max-w-xs text-sm text-gray-600">{h.evidencia}</TableCell>
+                    <TableCell className="max-w-xs text-sm text-slate-400">{h.evidencia}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

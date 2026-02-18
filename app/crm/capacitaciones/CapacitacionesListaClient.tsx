@@ -26,8 +26,8 @@ export default function CapacitacionesListaClient({ capacitaciones }: { capacita
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Capacitaciones</h1>
-          <p className="text-gray-600">Formación y capacitación en normas ISO</p>
+          <h1 className="text-3xl font-bold text-slate-100">Capacitaciones</h1>
+          <p className="text-slate-400">Formación y capacitación en normas ISO</p>
         </div>
         <Link href="/crm/capacitaciones/nuevo">
           <Button><Plus className="w-4 h-4 mr-2" />Nueva Capacitación</Button>
@@ -54,7 +54,7 @@ export default function CapacitacionesListaClient({ capacitaciones }: { capacita
             </TableHeader>
             <TableBody>
               {filtered.map(c => (
-                <TableRow key={c._id} className="cursor-pointer hover:bg-gray-50">
+                <TableRow key={c._id} className="cursor-pointer hover:bg-slate-700/50">
                   <TableCell>
                     <Link href={`/crm/capacitaciones/${c._id}`} className="font-medium text-blue-600 hover:underline">{c.codigo}</Link>
                   </TableCell>
@@ -69,7 +69,7 @@ export default function CapacitacionesListaClient({ capacitaciones }: { capacita
                 </TableRow>
               ))}
               {filtered.length === 0 && (
-                <TableRow><TableCell colSpan={9} className="text-center py-8 text-gray-500">No se encontraron capacitaciones</TableCell></TableRow>
+                <TableRow><TableCell colSpan={9} className="text-center py-8 text-slate-400">No se encontraron capacitaciones</TableCell></TableRow>
               )}
             </TableBody>
           </Table>

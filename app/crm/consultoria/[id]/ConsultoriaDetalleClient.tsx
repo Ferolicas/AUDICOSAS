@@ -25,10 +25,10 @@ export default function ConsultoriaDetalleClient({ consultoria: c }: { consultor
         </Link>
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900">{c.clienteNombre}</h1>
+            <h1 className="text-2xl font-bold text-slate-100">{c.clienteNombre}</h1>
             <StatusBadge status={c.estado} />
           </div>
-          <p className="text-gray-500">{c.codigo} · {c.tipo}</p>
+          <p className="text-slate-400">{c.codigo} · {c.tipo}</p>
         </div>
         <Link href={`/crm/consultoria/${c._id}/editar`}>
           <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
@@ -36,10 +36,10 @@ export default function ConsultoriaDetalleClient({ consultoria: c }: { consultor
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Consultor Líder</p><p className="font-semibold">{c.consultorLider}</p></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Valor Contratado</p><p className="font-semibold">{c.valorContratado ? formatCOP(c.valorContratado) : '-'}</p></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Normas</p><div className="flex gap-1 flex-wrap mt-1">{c.normas?.map(n => <Badge key={n} variant="outline" className="text-xs">{n}</Badge>)}</div></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Fechas</p><p className="text-sm">{c.fechaInicio ? format(new Date(c.fechaInicio), 'dd MMM yy', { locale: es }) : '-'} → {c.fechaFinPlan ? format(new Date(c.fechaFinPlan), 'dd MMM yy', { locale: es }) : '-'}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Consultor Líder</p><p className="font-semibold">{c.consultorLider}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Valor Contratado</p><p className="font-semibold">{c.valorContratado ? formatCOP(c.valorContratado) : '-'}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Normas</p><div className="flex gap-1 flex-wrap mt-1">{c.normas?.map(n => <Badge key={n} variant="outline" className="text-xs">{n}</Badge>)}</div></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Fechas</p><p className="text-sm">{c.fechaInicio ? format(new Date(c.fechaInicio), 'dd MMM yy', { locale: es }) : '-'} → {c.fechaFinPlan ? format(new Date(c.fechaFinPlan), 'dd MMM yy', { locale: es }) : '-'}</p></CardContent></Card>
       </div>
 
       <Card>
@@ -71,7 +71,7 @@ export default function ConsultoriaDetalleClient({ consultoria: c }: { consultor
                     <TableCell>{s.fecha ? format(new Date(s.fecha), 'dd MMM yyyy', { locale: es }) : '-'}</TableCell>
                     <TableCell className="font-medium">{s.tema}</TableCell>
                     <TableCell>{s.duracionHoras}h</TableCell>
-                    <TableCell className="max-w-xs text-sm text-gray-600">{s.notas}</TableCell>
+                    <TableCell className="max-w-xs text-sm text-slate-400">{s.notas}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -102,7 +102,7 @@ export default function ConsultoriaDetalleClient({ consultoria: c }: { consultor
                         <a href={(e as unknown as { archivoUrl: string }).archivoUrl} target="_blank" rel="noopener noreferrer">
                           <Button variant="outline" size="sm"><Download className="w-3 h-3 mr-1" />Descargar</Button>
                         </a>
-                      ) : <span className="text-gray-400">-</span>}
+                      ) : <span className="text-slate-500">-</span>}
                     </TableCell>
                   </TableRow>
                 ))}

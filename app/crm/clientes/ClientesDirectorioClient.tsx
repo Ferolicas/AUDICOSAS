@@ -78,11 +78,11 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
     <div className="p-6 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-slate-100 flex items-center gap-2">
             <Users className="w-8 h-8 text-blue-500" />
             Directorio de Clientes
           </h1>
-          <p className="text-gray-600 mt-1">
+          <p className="text-slate-400 mt-1">
             {clientes.length} cliente{clientes.length !== 1 ? "s" : ""} registrado{clientes.length !== 1 ? "s" : ""}
           </p>
         </div>
@@ -99,7 +99,7 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
           <CardTitle className="flex flex-col sm:flex-row sm:items-center gap-4">
             <span className="text-lg">Clientes</span>
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <Input
                 placeholder="Buscar por nombre, empresa o sector..."
                 value={search}
@@ -112,7 +112,7 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
         </CardHeader>
         <CardContent>
           {filtered.length === 0 ? (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-slate-400">
               {search
                 ? "No se encontraron clientes con ese criterio de busqueda."
                 : "No hay clientes registrados."}
@@ -144,21 +144,21 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
                     <TableCell>
                       <Link
                         href={`/crm/clientes/${c._id}`}
-                        className="font-medium text-gray-900 hover:text-blue-600"
+                        className="font-medium text-slate-100 hover:text-blue-600"
                       >
                         {c.nombreComercial}
                       </Link>
                     </TableCell>
-                    <TableCell className="hidden md:table-cell text-gray-600">
+                    <TableCell className="hidden md:table-cell text-slate-400">
                       {c.sector}
                     </TableCell>
-                    <TableCell className="hidden lg:table-cell text-gray-600">
+                    <TableCell className="hidden lg:table-cell text-slate-400">
                       {c.ciudad}
                     </TableCell>
                     <TableCell>
                       <StatusBadge status={c.estado} />
                     </TableCell>
-                    <TableCell className="hidden lg:table-cell text-gray-600">
+                    <TableCell className="hidden lg:table-cell text-slate-400">
                       {c.consultorAsignado}
                     </TableCell>
                     <TableCell className="text-right">
@@ -196,31 +196,31 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
 
           {selectedCliente && (
             <div className="space-y-3 py-2">
-              <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+              <div className="bg-slate-800/50 rounded-lg p-4 space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-500">Empresa</span>
+                  <span className="text-sm text-slate-400">Empresa</span>
                   <span className="text-sm font-medium">{selectedCliente.nombreComercial}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-500">Razón Social</span>
+                  <span className="text-sm text-slate-400">Razón Social</span>
                   <span className="text-sm font-medium">{selectedCliente.razonSocial || "—"}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-500">Correo</span>
-                  <span className="text-sm font-medium text-blue-600">{selectedCliente.email || "Sin correo"}</span>
+                  <span className="text-sm text-slate-400">Correo</span>
+                  <span className="text-sm font-medium text-blue-400">{selectedCliente.email || "Sin correo"}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-500">Teléfono</span>
+                  <span className="text-sm text-slate-400">Teléfono</span>
                   <span className="text-sm font-medium">{selectedCliente.telefono || "—"}</span>
                 </div>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-800">
+              <div className="bg-blue-900/30 border border-blue-700 rounded-lg p-3 text-sm text-blue-300">
                 <div className="flex items-start gap-2">
                   <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-medium">Se enviará un correo a: {selectedCliente.email}</p>
-                    <p className="text-blue-600 mt-1">Con una contraseña temporal y el enlace de inicio de sesión. Al ingresar por primera vez, deberá cambiar la contraseña.</p>
+                    <p className="text-blue-400 mt-1">Con una contraseña temporal y el enlace de inicio de sesión. Al ingresar por primera vez, deberá cambiar la contraseña.</p>
                   </div>
                 </div>
               </div>

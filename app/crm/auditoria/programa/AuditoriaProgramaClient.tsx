@@ -21,8 +21,8 @@ export default function AuditoriaProgramaClient({ auditorias }: { auditorias: Cr
           <Button variant="ghost" size="icon"><ArrowLeft className="w-5 h-5" /></Button>
         </Link>
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Programa Anual de Auditorías {year}</h1>
-          <p className="text-gray-600">Planificación y seguimiento del programa de auditorías</p>
+          <h1 className="text-3xl font-bold text-slate-100">Programa Anual de Auditorías {year}</h1>
+          <p className="text-slate-400">Planificación y seguimiento del programa de auditorías</p>
         </div>
       </div>
 
@@ -68,7 +68,7 @@ export default function AuditoriaProgramaClient({ auditorias }: { auditorias: Cr
                 </TableRow>
               ))}
               {auditorias.length === 0 && (
-                <TableRow><TableCell colSpan={8} className="text-center py-8 text-gray-500">No hay auditorías programadas</TableCell></TableRow>
+                <TableRow><TableCell colSpan={8} className="text-center py-8 text-slate-400">No hay auditorías programadas</TableCell></TableRow>
               )}
             </TableBody>
           </Table>

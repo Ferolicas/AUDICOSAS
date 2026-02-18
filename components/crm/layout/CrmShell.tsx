@@ -15,7 +15,7 @@ export function CrmShell({ children }: { children: React.ReactNode }) {
       />
       <div className="flex flex-1 overflow-hidden">
         <CrmSidebar open={sidebarOpen} />
-        <main className="flex-1 overflow-auto bg-gray-50 crm-main">
+        <main className="flex-1 overflow-auto bg-[#0F172A] text-slate-100 crm-main">
           {children}
         </main>
       </div>

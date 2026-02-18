@@ -26,10 +26,10 @@ export default function DiagnosticoDetalleClient({ diagnostico: d }: { diagnosti
         </Link>
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900">{d.clienteNombre}</h1>
+            <h1 className="text-2xl font-bold text-slate-100">{d.clienteNombre}</h1>
             <StatusBadge status={d.estado} />
           </div>
-          <p className="text-gray-500">{d.codigo}</p>
+          <p className="text-slate-400">{d.codigo}</p>
         </div>
         <div className="flex gap-2">
           <Link href={`/crm/diagnostico/${d._id}/editar`}>
@@ -47,7 +47,7 @@ export default function DiagnosticoDetalleClient({ diagnostico: d }: { diagnosti
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Normas</p>
+            <p className="text-sm text-slate-400">Normas</p>
             <div className="flex gap-1 flex-wrap mt-1">
               {d.normas?.map(n => <Badge key={n} variant="outline">{n}</Badge>)}
             </div>
@@ -55,19 +55,19 @@ export default function DiagnosticoDetalleClient({ diagnostico: d }: { diagnosti
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Fecha de Visita</p>
+            <p className="text-sm text-slate-400">Fecha de Visita</p>
             <p className="text-lg font-semibold">{d.fechaVisita ? format(new Date(d.fechaVisita), 'dd MMMM yyyy', { locale: es }) : '-'}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Consultor Asignado</p>
+            <p className="text-sm text-slate-400">Consultor Asignado</p>
             <p className="text-lg font-semibold">{d.consultorAsignado}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-gray-500">Viabilidad</p>
+            <p className="text-sm text-slate-400">Viabilidad</p>
             <p className="text-lg font-semibold">{d.viabilidad || '-'}</p>
           </CardContent>
         </Card>
@@ -79,21 +79,21 @@ export default function DiagnosticoDetalleClient({ diagnostico: d }: { diagnosti
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="border-l-4 border-l-blue-500">
               <CardContent className="p-4 text-center">
-                <p className="text-sm text-gray-500">Cumplimiento Global</p>
+                <p className="text-sm text-slate-400">Cumplimiento Global</p>
                 <p className="text-4xl font-bold text-blue-600 mt-1">{d.cumplimientoGlobal ?? 0}%</p>
                 <Progress value={d.cumplimientoGlobal ?? 0} className="h-2 mt-2" />
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-green-500">
               <CardContent className="p-4 text-center">
-                <p className="text-sm text-gray-500">Tiempo Estimado</p>
+                <p className="text-sm text-slate-400">Tiempo Estimado</p>
                 <p className="text-4xl font-bold text-green-600 mt-1">{d.tiempoEstimado ?? '-'}</p>
-                <p className="text-sm text-gray-500">meses</p>
+                <p className="text-sm text-slate-400">meses</p>
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-amber-500">
               <CardContent className="p-4 text-center">
-                <p className="text-sm text-gray-500">Inversión Estimada</p>
+                <p className="text-sm text-slate-400">Inversión Estimada</p>
                 <p className="text-2xl font-bold text-amber-600 mt-1">{d.inversionEstimada ? formatCOP(d.inversionEstimada) : '-'}</p>
               </CardContent>
             </Card>
@@ -103,7 +103,7 @@ export default function DiagnosticoDetalleClient({ diagnostico: d }: { diagnosti
             <Card>
               <CardHeader><CardTitle>Resumen Ejecutivo</CardTitle></CardHeader>
               <CardContent>
-                <p className="text-gray-700 whitespace-pre-wrap">{d.resumenEjecutivo}</p>
+                <p className="text-slate-300 whitespace-pre-wrap">{d.resumenEjecutivo}</p>
               </CardContent>
             </Card>
           )}

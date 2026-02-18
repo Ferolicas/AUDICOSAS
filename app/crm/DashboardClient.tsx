@@ -75,8 +75,8 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
   return (
     <div className="p-6 space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-600">Vista general del estado de operaciones</p>
+        <h1 className="text-3xl font-bold text-slate-100">Dashboard</h1>
+        <p className="text-slate-400">Vista general del estado de operaciones</p>
       </div>
 
       {/* KPIs */}
@@ -84,7 +84,7 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
         <Link href="/crm/clientes">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-blue-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Clientes Activos</CardTitle>
+              <CardTitle className="text-sm font-medium text-slate-400">Clientes Activos</CardTitle>
               <Users className="w-5 h-5 text-blue-500" />
             </CardHeader>
             <CardContent>
@@ -99,12 +99,12 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
         <Link href="/crm/auditoria">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-orange-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Auditorías Planificadas</CardTitle>
+              <CardTitle className="text-sm font-medium text-slate-400">Auditorías Planificadas</CardTitle>
               <Search className="w-5 h-5 text-orange-500" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold text-orange-600">{s.auditoriasPlaneadas}</div>
-              <div className="text-sm text-gray-600 mt-2">de {s.totalAuditorias} total</div>
+              <div className="text-sm text-slate-400 mt-2">de {s.totalAuditorias} total</div>
             </CardContent>
           </Card>
         </Link>
@@ -112,12 +112,12 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
         <Link href="/crm/certificacion">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-green-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Certificaciones Activas</CardTitle>
+              <CardTitle className="text-sm font-medium text-slate-400">Certificaciones Activas</CardTitle>
               <Award className="w-5 h-5 text-green-500" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold text-green-600">{s.certificacionesActivas}</div>
-              <div className="text-sm text-gray-600 mt-2">de {s.totalCertificaciones} total</div>
+              <div className="text-sm text-slate-400 mt-2">de {s.totalCertificaciones} total</div>
             </CardContent>
           </Card>
         </Link>
@@ -125,12 +125,12 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
         <Link href="/crm/capacitaciones">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-purple-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Capacitaciones</CardTitle>
+              <CardTitle className="text-sm font-medium text-slate-400">Capacitaciones</CardTitle>
               <BookOpen className="w-5 h-5 text-purple-500" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold text-purple-600">{s.totalCapacitaciones}</div>
-              <div className="text-sm text-gray-600 mt-2">Diagnósticos: {s.diagnosticosPendientes} pendientes</div>
+              <div className="text-sm text-slate-400 mt-2">Diagnósticos: {s.diagnosticosPendientes} pendientes</div>
             </CardContent>
           </Card>
         </Link>
@@ -181,7 +181,7 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
                 <div key={a.id} className="flex gap-3">
                   <div className={`${a.color} mt-1`}><a.icono className="w-5 h-5" /></div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-900">{a.descripcion}</p>
+                    <p className="text-sm font-medium text-slate-100">{a.descripcion}</p>
                     <Badge variant="outline" className="text-xs mt-1">{a.tipo}</Badge>
                   </div>
                 </div>
@@ -202,13 +202,13 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
               {(s.desarrolloEnProgreso.length > 0 ? s.desarrolloEnProgreso : [
                 { _id: '1', codigo: 'DEV-2026-001', nombre: 'Sin proyectos de desarrollo', avance: 0, estado: 'Por hacer', prioridad: 'Media', responsable: '' }
               ]).map((d) => (
-                <div key={d._id} className="p-3 border rounded-lg hover:bg-gray-50">
+                <div key={d._id} className="p-3 border rounded-lg hover:bg-slate-700/50">
                   <div className="flex items-start justify-between">
-                    <p className="text-sm font-medium text-gray-900">{d.nombre}</p>
+                    <p className="text-sm font-medium text-slate-100">{d.nombre}</p>
                     <StatusBadge status={d.estado} />
                   </div>
                   <div className="mt-2">
-                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                    <div className="flex justify-between text-xs text-slate-400 mb-1">
                       <span>{d.responsable}</span><span>{d.avance}%</span>
                     </div>
                     <Progress value={d.avance} className="h-1.5" />
@@ -232,10 +232,10 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
           <div className="space-y-4">
             {(s.recentCertificaciones.length > 0 ? s.recentCertificaciones.slice(0, 3) : []).map((p) => (
               <Link key={p._id} href={`/crm/certificacion/${p._id}`}>
-                <div className="p-4 border rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="p-4 border rounded-lg hover:bg-slate-700/50 transition-colors">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-semibold text-gray-900">{p.clienteNombre}</h4>
+                      <h4 className="font-semibold text-slate-100">{p.clienteNombre}</h4>
                       <div className="flex items-center gap-2 mt-1">
                         {p.normas.map(n => <Badge key={n} variant="outline">{n}</Badge>)}
                       </div>
@@ -244,17 +244,17 @@ export default function DashboardClient({ stats }: { stats: DashboardStats | nul
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Avance global</span>
+                      <span className="text-slate-400">Avance global</span>
                       <span className="font-medium">{p.avanceGlobal}%</span>
                     </div>
                     <Progress value={p.avanceGlobal} className="h-2" />
-                    <div className="text-xs text-gray-500">Fase {p.faseActual} · {p.codigo}</div>
+                    <div className="text-xs text-slate-400">Fase {p.faseActual} · {p.codigo}</div>
                   </div>
                 </div>
               </Link>
             ))}
             {s.recentCertificaciones.length === 0 && (
-              <p className="text-sm text-gray-500 text-center py-4">No hay certificaciones activas</p>
+              <p className="text-sm text-slate-400 text-center py-4">No hay certificaciones activas</p>
             )}
           </div>
         </CardContent>

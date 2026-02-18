@@ -45,7 +45,7 @@ export function CrmSidebar({ open }: { open: boolean }) {
     <aside
       className={`${
         open ? 'w-64' : 'w-0'
-      } transition-all duration-300 border-r bg-white overflow-hidden crm-sidebar`}
+      } transition-all duration-300 border-r border-slate-700 bg-[#0F1B33] overflow-hidden crm-sidebar`}
     >
       <ScrollArea className="h-full">
         <nav className="p-4 space-y-1">
@@ -55,8 +55,8 @@ export function CrmSidebar({ open }: { open: boolean }) {
               href={item.path}
               className={`flex items-center justify-between px-4 py-3 rounded-lg transition-colors ${
                 isActive(item.path)
-                  ? 'bg-blue-50 text-blue-700'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  ? 'bg-blue-600/20 text-blue-400'
+                  : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
               }`}
             >
               <div className="flex items-center gap-3">

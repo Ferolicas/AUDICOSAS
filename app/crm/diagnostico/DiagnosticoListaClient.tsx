@@ -30,8 +30,8 @@ export default function DiagnosticoListaClient({ diagnosticos }: { diagnosticos:
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Diagnósticos</h1>
-          <p className="text-gray-600">Evaluaciones GAP y diagnósticos iniciales</p>
+          <h1 className="text-3xl font-bold text-slate-100">Diagnósticos</h1>
+          <p className="text-slate-400">Evaluaciones GAP y diagnósticos iniciales</p>
         </div>
         <Link href="/crm/diagnostico/nuevo">
           <Button><Plus className="w-4 h-4 mr-2" />Nuevo Diagnóstico</Button>
@@ -57,21 +57,21 @@ export default function DiagnosticoListaClient({ diagnosticos }: { diagnosticos:
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <ClipboardCheck className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-500">{d.codigo}</span>
+                    <span className="text-sm font-medium text-slate-400">{d.codigo}</span>
                   </div>
                   <StatusBadge status={d.estado} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{d.clienteNombre}</h3>
+                <h3 className="font-semibold text-slate-100 mb-2">{d.clienteNombre}</h3>
                 <div className="flex gap-1 flex-wrap mb-3">
                   {d.normas?.map(n => <Badge key={n} variant="outline" className="text-xs">{n}</Badge>)}
                 </div>
-                <div className="text-sm text-gray-600 space-y-1">
+                <div className="text-sm text-slate-400 space-y-1">
                   <p>Visita: {d.fechaVisita ? format(new Date(d.fechaVisita), 'dd MMM yyyy', { locale: es }) : '-'}</p>
                   <p>Consultor: {d.consultorAsignado}</p>
                 </div>
                 {d.cumplimientoGlobal != null && (
                   <div className="mt-3">
-                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                    <div className="flex justify-between text-xs text-slate-400 mb-1">
                       <span>Cumplimiento</span><span>{d.cumplimientoGlobal}%</span>
                     </div>
                     <Progress value={d.cumplimientoGlobal} className="h-2" />
@@ -82,7 +82,7 @@ export default function DiagnosticoListaClient({ diagnosticos }: { diagnosticos:
           </Link>
         ))}
         {filtered.length === 0 && (
-          <div className="col-span-full text-center py-8 text-gray-500">No se encontraron diagnósticos</div>
+          <div className="col-span-full text-center py-8 text-slate-400">No se encontraron diagnósticos</div>
         )}
       </div>
     </div>

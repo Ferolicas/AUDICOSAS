@@ -30,8 +30,8 @@ function formatDate(dateStr: string | undefined | null): string {
 function InfoItem({ label, value, icon }: { label: string; value: string | number | undefined | null; icon?: React.ReactNode }) {
   return (
     <div className="space-y-1">
-      <dt className="text-sm font-medium text-gray-500">{label}</dt>
-      <dd className="text-sm text-gray-900 flex items-center gap-2">
+      <dt className="text-sm font-medium text-slate-400">{label}</dt>
+      <dd className="text-sm text-slate-100 flex items-center gap-2">
         {icon}
         {value ?? "-"}
       </dd>
@@ -69,7 +69,7 @@ export default function ClienteDetalleClient({ cliente }: Props) {
                 <Building2 className="w-6 h-6 text-blue-500" />
                 {cliente.nombreComercial}
               </CardTitle>
-              <p className="text-sm text-gray-500 mt-1 font-mono">{cliente.codigo}</p>
+              <p className="text-sm text-slate-400 mt-1 font-mono">{cliente.codigo}</p>
             </div>
             <StatusBadge status={cliente.estado} />
           </div>
@@ -94,17 +94,17 @@ export default function ClienteDetalleClient({ cliente }: Props) {
             <InfoItem
               label="Telefono"
               value={cliente.telefono}
-              icon={<Phone className="w-3.5 h-3.5 text-gray-400" />}
+              icon={<Phone className="w-3.5 h-3.5 text-slate-500" />}
             />
             <InfoItem
               label="Email"
               value={cliente.email}
-              icon={<Mail className="w-3.5 h-3.5 text-gray-400" />}
+              icon={<Mail className="w-3.5 h-3.5 text-slate-500" />}
             />
             <InfoItem
               label="Direccion"
               value={cliente.direccion}
-              icon={<MapPin className="w-3.5 h-3.5 text-gray-400" />}
+              icon={<MapPin className="w-3.5 h-3.5 text-slate-500" />}
             />
             <InfoItem label="Ciudad" value={cliente.ciudad} />
             <InfoItem label="Pais" value={cliente.pais} />
@@ -122,7 +122,7 @@ export default function ClienteDetalleClient({ cliente }: Props) {
         <Separator />
         <CardContent className="pt-4">
           {certs.length === 0 ? (
-            <p className="text-sm text-gray-500 text-center py-8">
+            <p className="text-sm text-slate-400 text-center py-8">
               Este cliente no tiene certificaciones registradas.
             </p>
           ) : (
@@ -141,14 +141,14 @@ export default function ClienteDetalleClient({ cliente }: Props) {
                 {certs.map((cert, idx) => (
                   <TableRow key={cert.numeroCertificado ?? idx}>
                     <TableCell className="font-medium">{cert.norma}</TableCell>
-                    <TableCell className="text-gray-600">{cert.organismo}</TableCell>
-                    <TableCell className="hidden md:table-cell font-mono text-sm text-gray-600">
+                    <TableCell className="text-slate-400">{cert.organismo}</TableCell>
+                    <TableCell className="hidden md:table-cell font-mono text-sm text-slate-400">
                       {cert.numeroCertificado}
                     </TableCell>
-                    <TableCell className="hidden md:table-cell text-gray-600">
+                    <TableCell className="hidden md:table-cell text-slate-400">
                       {formatDate(cert.fechaEmision)}
                     </TableCell>
-                    <TableCell className="hidden lg:table-cell text-gray-600">
+                    <TableCell className="hidden lg:table-cell text-slate-400">
                       {formatDate(cert.vigenciaHasta)}
                     </TableCell>
                     <TableCell>

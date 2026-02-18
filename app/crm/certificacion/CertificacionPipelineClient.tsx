@@ -23,8 +23,8 @@ export default function CertificacionPipelineClient({ certificaciones }: { certi
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Pipeline de Certificación</h1>
-          <p className="text-gray-600">Proyectos de certificación ISO por fase</p>
+          <h1 className="text-3xl font-bold text-slate-100">Pipeline de Certificación</h1>
+          <p className="text-slate-400">Proyectos de certificación ISO por fase</p>
         </div>
         <Link href="/crm/certificacion/nuevo">
           <Button><Plus className="w-4 h-4 mr-2" />Nuevo Proyecto</Button>
@@ -40,31 +40,31 @@ export default function CertificacionPipelineClient({ certificaciones }: { certi
                 <span className="font-semibold text-sm">Fase {fase.num}: {fase.nombre}</span>
                 <Badge className="bg-white/20 text-white">{proyectos.length}</Badge>
               </div>
-              <div className="bg-gray-100 rounded-b-lg p-3 space-y-3 min-h-[200px]">
+              <div className="bg-slate-700 rounded-b-lg p-3 space-y-3 min-h-[200px]">
                 {proyectos.map(p => (
                   <Link key={p._id} href={`/crm/certificacion/${p._id}`}>
                     <Card className="hover:shadow-md transition-shadow cursor-pointer">
                       <CardContent className="p-4">
                         <div className="flex items-start justify-between mb-2">
-                          <h4 className="font-semibold text-sm text-gray-900">{p.clienteNombre}</h4>
+                          <h4 className="font-semibold text-sm text-slate-100">{p.clienteNombre}</h4>
                           <PriorityIndicator priority={p.prioridad as 'Urgente' | 'Alta' | 'Media' | 'Baja'} />
                         </div>
                         <div className="flex gap-1 flex-wrap mb-2">
                           {p.normas?.map(n => <Badge key={n} variant="outline" className="text-xs">{n}</Badge>)}
                         </div>
                         <div className="space-y-1">
-                          <div className="flex justify-between text-xs text-gray-500">
+                          <div className="flex justify-between text-xs text-slate-400">
                             <span>Avance</span><span>{p.avanceGlobal}%</span>
                           </div>
                           <Progress value={p.avanceGlobal} className="h-1.5" />
                         </div>
-                        <p className="text-xs text-gray-500 mt-2">{p.consultorLider} · {p.codigo}</p>
+                        <p className="text-xs text-slate-400 mt-2">{p.consultorLider} · {p.codigo}</p>
                       </CardContent>
                     </Card>
                   </Link>
                 ))}
                 {proyectos.length === 0 && (
-                  <p className="text-sm text-gray-400 text-center py-8">Sin proyectos</p>
+                  <p className="text-sm text-slate-500 text-center py-8">Sin proyectos</p>
                 )}
               </div>
             </div>

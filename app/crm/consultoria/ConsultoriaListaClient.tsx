@@ -27,8 +27,8 @@ export default function ConsultoriaListaClient({ consultorias }: { consultorias:
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Consultoría</h1>
-          <p className="text-gray-600">Proyectos de consultoría y acompañamiento</p>
+          <h1 className="text-3xl font-bold text-slate-100">Consultoría</h1>
+          <p className="text-slate-400">Proyectos de consultoría y acompañamiento</p>
         </div>
         <Link href="/crm/consultoria/nuevo">
           <Button><Plus className="w-4 h-4 mr-2" />Nuevo Proyecto</Button>
@@ -54,7 +54,7 @@ export default function ConsultoriaListaClient({ consultorias }: { consultorias:
             </TableHeader>
             <TableBody>
               {filtered.map(c => (
-                <TableRow key={c._id} className="cursor-pointer hover:bg-gray-50">
+                <TableRow key={c._id} className="cursor-pointer hover:bg-slate-700/50">
                   <TableCell>
                     <Link href={`/crm/consultoria/${c._id}`} className="font-medium text-blue-600 hover:underline">{c.codigo}</Link>
                   </TableCell>
@@ -75,7 +75,7 @@ export default function ConsultoriaListaClient({ consultorias }: { consultorias:
                 </TableRow>
               ))}
               {filtered.length === 0 && (
-                <TableRow><TableCell colSpan={8} className="text-center py-8 text-gray-500">No se encontraron proyectos</TableCell></TableRow>
+                <TableRow><TableCell colSpan={8} className="text-center py-8 text-slate-400">No se encontraron proyectos</TableCell></TableRow>
               )}
             </TableBody>
           </Table>

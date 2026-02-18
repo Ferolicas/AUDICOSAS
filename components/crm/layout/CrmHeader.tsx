@@ -43,23 +43,24 @@ export function CrmHeader({ sidebarOpen, onToggleSidebar }: CrmHeaderProps) {
   const { user, logout } = useAuth()
 
   return (
-    <header className="h-16 border-b bg-white flex items-center justify-between px-6 sticky top-0 z-50 crm-header">
+    <header className="h-16 border-b border-slate-700 bg-[#0F1B33] flex items-center justify-between px-6 sticky top-0 z-50 crm-header">
       <div className="flex items-center gap-4">
         <Button
           variant="ghost"
           size="icon"
           onClick={onToggleSidebar}
+          className="text-slate-300 hover:text-white hover:bg-slate-700"
         >
           {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </Button>
 
         <Link href="/crm" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
             <Award className="w-6 h-6 text-white" />
           </div>
           <div className="hidden md:block">
-            <h1 className="font-bold text-xl text-blue-900">AUDICOISO</h1>
-            <p className="text-xs text-gray-600">CRM Certificación ISO</p>
+            <h1 className="font-bold text-xl text-white">AUDICOISO</h1>
+            <p className="text-xs text-slate-400">CRM Certificación ISO</p>
           </div>
         </Link>
       </div>
@@ -72,11 +73,11 @@ export function CrmHeader({ sidebarOpen, onToggleSidebar }: CrmHeaderProps) {
       </div>
 
       <div className="flex items-center gap-3">
-        <Button variant="ghost" size="icon" className="relative">
+        <Button variant="ghost" size="icon" className="relative text-slate-300 hover:text-white hover:bg-slate-700">
           <Calendar className="w-5 h-5" />
         </Button>
 
-        <Button variant="ghost" size="icon" className="relative">
+        <Button variant="ghost" size="icon" className="relative text-slate-300 hover:text-white hover:bg-slate-700">
           <Bell className="w-5 h-5" />
           <Badge className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center p-0 bg-red-500 text-white text-[10px]">
             3
@@ -85,13 +86,13 @@ export function CrmHeader({ sidebarOpen, onToggleSidebar }: CrmHeaderProps) {
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2">
+            <Button variant="ghost" className="flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-700">
               <Avatar className="w-8 h-8">
-                <AvatarFallback>
+                <AvatarFallback className="bg-blue-600 text-white text-sm">
                   {user ? getInitials(user.nombre) : <User className="w-4 h-4" />}
                 </AvatarFallback>
               </Avatar>
-              <span className="hidden md:inline">{user?.nombre || "..."}</span>
+              <span className="hidden md:inline text-slate-200">{user?.nombre || "..."}</span>
               <ChevronDown className="w-4 h-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -108,7 +109,7 @@ export function CrmHeader({ sidebarOpen, onToggleSidebar }: CrmHeaderProps) {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              className="text-red-600 cursor-pointer"
+              className="text-red-400 cursor-pointer"
               onClick={() => logout()}
             >
               <LogOut className="w-4 h-4 mr-2" />

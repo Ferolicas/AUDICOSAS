@@ -20,10 +20,10 @@ export default function CapacitacionDetalleClient({ capacitacion: c }: { capacit
         </Link>
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900">{c.cursoNombre}</h1>
+            <h1 className="text-2xl font-bold text-slate-100">{c.cursoNombre}</h1>
             <StatusBadge status={c.estado} />
           </div>
-          <p className="text-gray-500">{c.codigo} · {c.clienteNombre}</p>
+          <p className="text-slate-400">{c.codigo} · {c.clienteNombre}</p>
         </div>
         <Link href={`/crm/capacitaciones/${c._id}/editar`}>
           <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
@@ -31,31 +31,31 @@ export default function CapacitacionDetalleClient({ capacitacion: c }: { capacit
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Tipo</p><Badge variant="outline">{c.tipo}</Badge></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Instructor</p><p className="font-semibold">{c.instructor}</p></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Modalidad</p><Badge variant="secondary">{c.modalidad}</Badge></CardContent></Card>
-        <Card><CardContent className="p-4"><p className="text-sm text-gray-500">Cliente</p><p className="font-semibold">{c.clienteNombre}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Tipo</p><Badge variant="outline">{c.tipo}</Badge></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Instructor</p><p className="font-semibold">{c.instructor}</p></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Modalidad</p><Badge variant="secondary">{c.modalidad}</Badge></CardContent></Card>
+        <Card><CardContent className="p-4"><p className="text-sm text-slate-400">Cliente</p><p className="font-semibold">{c.clienteNombre}</p></CardContent></Card>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
         <Card className="border-l-4 border-l-blue-500">
           <CardContent className="p-4 text-center">
             <Calendar className="w-6 h-6 text-blue-500 mx-auto mb-1" />
-            <p className="text-sm text-gray-500">Fecha</p>
+            <p className="text-sm text-slate-400">Fecha</p>
             <p className="text-lg font-bold">{c.fecha ? format(new Date(c.fecha), 'dd MMM yyyy', { locale: es }) : '-'}</p>
           </CardContent>
         </Card>
         <Card className="border-l-4 border-l-green-500">
           <CardContent className="p-4 text-center">
             <Clock className="w-6 h-6 text-green-500 mx-auto mb-1" />
-            <p className="text-sm text-gray-500">Duración</p>
+            <p className="text-sm text-slate-400">Duración</p>
             <p className="text-lg font-bold">{c.duracionHoras} horas</p>
           </CardContent>
         </Card>
         <Card className="border-l-4 border-l-purple-500">
           <CardContent className="p-4 text-center">
             <Users className="w-6 h-6 text-purple-500 mx-auto mb-1" />
-            <p className="text-sm text-gray-500">Participantes</p>
+            <p className="text-sm text-slate-400">Participantes</p>
             <p className="text-lg font-bold">{c.numParticipantes}</p>
           </CardContent>
         </Card>
@@ -68,12 +68,12 @@ export default function CapacitacionDetalleClient({ capacitacion: c }: { capacit
             <div className="flex items-center gap-6">
               <div className="text-center">
                 <p className="text-4xl font-bold text-blue-600">{c.evaluacion.satisfaccionPromedio}</p>
-                <p className="text-sm text-gray-500">/ 5.0 satisfacción</p>
+                <p className="text-sm text-slate-400">/ 5.0 satisfacción</p>
               </div>
               {c.evaluacion.comentarios && (
                 <div className="flex-1">
-                  <p className="text-sm text-gray-500">Comentarios</p>
-                  <p className="text-gray-700">{c.evaluacion.comentarios}</p>
+                  <p className="text-sm text-slate-400">Comentarios</p>
+                  <p className="text-slate-300">{c.evaluacion.comentarios}</p>
                 </div>
               )}
             </div>

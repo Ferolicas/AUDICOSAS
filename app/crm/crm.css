@@ -1,46 +1,61 @@
-/* CRM shadcn/ui CSS Variables - Tailwind v3 compatible */
+/* CRM Dark Theme - Matching Landing Page Brand Colors */
+/* Navy #0F1B33 | Blue #2563EB | Amber #D97706 */
+
+/* 15% larger text for CRM pages */
+html:has(.crm-root) {
+  font-size: 115%;
+}
+
 /* Applied globally so Radix portals (dropdowns, dialogs) inherit them */
 :root,
 .crm-root {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 9%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 9%;
-  --primary: 240 6% 6%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 264 5% 95%;
-  --secondary-foreground: 240 6% 6%;
-  --muted: 260 5% 92%;
-  --muted-foreground: 260 4% 46%;
-  --accent: 225 6% 93%;
-  --accent-foreground: 240 6% 6%;
-  --destructive: 348 75% 46%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 0% / 0.1;
-  --input: 0 0% 0% / 0;
-  --input-background: 240 3% 95%;
-  --ring: 0 0% 50%;
+  --background: 222 47% 11%;          /* #0F172A slate-900 */
+  --foreground: 210 40% 96%;          /* #F1F5F9 slate-100 */
+  --card: 217 33% 17%;                /* #1E293B slate-800 */
+  --card-foreground: 213 27% 84%;     /* #CBD5E1 slate-300 */
+  --popover: 217 33% 17%;             /* #1E293B slate-800 */
+  --popover-foreground: 210 40% 96%;  /* #F1F5F9 slate-100 */
+  --primary: 217 91% 54%;             /* #2563EB blue-600 */
+  --primary-foreground: 0 0% 100%;    /* white */
+  --secondary: 215 25% 27%;           /* #334155 slate-700 */
+  --secondary-foreground: 210 40% 96%;/* #F1F5F9 */
+  --muted: 215 25% 27%;               /* #334155 slate-700 */
+  --muted-foreground: 215 20% 65%;    /* #94A3B8 slate-400 */
+  --accent: 215 25% 27%;              /* #334155 slate-700 */
+  --accent-foreground: 210 40% 96%;   /* #F1F5F9 */
+  --destructive: 0 84% 60%;           /* red-500 */
+  --destructive-foreground: 0 0% 100%;/* white */
+  --border: 215 25% 27%;              /* #334155 slate-700 */
+  --input: 215 25% 27%;               /* #334155 */
+  --input-background: 217 33% 17%;    /* #1E293B slate-800 */
+  --ring: 217 91% 54%;                /* #2563EB */
   --radius: 0.625rem;
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
-  --sidebar: 0 0% 97%;
-  --sidebar-foreground: 0 0% 9%;
-  --sidebar-primary: 240 6% 6%;
-  --sidebar-primary-foreground: 0 0% 97%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 14%;
-  --sidebar-border: 0 0% 89%;
-  --sidebar-ring: 0 0% 50%;
+  --chart-1: 217 91% 54%;             /* blue */
+  --chart-2: 160 60% 45%;             /* green */
+  --chart-3: 38 92% 50%;              /* amber */
+  --chart-4: 280 65% 60%;             /* purple */
+  --chart-5: 340 75% 55%;             /* rose */
+  --sidebar: 220 54% 13%;             /* #0F1B33 navy-deep */
+  --sidebar-foreground: 210 40% 96%;  /* #F1F5F9 */
+  --sidebar-primary: 217 91% 54%;     /* #2563EB */
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 217 33% 17%;      /* #1E293B */
+  --sidebar-accent-foreground: 210 40% 96%;
+  --sidebar-border: 215 25% 27%;      /* #334155 */
+  --sidebar-ring: 217 91% 54%;
 }
 
 /* CRM base styles */
 .crm-root * {
   border-color: hsl(var(--border));
+}
+
+/* Override global heading color rule for CRM */
+.crm-root h1,
+.crm-root h2,
+.crm-root h3,
+.crm-root h4 {
+  color: inherit;
 }
 
 /* Scrollbar styling */
@@ -61,6 +76,9 @@
 
 /* Print styles */
 @media print {
+  html:has(.crm-root) {
+    font-size: 100%;
+  }
   .crm-sidebar,
   .crm-header {
     display: none !important;
@@ -68,5 +86,7 @@
   .crm-main {
     margin: 0 !important;
     padding: 0 !important;
+    background: white !important;
+    color: black !important;
   }
 }

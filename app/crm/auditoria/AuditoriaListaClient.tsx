@@ -30,8 +30,8 @@ export default function AuditoriaListaClient({ auditorias }: { auditorias: CrmAu
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Auditorías</h1>
-          <p className="text-gray-600">Gestión de auditorías internas y externas</p>
+          <h1 className="text-3xl font-bold text-slate-100">Auditorías</h1>
+          <p className="text-slate-400">Gestión de auditorías internas y externas</p>
         </div>
         <div className="flex gap-2">
           <Link href="/crm/auditoria/programa">
@@ -71,7 +71,7 @@ export default function AuditoriaListaClient({ auditorias }: { auditorias: CrmAu
             </TableHeader>
             <TableBody>
               {filtered.map(a => (
-                <TableRow key={a._id} className="cursor-pointer hover:bg-gray-50">
+                <TableRow key={a._id} className="cursor-pointer hover:bg-slate-700/50">
                   <TableCell>
                     <Link href={`/crm/auditoria/${a._id}`} className="font-medium text-blue-600 hover:underline">
                       {a.codigo}
@@ -90,12 +90,12 @@ export default function AuditoriaListaClient({ auditorias }: { auditorias: CrmAu
                   <TableCell className="text-sm">{a.auditorLider}</TableCell>
                   <TableCell><StatusBadge status={a.estado} /></TableCell>
                   <TableCell>
-                    {a.resultado ? <StatusBadge status={a.resultado} /> : <span className="text-gray-400">-</span>}
+                    {a.resultado ? <StatusBadge status={a.resultado} /> : <span className="text-slate-500">-</span>}
                   </TableCell>
                 </TableRow>
               ))}
               {filtered.length === 0 && (
-                <TableRow><TableCell colSpan={8} className="text-center py-8 text-gray-500">No se encontraron auditorías</TableCell></TableRow>
+                <TableRow><TableCell colSpan={8} className="text-center py-8 text-slate-400">No se encontraron auditorías</TableCell></TableRow>
               )}
             </TableBody>
           </Table>
