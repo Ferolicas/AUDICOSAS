@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const PROTECTED_PREFIXES = ['/admin', '/api/clients', '/api/newsletters', '/api/processes']
+const PROTECTED_PREFIXES = ['/admin', '/api/clients', '/api/newsletters', '/api/processes', '/crm', '/api/crm']
 
 export function middleware(req: NextRequest){
   const { pathname } = req.nextUrl
@@ -44,6 +44,8 @@ export const config = {
     '/admin/:path*',
     '/api/clients/:path*',
     '/api/newsletters/:path*',
-    '/api/processes/:path*'
+    '/api/processes/:path*',
+    '/crm/:path*',
+    '/api/crm/:path*'
   ]
 }

@@ -1,0 +1,70 @@
+/* CRM shadcn/ui CSS Variables - Tailwind v3 compatible */
+.crm-root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 9%;
+  --primary: 240 6% 6%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 264 5% 95%;
+  --secondary-foreground: 240 6% 6%;
+  --muted: 260 5% 92%;
+  --muted-foreground: 260 4% 46%;
+  --accent: 225 6% 93%;
+  --accent-foreground: 240 6% 6%;
+  --destructive: 348 75% 46%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 0% / 0.1;
+  --input: 0 0% 0% / 0;
+  --input-background: 240 3% 95%;
+  --ring: 0 0% 50%;
+  --radius: 0.625rem;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --sidebar: 0 0% 97%;
+  --sidebar-foreground: 0 0% 9%;
+  --sidebar-primary: 240 6% 6%;
+  --sidebar-primary-foreground: 0 0% 97%;
+  --sidebar-accent: 0 0% 96%;
+  --sidebar-accent-foreground: 0 0% 14%;
+  --sidebar-border: 0 0% 89%;
+  --sidebar-ring: 0 0% 50%;
+}
+
+/* CRM base styles */
+.crm-root * {
+  border-color: hsl(var(--border));
+}
+
+/* Scrollbar styling */
+.crm-root ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.crm-root ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.crm-root ::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+.crm-root ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Print styles */
+@media print {
+  .crm-sidebar,
+  .crm-header {
+    display: none !important;
+  }
+  .crm-main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
