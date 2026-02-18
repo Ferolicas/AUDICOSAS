@@ -1,38 +1,94 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { jwtVerify } from 'jose'
 
-const PROTECTED_PREFIXES = ['/admin', '/api/clients', '/api/newsletters', '/api/processes', '/crm', '/api/crm']
+const JWT_SECRET = new TextEncoder().encode(
+  process.env.JWT_SECRET || 'audico-crm-secret-change-in-production'
+)
 
-export function middleware(req: NextRequest){
+const COOKIE_NAME = 'crm-session'
+
+// Auth pages that don't require session
+const AUTH_PAGES = ['/crm/login', '/crm/registro', '/crm/restablecer']
+
+// Legacy protected routes (landing admin + APIs)
+const LEGACY_PREFIXES = ['/admin', '/api/clients', '/api/newsletters', '/api/processes']
+
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
-  const method = req.method
 
-  const isProtected = PROTECTED_PREFIXES.some(p => pathname.startsWith(p))
+  // ── Legacy Basic Auth for admin/landing APIs ──
+  const isLegacy = LEGACY_PREFIXES.some(p => pathname.startsWith(p))
 
-  // Allow public registration endpoint
-  if(pathname === '/api/clients' && method === 'POST'){
-    return NextResponse.next()
-  }
-  // Allow public subscribers endpoint
-  if(pathname === '/api/subscribers' && method === 'POST'){
-    return NextResponse.next()
-  }
+  if (pathname === '/api/clients' && req.method === 'POST') return NextResponse.next()
+  if (pathname === '/api/subscribers' && req.method === 'POST') return NextResponse.next()
 
-  if(isProtected){
+  if (isLegacy) {
     const auth = req.headers.get('authorization')
     const user = process.env.BASIC_AUTH_USER
     const pass = process.env.BASIC_AUTH_PASS
-    if(!user || !pass){
-      return new NextResponse('Auth no configurada', { status: 500 })
-    }
-    if(!auth || !auth.startsWith('Basic ')){
+    if (!user || !pass) return new NextResponse('Auth no configurada', { status: 500 })
+    if (!auth || !auth.startsWith('Basic ')) {
       return new NextResponse('Auth requerida', { status: 401, headers: { 'WWW-Authenticate': 'Basic realm="Restricted"' } })
     }
-    const [, b64] = auth.split(' ')
-    const decoded = typeof atob === 'function' ? atob(b64) : Buffer.from(b64, 'base64').toString('utf8')
+    const decoded = Buffer.from(auth.split(' ')[1], 'base64').toString('utf8')
     const [u, p] = decoded.split(':')
-    if(u !== user || p !== pass){
+    if (u !== user || p !== pass) {
       return new NextResponse('Credenciales inválidas', { status: 401, headers: { 'WWW-Authenticate': 'Basic realm="Restricted"' } })
+    }
+    return NextResponse.next()
+  }
+
+  // ── CRM Auth routes (login, registro, restablecer) - allow if no session ──
+  const isAuthPage = AUTH_PAGES.some(p => pathname.startsWith(p))
+  const token = req.cookies.get(COOKIE_NAME)?.value
+
+  if (isAuthPage) {
+    // If already logged in, redirect to CRM dashboard
+    if (token) {
+      try {
+        await jwtVerify(token, JWT_SECRET)
+        return NextResponse.redirect(new URL('/crm', req.url))
+      } catch {
+        // Invalid token, let them access auth pages
+      }
+    }
+    return NextResponse.next()
+  }
+
+  // ── CRM protected routes + API routes ──
+  const isCrmPage = pathname.startsWith('/crm')
+  const isCrmApi = pathname.startsWith('/api/crm')
+
+  // Allow auth API routes without session
+  if (pathname.startsWith('/api/crm/auth')) {
+    return NextResponse.next()
+  }
+
+  if (isCrmPage || isCrmApi) {
+    if (!token) {
+      if (isCrmApi) {
+        return NextResponse.json({ error: 'No autenticado' }, { status: 401 })
+      }
+      return NextResponse.redirect(new URL('/crm/login', req.url))
+    }
+
+    try {
+      const { payload } = await jwtVerify(token, JWT_SECRET)
+      // Add user info to headers for API routes
+      const response = NextResponse.next()
+      response.headers.set('x-user-id', payload.userId as string)
+      response.headers.set('x-user-email', payload.email as string)
+      response.headers.set('x-user-rol', payload.rol as string)
+      return response
+    } catch {
+      // Invalid/expired token
+      if (isCrmApi) {
+        return NextResponse.json({ error: 'Sesión expirada' }, { status: 401 })
+      }
+      const response = NextResponse.redirect(new URL('/crm/login', req.url))
+      response.cookies.set(COOKIE_NAME, '', { path: '/', maxAge: 0 })
+      return response
     }
   }
 
@@ -46,6 +102,6 @@ export const config = {
     '/api/newsletters/:path*',
     '/api/processes/:path*',
     '/crm/:path*',
-    '/api/crm/:path*'
-  ]
+    '/api/crm/:path*',
+  ],
 }

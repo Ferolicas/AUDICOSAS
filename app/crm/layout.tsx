@@ -1,7 +1,6 @@
 import './crm.css'
-import { CrmShell } from '@/components/crm/layout/CrmShell'
-import { CrmDataProvider } from '@/components/crm/providers/SWRProvider'
 import { Toaster } from '@/components/crm/ui/sonner'
+import { CrmAppShell } from '@/components/crm/layout/CrmAppShell'
 
 export const metadata = {
   title: 'CRM | AUDICO ISO',
@@ -10,11 +9,9 @@ export const metadata = {
 
 export default function CrmLayout({ children }: { children: React.ReactNode }) {
   return (
-    <CrmDataProvider>
-      <CrmShell>
-        {children}
-        <Toaster />
-      </CrmShell>
-    </CrmDataProvider>
+    <CrmAppShell>
+      {children}
+      <Toaster />
+    </CrmAppShell>
   )
 }

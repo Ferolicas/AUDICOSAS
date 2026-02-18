@@ -12,9 +12,10 @@ import crmAuditoria from './types/crm/crmAuditoria'
 import crmConsultoria from './types/crm/crmConsultoria'
 import crmCapacitacion from './types/crm/crmCapacitacion'
 import crmDesarrollo from './types/crm/crmDesarrollo'
+import crmUsuario from './types/crm/crmUsuario'
 
 export default [
   client, process, newsletter, subscriber, service, company, testimonial,
   crmCliente, crmDiagnostico, crmCertificacion, crmAuditoria,
-  crmConsultoria, crmCapacitacion, crmDesarrollo,
+  crmConsultoria, crmCapacitacion, crmDesarrollo, crmUsuario,
 ]

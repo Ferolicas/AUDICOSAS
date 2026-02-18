@@ -6,7 +6,9 @@ import {
   Bell,
   Calendar,
   ChevronDown,
+  LogOut,
   Menu,
+  User,
   X,
 } from "lucide-react"
 import { Button } from "@/components/crm/ui/button"
@@ -21,13 +23,25 @@ import {
   DropdownMenuTrigger,
 } from "@/components/crm/ui/dropdown-menu"
 import { Badge } from "@/components/crm/ui/badge"
+import { useAuth } from "@/components/crm/providers/AuthProvider"
 
 interface CrmHeaderProps {
   sidebarOpen: boolean
   onToggleSidebar: () => void
 }
 
+function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .map(w => w[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase()
+}
+
 export function CrmHeader({ sidebarOpen, onToggleSidebar }: CrmHeaderProps) {
+  const { user, logout } = useAuth()
+
   return (
     <header className="h-16 border-b bg-white flex items-center justify-between px-6 sticky top-0 z-50 crm-header">
       <div className="flex items-center gap-4">
@@ -73,19 +87,31 @@ export function CrmHeader({ sidebarOpen, onToggleSidebar }: CrmHeaderProps) {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center gap-2">
               <Avatar className="w-8 h-8">
-                <AvatarFallback>JP</AvatarFallback>
+                <AvatarFallback>
+                  {user ? getInitials(user.nombre) : <User className="w-4 h-4" />}
+                </AvatarFallback>
               </Avatar>
-              <span className="hidden md:inline">Juan Pérez</span>
+              <span className="hidden md:inline">{user?.nombre || "..."}</span>
               <ChevronDown className="w-4 h-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
+            <DropdownMenuLabel>
+              <div className="flex flex-col">
+                <span>{user?.nombre}</span>
+                <span className="text-xs font-normal text-muted-foreground">{user?.email}</span>
+              </div>
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Mi perfil</DropdownMenuItem>
-            <DropdownMenuItem>Configuración</DropdownMenuItem>
+            <DropdownMenuItem className="text-xs text-muted-foreground cursor-default">
+              Rol: {user?.rol || "—"}
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-red-600">
+            <DropdownMenuItem
+              className="text-red-600 cursor-pointer"
+              onClick={() => logout()}
+            >
+              <LogOut className="w-4 h-4 mr-2" />
               Cerrar sesión
             </DropdownMenuItem>
           </DropdownMenuContent>
