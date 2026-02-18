@@ -51,12 +51,12 @@ export default function LoginPage() {
         <div className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 p-8">
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">
-            <div className="w-20 h-20 mb-4">
+            <div className="w-60 h-60 mb-4">
               <Image
                 src="/logoaudico.png"
                 alt="AUDICO ISO"
-                width={80}
-                height={80}
+                width={240}
+                height={240}
                 className="object-contain"
                 priority
               />
