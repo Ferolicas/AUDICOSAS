@@ -7,13 +7,13 @@ export const clienteSchema = z.object({
   sector: z.string().min(1, 'Sector requerido'),
   tamano: z.enum(['Micro', 'Pequeña', 'Mediana', 'Grande']),
   numEmpleados: z.number().int().positive(),
-  telefono: z.string().min(1),
+  telefono: z.string().optional().default(''),
   email: z.string().email('Email inválido'),
-  direccion: z.string().min(1),
-  ciudad: z.string().min(1),
-  pais: z.string().min(1).default('Colombia'),
+  direccion: z.string().optional().default(''),
+  ciudad: z.string().optional().default(''),
+  pais: z.string().optional().default('Colombia'),
   estado: z.enum(['Prospecto', 'Activo', 'Inactivo', 'Ex-cliente']).default('Prospecto'),
-  consultorAsignado: z.string().min(1),
+  consultorAsignado: z.string().min(1, 'Consultor asignado requerido'),
 })
 
 export const diagnosticoSchema = z.object({

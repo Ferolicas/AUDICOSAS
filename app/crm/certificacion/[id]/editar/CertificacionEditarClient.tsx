@@ -25,7 +25,7 @@ export default function CertificacionEditarClient({ certificacion: c }: { certif
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(certificacionSchema),
     defaultValues: {
-      clienteId: c.cliente?._ref || '',
+      clienteId: c.cliente?._id || '',
       clienteNombre: c.clienteNombre,
       normas: c.normas || [],
       faseActual: c.faseActual,
@@ -57,7 +57,7 @@ export default function CertificacionEditarClient({ certificacion: c }: { certif
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...rest, cliente: { _type: 'reference', _ref: clienteId } }),
       })
-      if (!res.ok) throw new Error('Error al actualizar')
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || 'Error al actualizar') }
       toast.success('Certificación actualizada')
       router.push(`/crm/certificacion/${c._id}`)
     } catch (err) { toast.error(err instanceof Error ? err.message : 'Error') }

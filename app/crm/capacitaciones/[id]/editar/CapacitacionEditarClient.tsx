@@ -26,7 +26,7 @@ export default function CapacitacionEditarClient({ capacitacion: c }: { capacita
     defaultValues: {
       cursoNombre: c.cursoNombre,
       tipo: c.tipo,
-      clienteId: c.cliente?._ref || '',
+      clienteId: c.cliente?._id || '',
       clienteNombre: c.clienteNombre,
       instructor: c.instructor,
       fecha: c.fecha,
@@ -48,7 +48,7 @@ export default function CapacitacionEditarClient({ capacitacion: c }: { capacita
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...rest, cliente: { _type: 'reference', _ref: clienteId } }),
       })
-      if (!res.ok) throw new Error('Error al actualizar')
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || 'Error al actualizar') }
       toast.success('Capacitación actualizada')
       router.push(`/crm/capacitaciones/${c._id}`)
     } catch (err) { toast.error(err instanceof Error ? err.message : 'Error') }

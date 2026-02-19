@@ -33,6 +33,7 @@ export default defineType({
       name: 'certificaciones', title: 'Certificaciones', type: 'array',
       of: [{
         type: 'object',
+        name: 'certificacionCliente',
         fields: [
           defineField({ name: 'norma', title: 'Norma', type: 'string' }),
           defineField({ name: 'organismo', title: 'Organismo', type: 'string' }),

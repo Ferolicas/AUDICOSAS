@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect, useCallback } from "react"
+import { usePathname } from "next/navigation"
 import Image from "next/image"
 
 interface CrmData {
@@ -14,13 +15,17 @@ interface CrmData {
   stats: unknown | null
 }
 
+interface CrmDataContextValue extends CrmData {
+  refresh: () => void
+}
+
 const EMPTY: CrmData = {
   clientes: [], diagnosticos: [], certificaciones: [],
   auditorias: [], consultorias: [], capacitaciones: [],
   desarrollo: [], stats: null,
 }
 
-const CrmDataContext = createContext<CrmData>(EMPTY)
+const CrmDataContext = createContext<CrmDataContextValue>({ ...EMPTY, refresh: () => {} })
 
 export function useCrmData() {
   return useContext(CrmDataContext)
@@ -62,8 +67,9 @@ function LoadingScreen() {
 
 export function CrmDataProvider({ children }: { children: React.ReactNode }) {
   const [data, setData] = useState<CrmData | null>(null)
+  const pathname = usePathname()
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
     fetch('/api/crm/all')
       .then(r => r.json())
       .then(d => setData({
@@ -79,10 +85,36 @@ export function CrmDataProvider({ children }: { children: React.ReactNode }) {
       .catch(() => setData(EMPTY))
   }, [])
 
+  // Fetch inicial
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
+  // Refrescar datos cuando la ruta cambia a una página de listado
+  // (después de crear/editar/eliminar y navegar de vuelta)
+  useEffect(() => {
+    if (!data) return // no refrescar durante la carga inicial
+
+    const isListPage = pathname && (
+      pathname === '/crm' ||
+      pathname === '/crm/clientes' ||
+      pathname === '/crm/diagnosticos' ||
+      pathname === '/crm/certificaciones' ||
+      pathname === '/crm/auditorias' ||
+      pathname === '/crm/consultorias' ||
+      pathname === '/crm/capacitaciones' ||
+      pathname === '/crm/desarrollo'
+    )
+
+    if (isListPage) {
+      fetchData()
+    }
+  }, [pathname, fetchData]) // eslint-disable-line react-hooks/exhaustive-deps
+
   if (!data) return <LoadingScreen />
 
   return (
-    <CrmDataContext.Provider value={data}>
+    <CrmDataContext.Provider value={{ ...data, refresh: fetchData }}>
       {children}
     </CrmDataContext.Provider>
   )

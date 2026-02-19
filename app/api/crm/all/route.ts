@@ -1,5 +1,6 @@
 import { sanityRead } from '@/lib/sanity.server'
 import { jsonOk } from '@/lib/crm/api-helpers'
+import { getAllCache, setAllCache } from '@/lib/crm/cache'
 import groq from 'groq'
 
 // Una sola query GROQ que trae TODOS los datos del CRM
@@ -66,17 +67,11 @@ const ALL_CRM_QUERY = groq`{
   }
 }`
 
-// Cache en memoria - 30 minutos
-let cache: { data: unknown; timestamp: number } | null = null
-const CACHE_TTL = 30 * 60 * 1000
-
 export async function GET() {
-  const now = Date.now()
-  if (cache && (now - cache.timestamp) < CACHE_TTL) {
-    return jsonOk(cache.data)
-  }
+  const cached = getAllCache()
+  if (cached) return jsonOk(cached)
 
   const data = await sanityRead().fetch(ALL_CRM_QUERY)
-  cache = { data, timestamp: now }
+  setAllCache(data)
   return jsonOk(data)
 }

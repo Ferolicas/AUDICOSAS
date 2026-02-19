@@ -9,6 +9,7 @@ import { Progress } from "@/components/crm/ui/progress"
 import { Separator } from "@/components/crm/ui/separator"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/crm/ui/table"
 import { StatusBadge } from "@/components/crm/shared/StatusBadge"
+import { DeleteButton } from "@/components/crm/shared/DeleteButton"
 import type { CrmDiagnostico } from "@/lib/crm/types"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
@@ -40,6 +41,7 @@ export default function DiagnosticoDetalleClient({ diagnostico: d }: { diagnosti
               <Button><FileText className="w-4 h-4 mr-2" />Convertir a Certificación</Button>
             </Link>
           )}
+          <DeleteButton id={d._id} apiPath="/api/crm/diagnosticos" entityName="Diagnóstico" redirectPath="/crm/diagnostico" />
         </div>
       </div>
 

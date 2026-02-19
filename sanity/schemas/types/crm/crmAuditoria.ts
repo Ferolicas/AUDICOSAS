@@ -37,6 +37,7 @@ export default defineType({
       name: 'hallazgos', title: 'Hallazgos', type: 'array',
       of: [{
         type: 'object',
+        name: 'hallazgoAuditoria',
         fields: [
           defineField({ name: 'tipo', title: 'Tipo', type: 'string', options: { list: ['NC Mayor', 'NC Menor', 'Observación', 'Oportunidad de mejora'] } }),
           defineField({ name: 'clausula', title: 'Cláusula', type: 'string' }),
@@ -49,6 +50,7 @@ export default defineType({
       name: 'accionesCorrectivas', title: 'Acciones Correctivas', type: 'array',
       of: [{
         type: 'object',
+        name: 'accionCorrectiva',
         fields: [
           defineField({ name: 'hallazgoRef', title: 'Referencia Hallazgo', type: 'string' }),
           defineField({ name: 'descripcion', title: 'Descripción', type: 'text' }),

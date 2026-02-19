@@ -45,7 +45,7 @@ export default function ClienteEditarClient({ cliente }: { cliente: CrmCliente }
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-      if (!res.ok) throw new Error('Error al actualizar')
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || 'Error al actualizar') }
       toast.success('Cliente actualizado')
       router.push(`/crm/clientes/${cliente._id}`)
     } catch (err) {

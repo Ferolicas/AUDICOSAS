@@ -1,12 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import { Plus } from "lucide-react"
+import { Plus, Pencil, Trash2 } from "lucide-react"
 import { Card, CardContent } from "@/components/crm/ui/card"
 import { Button } from "@/components/crm/ui/button"
 import { Badge } from "@/components/crm/ui/badge"
 import { Progress } from "@/components/crm/ui/progress"
 import { PriorityIndicator } from "@/components/crm/shared/PriorityIndicator"
+import { DeleteButton } from "@/components/crm/shared/DeleteButton"
 import type { CrmDesarrollo } from "@/lib/crm/types"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
@@ -42,7 +43,7 @@ export default function DesarrolloKanbanClient({ proyectos }: { proyectos: CrmDe
               </div>
               <div className="bg-slate-700 rounded-b-lg p-3 space-y-3 min-h-[200px]">
                 {items.map(p => (
-                  <Card key={p._id} className="hover:shadow-md transition-shadow cursor-pointer">
+                  <Card key={p._id} className="hover:shadow-md transition-shadow">
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between mb-2">
                         <h4 className="font-semibold text-sm text-slate-100 flex-1">{p.nombre}</h4>
@@ -59,6 +60,14 @@ export default function DesarrolloKanbanClient({ proyectos }: { proyectos: CrmDe
                       <div className="flex justify-between mt-2 text-xs text-slate-400">
                         <span>{p.responsable}</span>
                         <span>{p.fechaLimite ? format(new Date(p.fechaLimite), 'dd MMM', { locale: es }) : ''}</span>
+                      </div>
+                      <div className="flex gap-2 mt-3 pt-3 border-t border-slate-600">
+                        <Link href={`/crm/desarrollo/${p._id}/editar`} className="flex-1">
+                          <Button variant="outline" size="sm" className="w-full text-xs">
+                            <Pencil className="w-3 h-3 mr-1" />Editar
+                          </Button>
+                        </Link>
+                        <DeleteButton id={p._id} apiPath="/api/crm/desarrollo" entityName="Proyecto" redirectPath="/crm/desarrollo" />
                       </div>
                     </CardContent>
                   </Card>

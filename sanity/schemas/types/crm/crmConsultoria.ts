@@ -32,6 +32,7 @@ export default defineType({
       name: 'sesiones', title: 'Sesiones', type: 'array',
       of: [{
         type: 'object',
+        name: 'sesionConsultoria',
         fields: [
           defineField({ name: 'fecha', title: 'Fecha', type: 'datetime' }),
           defineField({ name: 'duracionHoras', title: 'Duración (horas)', type: 'number' }),
@@ -44,6 +45,7 @@ export default defineType({
       name: 'entregables', title: 'Entregables', type: 'array',
       of: [{
         type: 'object',
+        name: 'entregableConsultoria',
         fields: [
           defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
           defineField({ name: 'fechaEntrega', title: 'Fecha Entrega', type: 'date' }),

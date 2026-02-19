@@ -31,6 +31,7 @@ export default defineType({
       name: 'participantes', title: 'Participantes', type: 'array',
       of: [{
         type: 'object',
+        name: 'participanteCapacitacion',
         fields: [
           defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
           defineField({ name: 'cargo', title: 'Cargo', type: 'string' }),

@@ -31,6 +31,7 @@ export default defineType({
       name: 'tareas', title: 'Tareas', type: 'array',
       of: [{
         type: 'object',
+        name: 'tareaDesarrollo',
         fields: [
           defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
           defineField({ name: 'responsable', title: 'Responsable', type: 'string' }),

@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/crm/ui/button"
 import { Separator } from "@/components/crm/ui/separator"
 import { StatusBadge } from "@/components/crm/shared/StatusBadge"
+import { DeleteButton } from "@/components/crm/shared/DeleteButton"
 import type { CrmCliente } from "@/lib/crm/types"
 
 interface Props {
@@ -52,12 +53,15 @@ export default function ClienteDetalleClient({ cliente }: Props) {
             Volver al directorio
           </Button>
         </Link>
-        <Link href={`/crm/clientes/${cliente._id}/editar`}>
-          <Button variant="outline">
-            <Pencil className="w-4 h-4" />
-            Editar Cliente
-          </Button>
-        </Link>
+        <div className="flex gap-2">
+          <Link href={`/crm/clientes/${cliente._id}/editar`}>
+            <Button variant="outline">
+              <Pencil className="w-4 h-4" />
+              Editar Cliente
+            </Button>
+          </Link>
+          <DeleteButton id={cliente._id} apiPath="/api/crm/clientes" entityName="Cliente" redirectPath="/crm/clientes" />
+        </div>
       </div>
 
       {/* Header */}

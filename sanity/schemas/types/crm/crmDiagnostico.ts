@@ -32,6 +32,7 @@ export default defineType({
       name: 'cotizacion', title: 'Cotización', type: 'array',
       of: [{
         type: 'object',
+        name: 'itemCotizacion',
         fields: [
           defineField({ name: 'concepto', title: 'Concepto', type: 'string' }),
           defineField({ name: 'valor', title: 'Valor', type: 'number' }),

@@ -9,6 +9,7 @@ import { Progress } from "@/components/crm/ui/progress"
 import { Separator } from "@/components/crm/ui/separator"
 import { StatusBadge } from "@/components/crm/shared/StatusBadge"
 import { PriorityIndicator } from "@/components/crm/shared/PriorityIndicator"
+import { DeleteButton } from "@/components/crm/shared/DeleteButton"
 import type { CrmCertificacion } from "@/lib/crm/types"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
@@ -39,6 +40,7 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
           <Link href={`/crm/certificacion/${c._id}/editar`}>
             <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
           </Link>
+          <DeleteButton id={c._id} apiPath="/api/crm/certificaciones" entityName="Certificación" redirectPath="/crm/certificacion" />
         </div>
       </div>
 

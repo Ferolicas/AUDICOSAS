@@ -26,7 +26,7 @@ export default function AuditoriaEditarClient({ auditoria: a }: { auditoria: Crm
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(auditoriaSchema),
     defaultValues: {
-      clienteId: a.cliente?._ref || '',
+      clienteId: a.cliente?._id || '',
       clienteNombre: a.clienteNombre,
       tipo: a.tipo,
       normas: a.normas || [],
@@ -58,7 +58,7 @@ export default function AuditoriaEditarClient({ auditoria: a }: { auditoria: Crm
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...rest, cliente: { _type: 'reference', _ref: clienteId } }),
       })
-      if (!res.ok) throw new Error('Error al actualizar')
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || 'Error al actualizar') }
       toast.success('Auditoría actualizada')
       router.push(`/crm/auditoria/${a._id}`)
     } catch (err) { toast.error(err instanceof Error ? err.message : 'Error') }

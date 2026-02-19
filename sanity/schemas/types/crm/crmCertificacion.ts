@@ -34,6 +34,7 @@ export default defineType({
       name: 'fases', title: 'Fases', type: 'array',
       of: [{
         type: 'object',
+        name: 'faseCertificacion',
         fields: [
           defineField({ name: 'numero', title: 'Número', type: 'number' }),
           defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
@@ -42,6 +43,7 @@ export default defineType({
             name: 'tareas', title: 'Tareas', type: 'array',
             of: [{
               type: 'object',
+              name: 'tareaCertificacion',
               fields: [
                 defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
                 defineField({ name: 'completada', title: 'Completada', type: 'boolean', initialValue: false }),
@@ -52,6 +54,7 @@ export default defineType({
             name: 'entregables', title: 'Entregables', type: 'array',
             of: [{
               type: 'object',
+              name: 'entregableCertificacion',
               fields: [
                 defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
                 defineField({ name: 'completado', title: 'Completado', type: 'boolean', initialValue: false }),

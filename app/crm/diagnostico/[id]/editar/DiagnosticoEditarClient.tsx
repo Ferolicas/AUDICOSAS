@@ -26,7 +26,7 @@ export default function DiagnosticoEditarClient({ diagnostico: d }: { diagnostic
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(diagnosticoSchema),
     defaultValues: {
-      clienteId: d.cliente?._ref || '',
+      clienteId: d.cliente?._id || '',
       clienteNombre: d.clienteNombre,
       normas: d.normas || [],
       estado: d.estado,
@@ -57,7 +57,7 @@ export default function DiagnosticoEditarClient({ diagnostico: d }: { diagnostic
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...rest, cliente: { _type: 'reference', _ref: clienteId } }),
       })
-      if (!res.ok) throw new Error('Error al actualizar')
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || 'Error al actualizar') }
       toast.success('Diagnóstico actualizado')
       router.push(`/crm/diagnostico/${d._id}`)
     } catch (err) { toast.error(err instanceof Error ? err.message : 'Error') }

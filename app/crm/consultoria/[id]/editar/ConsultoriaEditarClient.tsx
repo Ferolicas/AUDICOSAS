@@ -26,7 +26,7 @@ export default function ConsultoriaEditarClient({ consultoria: c }: { consultori
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(consultoriaSchema),
     defaultValues: {
-      clienteId: c.cliente?._ref || '',
+      clienteId: c.cliente?._id || '',
       clienteNombre: c.clienteNombre,
       tipo: c.tipo,
       normas: c.normas || [],
@@ -56,7 +56,7 @@ export default function ConsultoriaEditarClient({ consultoria: c }: { consultori
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...rest, cliente: { _type: 'reference', _ref: clienteId } }),
       })
-      if (!res.ok) throw new Error('Error al actualizar')
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || 'Error al actualizar') }
       toast.success('Consultoría actualizada')
       router.push(`/crm/consultoria/${c._id}`)
     } catch (err) { toast.error(err instanceof Error ? err.message : 'Error') }

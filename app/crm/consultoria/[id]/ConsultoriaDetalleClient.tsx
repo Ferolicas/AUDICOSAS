@@ -8,6 +8,7 @@ import { Badge } from "@/components/crm/ui/badge"
 import { Progress } from "@/components/crm/ui/progress"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/crm/ui/table"
 import { StatusBadge } from "@/components/crm/shared/StatusBadge"
+import { DeleteButton } from "@/components/crm/shared/DeleteButton"
 import type { CrmConsultoria } from "@/lib/crm/types"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
@@ -30,9 +31,12 @@ export default function ConsultoriaDetalleClient({ consultoria: c }: { consultor
           </div>
           <p className="text-slate-400">{c.codigo} · {c.tipo}</p>
         </div>
-        <Link href={`/crm/consultoria/${c._id}/editar`}>
-          <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
-        </Link>
+        <div className="flex gap-2">
+          <Link href={`/crm/consultoria/${c._id}/editar`}>
+            <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
+          </Link>
+          <DeleteButton id={c._id} apiPath="/api/crm/consultorias" entityName="Consultoría" redirectPath="/crm/consultoria" />
+        </div>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

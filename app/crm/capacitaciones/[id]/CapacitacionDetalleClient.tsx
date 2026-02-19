@@ -7,6 +7,7 @@ import { Button } from "@/components/crm/ui/button"
 import { Badge } from "@/components/crm/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/crm/ui/table"
 import { StatusBadge } from "@/components/crm/shared/StatusBadge"
+import { DeleteButton } from "@/components/crm/shared/DeleteButton"
 import type { CrmCapacitacion } from "@/lib/crm/types"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
@@ -25,9 +26,12 @@ export default function CapacitacionDetalleClient({ capacitacion: c }: { capacit
           </div>
           <p className="text-slate-400">{c.codigo} · {c.clienteNombre}</p>
         </div>
-        <Link href={`/crm/capacitaciones/${c._id}/editar`}>
-          <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
-        </Link>
+        <div className="flex gap-2">
+          <Link href={`/crm/capacitaciones/${c._id}/editar`}>
+            <Button variant="outline"><Pencil className="w-4 h-4 mr-2" />Editar</Button>
+          </Link>
+          <DeleteButton id={c._id} apiPath="/api/crm/capacitaciones" entityName="Capacitación" redirectPath="/crm/capacitaciones" />
+        </div>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
