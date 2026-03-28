@@ -523,9 +523,6 @@ export default function NuevoDiagnosticoPage() {
             </div>
           </div>
 
-          {/* Hidden investment field - auto-populated */}
-          <input type="hidden" {...register('inversionEstimada', { valueAsNumber: true })} value={precioCalculado > 0 ? precioCalculado : undefined} />
-
           <div className="md:col-span-2">
             <Label>Resumen Ejecutivo</Label>
             <Textarea {...register('resumenEjecutivo')} rows={4} />
