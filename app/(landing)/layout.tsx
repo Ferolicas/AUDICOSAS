@@ -1,12 +1,14 @@
 import { ModalProvider } from '@/components/ModalContext'
 import RegisterModal from '@/components/RegisterModal'
 import Header from '@/components/Header'
+import FloatingButtons from '@/components/FloatingButtons'
 
 export default function LandingLayout({ children }: { children: React.ReactNode }) {
   return (
     <ModalProvider>
       <Header />
       <main className="pt-[60px]">{children}</main>
+      <FloatingButtons />
       <footer style={{ background: '#0F1B33' }}>
         <div className="mx-auto max-w-7xl px-4 py-10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -17,6 +19,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
               <a href="mailto:contacto@audicoiso.com" className="hover:text-white transition-colors">contacto@audicoiso.com</a>
               <a href="tel:+573161374657" className="hover:text-white transition-colors">+57 316 137 4657</a>
               <a href="https://wa.me/573161374657" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">WhatsApp</a>
+              <a href="/portal/login" className="hover:text-blue-400 transition-colors">Portal Clientes</a>
             </div>
           </div>
         </div>

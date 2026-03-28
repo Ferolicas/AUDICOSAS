@@ -11,6 +11,7 @@ const NAV_LINKS: { href: string; label: string; external?: boolean }[] = [
   { href: '#faq', label: 'FAQ' },
   { href: '#contacto', label: 'Contacto' },
   { href: 'https://www.olcagroup.org/', label: 'Web + SEO', external: true },
+  { href: '/portal/login', label: 'Acceso Clientes', external: false },
 ]
 
 export default function Header() {
@@ -33,7 +34,18 @@ export default function Header() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  function handleNavClick() {
+  function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    const href = e.currentTarget.getAttribute('href')
+    if (href && href.startsWith('#')) {
+      e.preventDefault()
+      const target = document.getElementById(href.slice(1))
+      if (target) {
+        const headerOffset = 72
+        const top = target.getBoundingClientRect().top + window.scrollY - headerOffset
+        window.scrollTo({ top, behavior: 'smooth' })
+      }
+    }
+    // Non-hash links (like /portal/login) navigate normally
     setMobileOpen(false)
   }
 
@@ -46,7 +58,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-        <a href="#inicio" onClick={handleNavClick}>
+        <a href="#inicio" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileOpen(false) }}>
           <Image src="/logoaudico.png" alt="AUDICO S.A.S." width={160} height={43} priority />
         </a>
 
@@ -56,7 +68,7 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
-              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : link.href.startsWith('#') ? { onClick: handleNavClick } : {})}
               className="px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/10"
             >
               {link.label}
@@ -96,7 +108,7 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                onClick={handleNavClick}
+                {...(link.href.startsWith('#') ? { onClick: handleNavClick } : { onClick: () => setMobileOpen(false) })}
                 {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="px-4 py-3 text-slate-200 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
               >

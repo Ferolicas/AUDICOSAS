@@ -45,28 +45,34 @@ const PHASES = [
     deliverables: ['Reporte detallado de situación actual', 'Plan de acción personalizado', 'Cotización transparente', 'Respuestas a todas tus dudas'],
   },
   {
-    num: 2, title: 'Diseño a Tu Medida', duration: '3-4 semanas', investment: null,
+    num: 2, title: 'Planificación del sistema', duration: '3-4 semanas', investment: null,
     icon: 'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z',
     tasks: ['Diseñamos procedimientos adaptados a tu realidad', 'Creamos documentación que tu equipo entienda', 'Aprovechamos lo que ya funciona bien', 'Definimos indicadores relevantes'],
-    deliverables: ['Manual de calidad personalizado', 'Procedimientos operativos claros', 'Formatos prácticos y usables', 'Mapa de procesos de tu empresa'],
+    deliverables: ['Sistema de gestión personalizado', 'Procedimientos operativos claros', 'Formatos prácticos y usables', 'Mapa de procesos de tu empresa'],
   },
   {
-    num: 3, title: 'Implementación Acompañada', duration: '3-5 meses', investment: null,
+    num: 3, title: 'Diseño', duration: '3-5 meses', investment: null,
     icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
     tasks: ['Capacitamos a tu equipo completo', 'Implementamos sistemas paso a paso', 'Trabajamos codo a codo contigo', 'Medimos avances semanalmente'],
     deliverables: ['Equipo capacitado y comprometido', 'Sistemas funcionando en operación real', 'Indicadores siendo monitoreados', 'Cultura de mejora continua iniciada'],
   },
   {
-    num: 4, title: 'Preparación para Auditoría', duration: '2-4 semanas', investment: null,
+    num: 4, title: 'Implementación', duration: '2-4 semanas', investment: null,
     icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
     tasks: ['Auditoría interna simulada', 'Identificamos áreas de mejora', 'Corregimos no conformidades', 'Preparamos a tu equipo para auditoría externa'],
     deliverables: ['Tu empresa 100% lista', 'Equipo confiado y preparado', 'Documentación completa y ordenada', 'Cero sorpresas en auditoría'],
   },
   {
-    num: 5, title: 'Certificación y Mejora Continua', duration: 'Permanente', investment: null,
+    num: 5, title: 'Verificación', duration: 'Permanente', investment: null,
     icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2',
     tasks: ['Acompañamos en auditoría de certificación', 'Soporte post-certificación incluido', 'Asesoría para mantener sistemas', 'Preparación para auditorías de seguimiento'],
     deliverables: ['Certificado ISO oficial', 'Sistema que sigue generando valor', 'Soporte cuando lo necesites', 'Evolución continua de tu empresa'],
+  },
+  {
+    num: 6, title: 'Certificación', duration: 'Permanente', investment: null,
+    icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2',
+    tasks: ['Acompañamos en auditoría de certificación', 'Soporte post-certificación incluido - Primeros 15 días'],
+    deliverables: ['Certificado ISO oficial', 'Sistema que sigue generando valor', 'Evolución continua de tu empresa'],
   },
 ]
 
@@ -135,7 +141,7 @@ const FAQ_ITEMS = [
     question: '¿Cuánto cuesta realmente certificarse en ISO?',
     answer: (
       <div className="space-y-3">
-        <p>La inversión típica por norma incluye consultoría + certificación externa y varía según el tamaño y complejidad de tu empresa:</p>
+        <p>La inversión típica por norma incluye consultoría + acompañamiento a la auditoría de certificación, el valor varía según el tamaño y complejidad de tu empresa:</p>
         <ul className="space-y-1">
           <li><strong>Microempresa (1-10 empleados):</strong> COP $8.000.000 - $15.000.000</li>
           <li><strong>Pequeña empresa (11-50 empleados):</strong> COP $15.000.000 - $28.000.000</li>
@@ -150,26 +156,10 @@ const FAQ_ITEMS = [
     ),
   },
   {
-    question: '¿Cuánto tiempo toma todo el proceso?',
-    answer: (
-      <div className="space-y-2">
-        <p>Con nuestra metodología estructurada: <strong>6-9 meses</strong> desde inicio hasta certificado en mano.</p>
-        <ul className="space-y-1">
-          <li>Diagnóstico: 1 semana</li>
-          <li>Diseño de sistemas: 3-4 semanas</li>
-          <li>Implementación: 3-5 meses</li>
-          <li>Preparación auditoría: 2-4 semanas</li>
-          <li>Auditoría de certificación: 2-3 días</li>
-        </ul>
-        <p>Lo importante: <strong>NO tienes que paralizar tu operación</strong>. Todo se hace de forma paralela a tu negocio diario.</p>
-      </div>
-    ),
-  },
-  {
     question: '¿Es muy complicado? Requiere mucho papeleo?',
     answer: (
       <div className="space-y-3">
-        <p>Este es el <strong>mito #1</strong> que le cuesta más dinero a las empresas. La realidad: ISO te pide documentar SOLO lo esencial.</p>
+        <p>Este es el <strong>mito #1</strong> que le cuesta más dinero a las empresas. La realidad es que la norma ISO te pide documentar SOLO lo esencial.</p>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="font-semibold text-red-600 mb-1">NO necesitas:</p>
@@ -188,7 +178,7 @@ const FAQ_ITEMS = [
     question: '¿Mi empresa es muy pequeña para certificarse?',
     answer: (
       <div className="space-y-3">
-        <p>Tamaño NO es el factor decisivo. El factor es: <strong>tu mercado objetivo valora o exige certificación?</strong></p>
+        <p>Tamaño NO es el factor decisivo. <strong>Lo determinante es la visión de tu organización y los mercados en donde desees incursionar; </strong> para ello es importante investigar si ellos valoran o exigen certificación en normas ISO.</p>
         <p>Probablemente SI tiene sentido si: vendes o quieres vender a gobierno/corporaciones, buscas profesionalizar para crecer, o has perdido contratos por falta de certificación.</p>
         <p>Hemos certificado empresas desde <strong>8 hasta 300 empleados</strong> éxitosamente.</p>
       </div>
@@ -199,7 +189,7 @@ const FAQ_ITEMS = [
     answer: (
       <div className="space-y-2">
         <p>Con nuestra metodología es extremadamente raro que no obtengas la certificación en la primera auditoría.</p>
-        <p>Pero si hipotéticamente no se obtiene: los auditores dan un plazo para corregir observaciones y <strong>nosotros seguimos trabajando contigo SIN COSTO ADICIONAL</strong> hasta que obtengas el certificado. Esto está incluido en nuestra garantía.</p>
+        <p>Pero si hipotéticamente no se obtiene la certificación, los auditores dan un plazo para corregir observaciones  y <strong>nosotros seguimos trabajando contigo SIN COSTO ADICIONAL</strong> hasta que obtengas el certificado. Esto está incluido en nuestra garantía.</p>
       </div>
     ),
   },
@@ -224,7 +214,7 @@ const FAQ_ITEMS = [
           <li><strong>Año 2-3:</strong> Auditorías de seguimiento (verifican que mantienes el sistema)</li>
           <li><strong>Año 4:</strong> Auditoría de recertificación (renuevas por 3 años más)</li>
         </ul>
-        <p>Mantener el certificado es <strong>más fácil que obtenerlo inicialmente</strong>. Incluimos preparación para tu primera auditoría de seguimiento.</p>
+        <p>Mantener el certificado es <strong>más fácil que obtenerlo inicialmente</strong>. Te ofrecemos el servicio de preparación para tu primera auditoría de seguimiento.</p>
       </div>
     ),
   },
@@ -232,7 +222,7 @@ const FAQ_ITEMS = [
     question: '¿Puedo certificarme sin consultoría externa?',
     answer: (
       <div className="space-y-2">
-        <p>Técnicamente sí, pero <strong>NO lo recomendamos</strong>. Sin consultor: tardarás 2 a 3 veces más tiempo (18-24 meses), alta probabilidad de fallar en auditoría (80%+), e invertirás tiempo valioso que deberías dedicar a tu negocio.</p>
+        <p>Técnicamente sí, pero <strong>NO es recomendable</strong>. Sin consultor: tardarás 2 a 3 veces más tiempo (18-24 meses), alta probabilidad de fallar en auditoría (80%+) y un poco más, e invertirás tiempo valioso que deberías dedicar a tu negocio.</p>
         <p>Con consultoría profesional: experiencia de decenas de certificaciones exitosas, sistemas optimizados desde el inicio, y preparación garantizada.</p>
       </div>
     ),
@@ -241,7 +231,7 @@ const FAQ_ITEMS = [
     question: '¿Qué sectores o industrias pueden certificarse?',
     answer: (
       <div className="space-y-2">
-        <p><strong>TODOS.</strong> Las normas ISO son aplicables a cualquier tipo de organización: manufactura, servicios, comercio, construcción, salud, educación, transporte, agricultura, hotelería y más.</p>
+        <p><strong>TODOS.</strong>Las normas ISO son aplicables a cualquier tipo de organización: manufactura, servicios, comercio, construcción, salud, educación, transporte, agricultura, hotelería y más.</p>
         <p>Las normas son genéricas intencionalmente. Se enfocan en <strong>CÓMO gestionas tu organización</strong>, no en QUE produces o vendes. Si tu empresa tiene clientes, procesos, empleados y productos o servicios — puede certificarse.</p>
       </div>
     ),
@@ -250,9 +240,8 @@ const FAQ_ITEMS = [
     question: '¿Mis empleados tendrán que hacer trabajo extra?',
     answer: (
       <div className="space-y-2">
-        <p><strong>Ocasionalmente, durante la implementación (3-5 meses):</strong> SI, habrá trabajo adicional temporal — capacitaciones, participación en diseño de procedimientos, ajustar algunos hábitos.</p>
-        <p><strong>Después de la implementación:</strong> NO, menos trabajo. Con sistemas bien diseñados: menos confusión, menos reprocesos, roles definidos, menos errores.</p>
-        <p className="font-semibold text-slate-800">Resultado: equipo más eficiente que trabaja MEJOR, no MÁS.</p>
+        <p><strong>Ocasionalmente, durante la implementación:</strong> habrá trabajo adicional temporal en lo concerniente a capacitaciones, participación en diseño de procedimientos, ajuste de algunos hábitos; lo anterior permite organizar e integrar equipos más eficientes.</p>
+        <p>Los sistemas bien diseñados tienen: menos confusión, menos reprocesos, roles definidos, menos errores.</p>
       </div>
     ),
   },
@@ -261,18 +250,20 @@ const FAQ_ITEMS = [
     answer: (
       <div className="space-y-2">
         <p>NO estás obligado a uno específico, PERO debe ser <strong>acreditado</strong> (SGS, Bureau Veritas, ICONTEC, TUV, AENOR, etc.).</p>
-        <p>Nosotros NO certificamos (somos consultores). Preparamos a tu empresa para que CUALQUIER organismo certificador acreditado te certifique. Te ayudamos a elegir el más conveniente para tu caso.</p>
+        <p>Nosotros NO certificamos (somos consultores). preparamos a tu empresa para que CUALQUIER organismo certificador acreditado te certifique, te ayudamos a elegir el más conveniente para tu caso.</p>
       </div>
     ),
   },
   {
     question: '¿Cuál es la experiencia de nuestro equipo?',
     answer: (
-      <div className="space-y-3">
-        <p>Experiencia de <strong>4 años</strong> liderando el Sistema de Gestión de Calidad ISO 9001:2015 del proceso Atención al Usuario de la Secretaría de Desarrollo Territorial y Participación Ciudadana de la <strong>Alcaldía de Santiago de Cali</strong>; experiencia de 4 años en atención de auditorías internas y externas-ICONTEC; experiencia en dos Recertificaciones del ICONTEC.</p>
+      <div className="space-y-3 text-justify">
+        <p>Integrantes de nuestro equipo cuentan con experiencia en los sectores público y privado:</p>
+        <p>Experiencia de <strong>4 años</strong> liderando el Sistema de Gestión de Calidad ISO 9001:2015 del proceso Atención al Usuario de la Secretaría de Desarrollo Territorial y Participación Ciudadana de la <strong>Alcaldía de Santiago de Cali</strong>; experiencia de 4 años en atención de auditorías internas y externas-ICONTEC; experiencia en dos Recertificaciones del ICONTEC, experiencia como Auditor Interno.</p>
         <div className="mt-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
           <p className="font-semibold text-blue-800 mb-2">Nuestro Equipo</p>
-          <p className="text-sm text-slate-700">Equipo con formación profesional en <strong>Administración de Empresas y Negocios Internacionales</strong>, y en <strong>Ingeniería de Sistemas</strong>; con especializaciones en Proyectos de Desarrollo, y en Sistemas Integrados de Gestión (Normas ISO 9001:2015, 14001:2015, 45001:2018); Certificación como <strong>Auditor Interno</strong> en las Normas ISO 9001:2015, 14001:2015, 45001:2018.</p>
+          <p className="text-sm text-slate-700 text-justify">Nuestro equipo está conformado por personas con <strong>calidad humana</strong>, con alto grado de responsabilidad, con formación profesional en <strong>Administración de Empresas y Negocios Internacionales, y en Ingeniería de Sistemas;</strong> con especializaciones en Proyectos de Desarrollo, y en Sistemas Integrados de Gestión <strong>(Normas ISO 9001:2015, 14001:2015, 45001:2018); </strong>Certificación como Auditor Interno en las <strong>Normas ISO 9001:2015, 14001:2015, 45001:2018.</strong></p><br></br>
+          <p className="text-sm text-slate-700 text-justify">Ingeniero de sistemas con mas de 10 años de experiencia en <strong>desarrollo de aplicaciones web, CRM, Landing Pages, Sistemas a la medida</strong>, con la última tecnología y facil manejo.</p>
         </div>
       </div>
     ),
@@ -283,15 +274,15 @@ const FAQ_ITEMS = [
       <div className="space-y-3">
         <div>
           <p className="font-semibold text-slate-800">Auditoría</p>
-          <p>Es el proceso de evaluación para determinar si una organización cumple con los requisitos de una norma.</p>
+          <p>Es el proceso de evaluación para determinar si una organización cumple con los requisitos del cliente, legales, de la organización y de la norma ISO.</p>
         </div>
         <div>
           <p className="font-semibold text-slate-800">Consultoría</p>
-          <p>Es un servicio de asesoría y acompañamiento para ayudar a las empresas a que cumplan con los requisitos de la norma.</p>
+          <p>Es un servicio de asesoría y acompañamiento para ayudar a las empresas a que cumplan con los requisitos del cliente, legales, de la organización y de la norma ISO.</p>
         </div>
         <div>
           <p className="font-semibold text-slate-800">Certificación</p>
-          <p>Es el reconocimiento formal y oficial otorgado por un organismo acreditado como ICONTEC, SGS, Bureau Veritas, entre otras, que indica que el sistema de gestión de la empresa cumple con los requisitos de la norma ISO.</p>
+          <p>Es el reconocimiento formal y oficial otorgado por un organismo acreditado como ICONTEC, SGS, Bureau Veritas, entre otras, que indica que el Sistema de gestión de la empresa cumple con los requisitos del cliente, legales, de la organización y de la norma ISO.</p>
         </div>
       </div>
     ),
@@ -330,7 +321,7 @@ export default function Page() {
                 <span className="text-amber-400">Certificación ISO?</span>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-blue-100 leading-relaxed max-w-2xl">
-                Reduce costos hasta 35%, gana más licitaciones y transforma tu empresa en líder certificado en solo 6-9 meses
+                Transforma tu empresa en líder certificado en solo 6-9 meses, reduce costos hasta 35%, y gana más licitaciones.
               </p>
               <div className="mt-6 flex flex-wrap gap-4 text-sm text-blue-100">
                 <span className="flex items-center gap-2"><CheckIcon /> Reducción de costos operativos 15-35%</span>
@@ -387,30 +378,106 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ══════════ SOLUTIONS ══════════ */}
+      {/* ══════════ SOLUTIONS / SERVICES ══════════ */}
       <section id="soluciones" className="section-gray py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
-              ISO 9001 e ISO 14001: Tu Ventaja Competitiva
+              Nuestros Servicios
             </h2>
             <p className="mt-4 text-slate-600 text-lg">
-              Transforma problemas en oportunidades con sistemas de gestión certificados que generan resultados medibles
+              Soluciones integrales en sistemas de gestión ISO para llevar tu empresa al siguiente nivel
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* ISO 9001 */}
+          {/* Row 1: 3 cards */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Auditoría */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 card-hover">
               <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-5">
                 <svg className="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Auditoría</h3>
+              <p className="text-sm text-slate-500 mb-4">Evaluamos el cumplimiento de tu organización frente a las normas internacionales:</p>
+              <ul className="space-y-2.5">
+                {[
+                  { norm: 'ISO 9001:2015', desc: 'Sistema de Gestión de Calidad' },
+                  { norm: 'ISO 45001:2018', desc: 'Sistema de Gestión de Seguridad y Salud en el Trabajo' },
+                  { norm: 'ISO 14001:2015', desc: 'Sistema de Gestión Ambiental' },
+                ].map((item) => (
+                  <li key={item.norm} className="flex items-start gap-2 text-sm text-slate-600">
+                    <CheckIcon />
+                    <span><strong className="text-slate-800">{item.norm}</strong> — {item.desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Consultoría */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 card-hover">
+              <div className="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Consultoría</h3>
+              <p className="text-sm text-slate-500 mb-4">Acompañamiento experto para diseñar e implementar tu sistema de gestión:</p>
+              <ul className="space-y-2.5">
+                {[
+                  { norm: 'ISO 9001:2015', desc: 'Sistema de Gestión de Calidad' },
+                  { norm: 'ISO 14001:2015', desc: 'Sistema de Gestión Ambiental' },
+                ].map((item) => (
+                  <li key={item.norm} className="flex items-start gap-2 text-sm text-slate-600">
+                    <CheckIcon />
+                    <span><strong className="text-slate-800">{item.norm}</strong> — {item.desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Certificación */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 card-hover">
+              <div className="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138c.093.69.39 1.344.806 1.946a3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <div className="text-xs font-bold text-blue-600 tracking-widest mb-1">ISO 9001:2015</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Sistema de Gestión de Calidad</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Certificación</h3>
+              <p className="text-sm text-slate-500 mb-4">Te preparamos para obtener tu certificación con organismos acreditados:</p>
               <ul className="space-y-2.5">
-                {['Procesos documentados y estandarizados', 'Reducción de costos operativos 15-35%', 'Clientes más satisfechos (+25-45%)', 'Acceso a licitaciones exclusivas', 'Decisiones basadas en datos reales', 'Mejora continua sistematizada'].map((item) => (
+                {[
+                  { norm: 'ISO 9001:2015', desc: 'Sistema de Gestión de Calidad' },
+                  { norm: 'ISO 14001:2015', desc: 'Sistema de Gestión Ambiental' },
+                ].map((item) => (
+                  <li key={item.norm} className="flex items-start gap-2 text-sm text-slate-600">
+                    <CheckIcon />
+                    <span><strong className="text-slate-800">{item.norm}</strong> — {item.desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Row 2: 2 cards centered */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-8">
+            {/* Post Certificación */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 card-hover">
+              <div className="w-14 h-14 rounded-xl bg-teal-100 flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-teal-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Post Certificación</h3>
+              <p className="text-sm text-slate-500 mb-4">Aseguramos la continuidad y mejora de tu sistema de gestión certificado:</p>
+              <ul className="space-y-2.5">
+                {[
+                  'Mantenimiento del Sistema de Gestión',
+                  'Auditorías del Sistema de Gestión',
+                  'Preparación y acompañamiento para Auditorías de seguimiento del Sistema de Gestión',
+                  'Preparación y acompañamiento para la Auditoría de recertificación del Sistema de Gestión',
+                ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
                     <CheckIcon /><span>{item}</span>
                   </li>
@@ -418,17 +485,23 @@ export default function Page() {
               </ul>
             </div>
 
-            {/* ISO 14001 */}
+            {/* Otros Servicios */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 card-hover">
-              <div className="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-5">
-                <svg className="w-7 h-7 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <div className="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <div className="text-xs font-bold text-green-600 tracking-widest mb-1">ISO 14001:2015</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Sistema de Gestión Ambiental</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Otros Servicios</h3>
+              <p className="text-sm text-slate-500 mb-4">Complementamos tu crecimiento empresarial con servicios adicionales:</p>
               <ul className="space-y-2.5">
-                {['Ahorro energético 20-30%', 'Reducción de desperdicios y consumos', 'Cumplimiento legal garantizado', 'Mejor imagen corporativa', 'Acceso a financiamiento verde', 'Sostenibilidad con rentabilidad'].map((item) => (
+                {[
+                  'Formulación de Proyectos',
+                  'Consultoría Empresarial',
+                  'Comercialización y Ventas',
+                  'Capacitación',
+                  'Web + SEO',
+                ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
                     <CheckIcon /><span>{item}</span>
                   </li>
@@ -438,12 +511,9 @@ export default function Page() {
           </div>
 
           <div className="mt-10 text-center">
-            <div className="inline-block bg-gradient-to-r from-blue-50 to-green-50 border border-blue-100 rounded-2xl px-8 py-5">
-              <p className="text-lg font-semibold text-slate-800">
-                Cuando implementas <strong>AMBAS</strong> normas, maximizas resultados:
-              </p>
-              <p className="text-blue-600 font-bold mt-1">Rentabilidad + Sostenibilidad + Competitividad</p>
-            </div>
+            <button onClick={() => setOpen(true)} className="btn-primary text-base px-8 py-4">
+              Solicita Tu Diagnóstico GRATUITO
+            </button>
           </div>
         </div>
       </section>
@@ -489,8 +559,8 @@ export default function Page() {
             <h2 className="text-3xl md:text-4xl font-bold">
               Nuestro Método: Simple, Práctico y Efectivo
             </h2>
-            <p className="mt-4 text-slate-600 text-lg">
-              En 5 fases claras llevamos tu empresa de donde está hoy a certificada y generando resultados
+            <p className="mt-4 text-slate-600 text-lg text-justify">
+              En 6 fases estratégicas preparamos y acompañamos a tu organización para transformar sus procesos en sistemas de alto rendimiento. Aseguramos tu éxito en la auditoría con el organismo certificador de tu elección, garantizando resultados que potencian tu competitividad.
             </p>
           </div>
 

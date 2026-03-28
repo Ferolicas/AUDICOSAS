@@ -33,9 +33,9 @@ export default function LoginPage() {
       }
 
       if (data.mustChangePassword) {
-        router.push("/crm/cambiar-contrasena")
+        router.push(data.clienteRef ? "/portal/cambiar-contrasena" : "/crm/cambiar-contrasena")
       } else {
-        router.push("/crm")
+        router.push(data.clienteRef ? "/portal" : "/crm")
       }
       router.refresh()
     } catch {

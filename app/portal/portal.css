@@ -1,0 +1,22 @@
+/* Portal Client Theme - Light professional design */
+/* Navy #0F1B33 | Blue #2563EB | Amber #D97706 */
+
+:root {
+  --portal-navy: #0F1B33;
+  --portal-navy-light: #1B2A4A;
+  --portal-blue: #2563EB;
+  --portal-amber: #D97706;
+}
+
+.portal-root {
+  min-height: 100vh;
+  background: #F8FAFC;
+}
+
+/* Override global heading color for portal */
+.portal-root h1,
+.portal-root h2,
+.portal-root h3,
+.portal-root h4 {
+  color: var(--portal-navy);
+}

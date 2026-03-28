@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { sanityRead, sanityWrite, requireWrite } from '@/lib/sanity.server'
-import { hashPassword } from '@/lib/crm/auth'
+import { hashPassword, verifySession, COOKIE_NAME } from '@/lib/crm/auth'
 import { sendAccountCreatedEmail } from '@/lib/crm/email-auth'
 import groq from 'groq'
 import crypto from 'crypto'
@@ -10,9 +10,20 @@ const CLIENT_BY_ID = groq`*[_type == "crmCliente" && _id == $id][0]{
   _id, nombreComercial, razonSocial, email, telefono
 }`
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     requireWrite()
+
+    // Require admin session
+    const token = req.cookies.get(COOKIE_NAME)?.value
+    if (!token) {
+      return NextResponse.json({ error: 'No autenticado' }, { status: 401 })
+    }
+    const session = await verifySession(token)
+    if (!session || session.rol !== 'admin') {
+      return NextResponse.json({ error: 'Solo administradores pueden crear cuentas' }, { status: 403 })
+    }
+
     const { clienteId } = await req.json()
 
     if (!clienteId) {

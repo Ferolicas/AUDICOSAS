@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
-import { ArrowLeft, Pencil, Building2, Phone, Mail, MapPin } from "lucide-react"
+import { ArrowLeft, Pencil, Building2, Phone, Mail, MapPin, Target, MessageSquare } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/crm/ui/card"
 import {
   Table, TableBody, TableCell, TableHead,
@@ -114,9 +114,29 @@ export default function ClienteDetalleClient({ cliente }: Props) {
             <InfoItem label="Pais" value={cliente.pais} />
             <InfoItem label="Consultor Asignado" value={cliente.consultorAsignado} />
             <InfoItem label="Fecha de Alta" value={formatDate(cliente.fechaAlta)} />
+            <InfoItem
+              label="Servicio de Interés"
+              value={cliente.servicioInteres}
+              icon={<Target className="w-3.5 h-3.5 text-amber-500" />}
+            />
           </dl>
         </CardContent>
       </Card>
+
+      {/* Observaciones */}
+      {cliente.observaciones && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-blue-500" />
+              Observaciones del Cliente
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-300 whitespace-pre-wrap leading-relaxed">{cliente.observaciones}</p>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Certificaciones */}
       <Card>

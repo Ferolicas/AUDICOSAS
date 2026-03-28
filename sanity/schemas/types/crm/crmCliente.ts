@@ -27,6 +27,8 @@ export default defineType({
       initialValue: 'Prospecto',
       validation: r => r.required()
     }),
+    defineField({ name: 'servicioInteres', title: 'Certificación / Servicio de Interés', type: 'string' }),
+    defineField({ name: 'observaciones', title: 'Observaciones', type: 'text' }),
     defineField({ name: 'consultorAsignado', title: 'Consultor Asignado', type: 'string' }),
     defineField({ name: 'fechaAlta', title: 'Fecha de Alta', type: 'date' }),
     defineField({

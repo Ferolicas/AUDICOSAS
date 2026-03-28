@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import Link from "next/link"
-import { Search, Plus, Users, UserPlus, Mail, Check, X, Loader2 } from "lucide-react"
+import { Search, Plus, Users, UserPlus, Mail, Check, X, Loader2, Filter } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/crm/ui/card"
 import {
   Table, TableBody, TableCell, TableHead,
@@ -24,18 +24,35 @@ interface Props {
 
 export default function ClientesDirectorioClient({ clientes }: Props) {
   const [search, setSearch] = useState("")
+  const [serviceFilter, setServiceFilter] = useState<string>("todos")
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedCliente, setSelectedCliente] = useState<CrmCliente | null>(null)
   const [creating, setCreating] = useState(false)
 
+  // Extract unique service interests for filter buttons
+  const serviceOptions = useMemo(() => {
+    const services = new Map<string, number>()
+    for (const c of clientes) {
+      const s = (c.servicioInteres ?? "").trim()
+      if (s) services.set(s, (services.get(s) ?? 0) + 1)
+    }
+    return Array.from(services.entries()).sort((a, b) => b[1] - a[1])
+  }, [clientes])
+
   const filtered = clientes.filter((c) => {
     const term = search.toLowerCase()
-    return (
+    const matchesSearch =
       (c.nombreComercial ?? "").toLowerCase().includes(term) ||
       (c.razonSocial ?? "").toLowerCase().includes(term) ||
       (c.sector ?? "").toLowerCase().includes(term) ||
-      (c.codigo ?? "").toLowerCase().includes(term)
-    )
+      (c.codigo ?? "").toLowerCase().includes(term) ||
+      (c.servicioInteres ?? "").toLowerCase().includes(term)
+    const matchesService =
+      serviceFilter === "todos" ||
+      (serviceFilter === "sin-servicio"
+        ? !(c.servicioInteres ?? "").trim()
+        : (c.servicioInteres ?? "") === serviceFilter)
+    return matchesSearch && matchesService
   })
 
   function openCreateAccount(cliente: CrmCliente) {
@@ -94,14 +111,55 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
         </Link>
       </div>
 
+      {/* Service interest filters */}
+      {serviceOptions.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2">
+          <Filter className="w-4 h-4 text-slate-400 flex-shrink-0" />
+          <span className="text-sm text-slate-400 mr-1">Servicio:</span>
+          <button
+            onClick={() => setServiceFilter("todos")}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+              serviceFilter === "todos"
+                ? "bg-blue-600 text-white"
+                : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+            }`}
+          >
+            Todos ({clientes.length})
+          </button>
+          {serviceOptions.map(([service, count]) => (
+            <button
+              key={service}
+              onClick={() => setServiceFilter(serviceFilter === service ? "todos" : service)}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                serviceFilter === service
+                  ? "bg-amber-600 text-white"
+                  : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+              }`}
+            >
+              {service} ({count})
+            </button>
+          ))}
+          <button
+            onClick={() => setServiceFilter(serviceFilter === "sin-servicio" ? "todos" : "sin-servicio")}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+              serviceFilter === "sin-servicio"
+                ? "bg-slate-600 text-white"
+                : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+            }`}
+          >
+            Sin servicio ({clientes.filter(c => !(c.servicioInteres ?? "").trim()).length})
+          </button>
+        </div>
+      )}
+
       <Card>
         <CardHeader>
           <CardTitle className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <span className="text-lg">Clientes</span>
+            <span className="text-lg">Clientes{filtered.length !== clientes.length ? ` (${filtered.length} de ${clientes.length})` : ""}</span>
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <Input
-                placeholder="Buscar por nombre, empresa o sector..."
+                placeholder="Buscar por nombre, empresa, sector o servicio..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="pl-9"
@@ -113,8 +171,8 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
         <CardContent>
           {filtered.length === 0 ? (
             <div className="text-center py-12 text-slate-400">
-              {search
-                ? "No se encontraron clientes con ese criterio de busqueda."
+              {search || serviceFilter !== "todos"
+                ? "No se encontraron clientes con ese criterio de búsqueda."
                 : "No hay clientes registrados."}
             </div>
           ) : (
@@ -124,6 +182,7 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
                   <TableHead>Codigo</TableHead>
                   <TableHead>Nombre Comercial</TableHead>
                   <TableHead className="hidden md:table-cell">Sector</TableHead>
+                  <TableHead className="hidden md:table-cell">Servicio de Interés</TableHead>
                   <TableHead className="hidden lg:table-cell">Ciudad</TableHead>
                   <TableHead>Estado</TableHead>
                   <TableHead className="hidden lg:table-cell">Consultor</TableHead>
@@ -151,6 +210,15 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-slate-400">
                       {c.sector}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {c.servicioInteres ? (
+                        <span className="text-xs font-medium text-amber-400 bg-amber-900/30 px-2 py-0.5 rounded-full">
+                          {c.servicioInteres}
+                        </span>
+                      ) : (
+                        <span className="text-slate-500">—</span>
+                      )}
                     </TableCell>
                     <TableCell className="hidden lg:table-cell text-slate-400">
                       {c.ciudad}

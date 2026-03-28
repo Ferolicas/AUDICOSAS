@@ -4,13 +4,13 @@ import groq from 'groq'
 export const allClientesQuery = groq`*[_type == "crmCliente"] | order(fechaAlta desc) {
   _id, codigo, razonSocial, nombreComercial, nif, sector, tamano,
   numEmpleados, telefono, email, direccion, ciudad, pais,
-  estado, consultorAsignado, fechaAlta, certificaciones
+  estado, servicioInteres, observaciones, consultorAsignado, fechaAlta, certificaciones
 }`
 
 export const clienteByIdQuery = groq`*[_type == "crmCliente" && _id == $id][0] {
   _id, codigo, razonSocial, nombreComercial, nif, sector, tamano,
   numEmpleados, telefono, email, direccion, ciudad, pais,
-  estado, consultorAsignado, fechaAlta, certificaciones
+  estado, servicioInteres, observaciones, consultorAsignado, fechaAlta, certificaciones
 }`
 
 export const clienteCountQuery = groq`count(*[_type == "crmCliente"])`
@@ -25,9 +25,13 @@ export const allDiagnosticosQuery = groq`*[_type == "crmDiagnostico"] | order(fe
 
 export const diagnosticoByIdQuery = groq`*[_type == "crmDiagnostico" && _id == $id][0] {
   _id, codigo, cliente->{_id, nombreComercial},
-  clienteNombre, normas, estado, fechaVisita,
-  consultorAsignado, cumplimientoGlobal, viabilidad,
-  tiempoEstimado, inversionEstimada, resumenEjecutivo, cotizacion
+  clienteNombre, normas, estado, fechaVisita, consultorAsignado,
+  actividadPrincipal, mercadosOperacion, numSedes, nivelRegulacion,
+  certificacionesExistentes, situacionCalidad, situacionAmbiental, situacionSST, responsableInterno,
+  motivacion, objetivosPrincipales, fechaObjetivoCertificacion, experienciaPrevia,
+  alcancePropuesto, recursosInternos, modalidadPreferida, restricciones,
+  serviciosBuscados, enfoqueAuditoria, temasCapacitacion,
+  cumplimientoGlobal, viabilidad, tiempoEstimado, inversionEstimada, resumenEjecutivo, cotizacion
 }`
 
 export const diagnosticoCountQuery = groq`count(*[_type == "crmDiagnostico"])`

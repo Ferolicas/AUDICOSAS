@@ -13,6 +13,8 @@ export const clienteSchema = z.object({
   ciudad: z.string().optional().default(''),
   pais: z.string().optional().default('Colombia'),
   estado: z.enum(['Prospecto', 'Activo', 'Inactivo', 'Ex-cliente']).default('Prospecto'),
+  servicioInteres: z.string().optional().default(''),
+  observaciones: z.string().optional().default(''),
   consultorAsignado: z.string().min(1, 'Consultor asignado requerido'),
 })
 
@@ -23,6 +25,32 @@ export const diagnosticoSchema = z.object({
   estado: z.enum(['Programado', 'En ejecución', 'Completado', 'Cancelado']).default('Programado'),
   fechaVisita: z.string().min(1, 'Fecha de visita requerida'),
   consultorAsignado: z.string().min(1),
+  // Sección 1 - Sobre la empresa
+  actividadPrincipal: z.string().optional(),
+  mercadosOperacion: z.string().optional(),
+  numSedes: z.number().int().positive().optional(),
+  nivelRegulacion: z.enum(['Alto', 'Medio', 'Bajo']).optional(),
+  // Sección 2 - Situación actual frente a normas
+  certificacionesExistentes: z.string().optional(),
+  situacionCalidad: z.string().optional(),
+  situacionAmbiental: z.string().optional(),
+  situacionSST: z.string().optional(),
+  responsableInterno: z.string().optional(),
+  // Sección 3 - Necesidades y objetivos
+  motivacion: z.array(z.string()).optional(),
+  objetivosPrincipales: z.string().optional(),
+  fechaObjetivoCertificacion: z.string().optional(),
+  experienciaPrevia: z.string().optional(),
+  // Sección 4 - Alcance, recursos y restricciones
+  alcancePropuesto: z.string().optional(),
+  recursosInternos: z.string().optional(),
+  modalidadPreferida: z.enum(['Presencial', 'Virtual', 'Híbrido']).optional(),
+  restricciones: z.string().optional(),
+  // Sección 5 - Servicios que buscan
+  serviciosBuscados: z.array(z.string()).optional(),
+  enfoqueAuditoria: z.enum(['Integral (9001, 14001, 45001)', 'Por norma', 'Procesos críticos']).optional(),
+  temasCapacitacion: z.string().optional(),
+  // Resultados del diagnóstico (se rellenan al completar)
   cumplimientoGlobal: z.number().min(0).max(100).optional(),
   viabilidad: z.enum(['Alta', 'Media', 'Baja']).optional(),
   tiempoEstimado: z.number().positive().optional(),

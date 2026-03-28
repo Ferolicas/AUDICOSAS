@@ -4,7 +4,8 @@ import { verifyPassword, createSession, COOKIE_OPTIONS, COOKIE_NAME } from '@/li
 import groq from 'groq'
 
 const USER_BY_EMAIL = groq`*[_type == "crmUsuario" && email == $email][0]{
-  _id, nombre, email, passwordHash, rol, estado, mustChangePassword
+  _id, nombre, email, passwordHash, rol, estado, mustChangePassword,
+  "clienteRef": clienteRef->_id
 }`
 
 export async function POST(req: Request) {
@@ -35,11 +36,14 @@ export async function POST(req: Request) {
       email: user.email,
       nombre: user.nombre,
       rol: user.rol,
+      mustChangePassword: !!user.mustChangePassword,
+      ...(user.clienteRef ? { clienteRef: user.clienteRef } : {}),
     })
 
     const response = NextResponse.json({
       ok: true,
       mustChangePassword: !!user.mustChangePassword,
+      clienteRef: user.clienteRef || null,
       user: { nombre: user.nombre, email: user.email, rol: user.rol },
     })
 

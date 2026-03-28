@@ -13,6 +13,8 @@ export interface CrmCliente {
   ciudad: string
   pais: string
   estado: 'Prospecto' | 'Activo' | 'Inactivo' | 'Ex-cliente'
+  servicioInteres: string
+  observaciones: string
   consultorAsignado: string
   fechaAlta: string
   certificaciones: CrmCertificacionCliente[]
@@ -30,12 +32,38 @@ export interface CrmCertificacionCliente {
 export interface CrmDiagnostico {
   _id: string
   codigo: string
-  cliente: { _ref: string }
+  cliente: { _ref: string; _id?: string }
   clienteNombre: string
   normas: string[]
   estado: 'Programado' | 'En ejecución' | 'Completado' | 'Cancelado'
   fechaVisita: string
   consultorAsignado: string
+  // Sección 1 - Sobre la empresa
+  actividadPrincipal?: string
+  mercadosOperacion?: string
+  numSedes?: number
+  nivelRegulacion?: 'Alto' | 'Medio' | 'Bajo'
+  // Sección 2 - Situación actual
+  certificacionesExistentes?: string
+  situacionCalidad?: string
+  situacionAmbiental?: string
+  situacionSST?: string
+  responsableInterno?: string
+  // Sección 3 - Necesidades y objetivos
+  motivacion?: string[]
+  objetivosPrincipales?: string
+  fechaObjetivoCertificacion?: string
+  experienciaPrevia?: string
+  // Sección 4 - Alcance, recursos y restricciones
+  alcancePropuesto?: string
+  recursosInternos?: string
+  modalidadPreferida?: 'Presencial' | 'Virtual' | 'Híbrido'
+  restricciones?: string
+  // Sección 5 - Servicios
+  serviciosBuscados?: string[]
+  enfoqueAuditoria?: 'Integral (9001, 14001, 45001)' | 'Por norma' | 'Procesos críticos'
+  temasCapacitacion?: string
+  // Resultados
   cumplimientoGlobal?: number
   viabilidad?: 'Alta' | 'Media' | 'Baja'
   tiempoEstimado?: number

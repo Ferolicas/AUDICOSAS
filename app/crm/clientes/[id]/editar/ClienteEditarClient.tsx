@@ -33,6 +33,8 @@ export default function ClienteEditarClient({ cliente }: { cliente: CrmCliente }
       ciudad: cliente.ciudad,
       pais: cliente.pais,
       estado: cliente.estado,
+      servicioInteres: cliente.servicioInteres || '',
+      observaciones: cliente.observaciones || '',
       consultorAsignado: cliente.consultorAsignado,
     },
   })
@@ -82,7 +84,9 @@ export default function ClienteEditarClient({ cliente }: { cliente: CrmCliente }
             <SelectContent>{['Prospecto', 'Activo', 'Inactivo', 'Ex-cliente'].map(e => <SelectItem key={e} value={e}>{e}</SelectItem>)}</SelectContent>
           </Select>
         </div>
+        <div><Label>Servicio de Interés</Label><Input {...register('servicioInteres')} placeholder="Ej: ISO 9001, ISO 14001..." /></div>
         <div><Label>Consultor Asignado *</Label><Input {...register('consultorAsignado')} /></div>
+        <div className="md:col-span-2"><Label>Observaciones</Label><textarea {...register('observaciones')} placeholder="Notas sobre el cliente..." className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" /></div>
       </div>
     </CrmFormWrapper>
   )

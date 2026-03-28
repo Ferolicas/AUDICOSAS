@@ -14,27 +14,35 @@ import {
 } from "lucide-react"
 import { Badge } from "@/components/crm/ui/badge"
 import { ScrollArea } from "@/components/crm/ui/scroll-area"
+import { useAuth } from "@/components/crm/providers/AuthProvider"
 
 interface MenuItem {
   path: string
   label: string
   icon: React.ReactNode
   badge?: number
+  roles?: string[] // if empty/undefined, all roles can see
 }
 
 const menuItems: MenuItem[] = [
   { path: "/crm", label: "Dashboard", icon: <LayoutDashboard className="w-5 h-5" /> },
-  { path: "/crm/diagnostico", label: "Diagnóstico", icon: <ClipboardCheck className="w-5 h-5" /> },
-  { path: "/crm/certificacion", label: "Certificación", icon: <Award className="w-5 h-5" /> },
-  { path: "/crm/auditoria", label: "Auditoría", icon: <Search className="w-5 h-5" /> },
-  { path: "/crm/consultoria", label: "Consultoría", icon: <Briefcase className="w-5 h-5" /> },
-  { path: "/crm/clientes", label: "Clientes", icon: <Users className="w-5 h-5" /> },
-  { path: "/crm/desarrollo", label: "Desarrollo", icon: <TrendingUp className="w-5 h-5" /> },
-  { path: "/crm/capacitaciones", label: "Capacitaciones", icon: <BookOpen className="w-5 h-5" /> },
+  { path: "/crm/diagnostico", label: "Diagnóstico", icon: <ClipboardCheck className="w-5 h-5" />, roles: ["admin", "consultor", "auditor"] },
+  { path: "/crm/certificacion", label: "Certificación", icon: <Award className="w-5 h-5" />, roles: ["admin", "consultor", "auditor"] },
+  { path: "/crm/auditoria", label: "Auditoría", icon: <Search className="w-5 h-5" />, roles: ["admin", "consultor", "auditor"] },
+  { path: "/crm/consultoria", label: "Consultoría", icon: <Briefcase className="w-5 h-5" />, roles: ["admin", "consultor"] },
+  { path: "/crm/clientes", label: "Clientes", icon: <Users className="w-5 h-5" />, roles: ["admin", "consultor", "auditor", "visor"] },
+  { path: "/crm/desarrollo", label: "Desarrollo", icon: <TrendingUp className="w-5 h-5" />, roles: ["admin"] },
+  { path: "/crm/capacitaciones", label: "Capacitaciones", icon: <BookOpen className="w-5 h-5" />, roles: ["admin", "consultor"] },
 ]
 
 export function CrmSidebar({ open }: { open: boolean }) {
   const pathname = usePathname()
+  const { user } = useAuth()
+  const rol = user?.rol || "visor"
+
+  const visibleItems = menuItems.filter(item =>
+    !item.roles || item.roles.includes(rol)
+  )
 
   const isActive = (path: string) => {
     if (path === "/crm") return pathname === "/crm"
@@ -49,7 +57,7 @@ export function CrmSidebar({ open }: { open: boolean }) {
     >
       <ScrollArea className="h-full">
         <nav className="p-4 space-y-1">
-          {menuItems.map((item) => (
+          {visibleItems.map((item) => (
             <Link
               key={item.path}
               href={item.path}

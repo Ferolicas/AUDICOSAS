@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import {
-  Award,
   Bell,
   Calendar,
   ChevronDown,
@@ -54,14 +54,9 @@ export function CrmHeader({ sidebarOpen, onToggleSidebar }: CrmHeaderProps) {
           {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </Button>
 
-        <Link href="/crm" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-            <Award className="w-6 h-6 text-white" />
-          </div>
-          <div className="hidden md:block">
-            <h1 className="font-bold text-xl text-white">AUDICOISO</h1>
-            <p className="text-xs text-slate-400">CRM Certificación ISO</p>
-          </div>
+        <Link href="/crm" className="flex items-center gap-3">
+          <Image src="/logoaudico.png" alt="AUDICO ISO" width={180} height={180} className="rounded-lg" />
+          <span className="hidden md:block font-bold text-white text-lg">CRM</span>
         </Link>
       </div>
 

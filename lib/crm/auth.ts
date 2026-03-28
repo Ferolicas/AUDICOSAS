@@ -13,6 +13,8 @@ export interface SessionPayload {
   email: string
   nombre: string
   rol: string
+  mustChangePassword?: boolean
+  clienteRef?: string // Sanity _id of linked crmCliente (for portal users)
 }
 
 export async function hashPassword(password: string): Promise<string> {

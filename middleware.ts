@@ -8,11 +8,44 @@ const JWT_SECRET = new TextEncoder().encode(
 
 const COOKIE_NAME = 'crm-session'
 
-// Auth pages that don't require session
-const AUTH_PAGES = ['/crm/login', '/crm/restablecer', '/crm/cambiar-contrasena']
+// Auth pages that don't require session (login + reset only)
+const AUTH_PAGES = ['/crm/login', '/crm/restablecer', '/portal/login']
 
 // Legacy protected routes (landing admin + APIs)
 const LEGACY_PREFIXES = ['/admin', '/api/clients', '/api/newsletters', '/api/processes']
+
+// Role-based CRM route access (prefix matching)
+// admin has full access, not listed here
+const ROLE_ALLOWED_PREFIXES: Record<string, string[]> = {
+  consultor: [
+    '/crm/diagnostico', '/crm/certificacion', '/crm/auditoria',
+    '/crm/consultoria', '/crm/clientes', '/crm/capacitaciones', '/crm/documentos',
+  ],
+  auditor: [
+    '/crm/auditoria', '/crm/diagnostico', '/crm/certificacion', '/crm/clientes',
+  ],
+  visor: [
+    '/crm/clientes',
+  ],
+}
+
+// Write routes that visor cannot access
+const WRITE_PATTERNS = ['/nuevo', '/editar']
+
+function isRouteAllowedForRole(pathname: string, rol: string): boolean {
+  if (rol === 'admin') return true
+  if (pathname === '/crm') return true
+  if (pathname === '/crm/cambiar-contrasena') return true
+
+  // Visor cannot create or edit
+  if (rol === 'visor' && WRITE_PATTERNS.some(p => pathname.includes(p))) {
+    return false
+  }
+
+  const allowed = ROLE_ALLOWED_PREFIXES[rol]
+  if (!allowed) return false
+  return allowed.some(prefix => pathname.startsWith(prefix))
+}
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
@@ -39,21 +72,77 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  // ── CRM Auth routes (login, registro, restablecer) - allow if no session ──
+  // ── CRM Auth routes (login, restablecer) - allow if no session ──
   const isAuthPage = AUTH_PAGES.some(p => pathname.startsWith(p))
   const token = req.cookies.get(COOKIE_NAME)?.value
 
   if (isAuthPage) {
-    // If already logged in, redirect to CRM dashboard
     if (token) {
       try {
-        await jwtVerify(token, JWT_SECRET)
-        return NextResponse.redirect(new URL('/crm', req.url))
+        const { payload } = await jwtVerify(token, JWT_SECRET)
+        const hasClienteRef = !!payload.clienteRef
+        const mustChange = !!payload.mustChangePassword
+
+        // Force password change before anything else
+        if (mustChange) {
+          const changeDest = hasClienteRef ? '/portal/cambiar-contrasena' : '/crm/cambiar-contrasena'
+          return NextResponse.redirect(new URL(changeDest, req.url))
+        }
+
+        // Redirect to correct area based on whether user has clienteRef
+        const dest = hasClienteRef ? '/portal' : '/crm'
+        return NextResponse.redirect(new URL(dest, req.url))
       } catch {
         // Invalid token, let them access auth pages
       }
     }
     return NextResponse.next()
+  }
+
+  // ── Portal protected routes + API routes ──
+  const isPortalPage = pathname.startsWith('/portal')
+  const isPortalApi = pathname.startsWith('/api/portal')
+
+  if (isPortalPage || isPortalApi) {
+    if (!token) {
+      if (isPortalApi) {
+        return NextResponse.json({ error: 'No autenticado' }, { status: 401 })
+      }
+      return NextResponse.redirect(new URL('/portal/login', req.url))
+    }
+
+    try {
+      const { payload } = await jwtVerify(token, JWT_SECRET)
+      const clienteRef = payload.clienteRef as string | undefined
+      const mustChangePassword = payload.mustChangePassword as boolean
+
+      // Force password change
+      if (mustChangePassword && pathname !== '/portal/cambiar-contrasena') {
+        if (isPortalApi) {
+          return NextResponse.json({ error: 'Debe cambiar su contraseña primero' }, { status: 403 })
+        }
+        return NextResponse.redirect(new URL('/portal/cambiar-contrasena', req.url))
+      }
+
+      // Portal requires clienteRef
+      if (!clienteRef && isPortalPage) {
+        return NextResponse.redirect(new URL('/crm', req.url))
+      }
+
+      const response = NextResponse.next()
+      response.headers.set('x-user-id', payload.userId as string)
+      response.headers.set('x-user-email', payload.email as string)
+      response.headers.set('x-user-rol', payload.rol as string)
+      if (clienteRef) response.headers.set('x-cliente-ref', clienteRef)
+      return response
+    } catch {
+      if (isPortalApi) {
+        return NextResponse.json({ error: 'Sesión expirada' }, { status: 401 })
+      }
+      const response = NextResponse.redirect(new URL('/portal/login', req.url))
+      response.cookies.set(COOKIE_NAME, '', { path: '/', maxAge: 0 })
+      return response
+    }
   }
 
   // ── CRM protected routes + API routes ──
@@ -75,11 +164,29 @@ export async function middleware(req: NextRequest) {
 
     try {
       const { payload } = await jwtVerify(token, JWT_SECRET)
+      const rol = payload.rol as string
+      const mustChangePassword = payload.mustChangePassword as boolean
+
+      // Force password change — redirect everywhere except cambiar-contrasena page itself
+      if (mustChangePassword && pathname !== '/crm/cambiar-contrasena') {
+        if (isCrmApi) {
+          return NextResponse.json({ error: 'Debe cambiar su contraseña primero' }, { status: 403 })
+        }
+        // Portal clients go to portal's password change page
+        const changeDest = payload.clienteRef ? '/portal/cambiar-contrasena' : '/crm/cambiar-contrasena'
+        return NextResponse.redirect(new URL(changeDest, req.url))
+      }
+
+      // RBAC check for CRM pages
+      if (isCrmPage && !isRouteAllowedForRole(pathname, rol)) {
+        return NextResponse.redirect(new URL('/crm', req.url))
+      }
+
       // Add user info to headers for API routes
       const response = NextResponse.next()
       response.headers.set('x-user-id', payload.userId as string)
       response.headers.set('x-user-email', payload.email as string)
-      response.headers.set('x-user-rol', payload.rol as string)
+      response.headers.set('x-user-rol', rol)
       return response
     } catch {
       // Invalid/expired token
@@ -103,5 +210,7 @@ export const config = {
     '/api/processes/:path*',
     '/crm/:path*',
     '/api/crm/:path*',
+    '/portal/:path*',
+    '/api/portal/:path*',
   ],
 }

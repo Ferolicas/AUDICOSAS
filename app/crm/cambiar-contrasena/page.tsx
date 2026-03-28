@@ -41,7 +41,8 @@ export default function CambiarContrasenaPage() {
         return
       }
 
-      router.push("/crm")
+      // Redirect portal clients to portal, staff to CRM
+      router.push(data.clienteRef ? "/portal" : "/crm")
       router.refresh()
     } catch {
       setError("Error de conexión")
