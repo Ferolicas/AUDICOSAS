@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react"
 import Link from "next/link"
-import { Search, Plus, Users, UserPlus, Mail, Check, X, Loader2, Filter } from "lucide-react"
+import { Search, Plus, Users, UserPlus, Mail, Check, X, Loader2, Filter, Trash2 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/crm/ui/card"
 import {
   Table, TableBody, TableCell, TableHead,
@@ -16,6 +16,7 @@ import {
   DialogHeader, DialogTitle,
 } from "@/components/crm/ui/dialog"
 import { toast } from "sonner"
+import { DeleteButton } from "@/components/crm/shared/DeleteButton"
 import type { CrmCliente } from "@/lib/crm/types"
 
 interface Props {
@@ -230,16 +231,25 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
                       {c.consultorAsignado}
                     </TableCell>
                     <TableCell className="text-right">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => openCreateAccount(c)}
-                        disabled={!c.email}
-                        title={c.email ? "Crear cuenta CRM para este cliente" : "El cliente no tiene correo"}
-                      >
-                        <UserPlus className="w-4 h-4 mr-1" />
-                        <span className="hidden sm:inline">Crear cuenta</span>
-                      </Button>
+                      <div className="flex items-center justify-end gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => openCreateAccount(c)}
+                          disabled={!c.email}
+                          title={c.email ? "Crear cuenta CRM para este cliente" : "El cliente no tiene correo"}
+                        >
+                          <UserPlus className="w-4 h-4 mr-1" />
+                          <span className="hidden sm:inline">Crear cuenta</span>
+                        </Button>
+                        <DeleteButton
+                          id={c._id}
+                          apiPath="/api/crm/clientes"
+                          entityName="Cliente"
+                          redirectPath="/crm/clientes"
+                          compact
+                        />
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))}

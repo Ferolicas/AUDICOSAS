@@ -22,9 +22,10 @@ interface DeleteButtonProps {
   apiPath: string
   entityName: string
   redirectPath: string
+  compact?: boolean
 }
 
-export function DeleteButton({ id, apiPath, entityName, redirectPath }: DeleteButtonProps) {
+export function DeleteButton({ id, apiPath, entityName, redirectPath, compact }: DeleteButtonProps) {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
 
@@ -49,9 +50,9 @@ export function DeleteButton({ id, apiPath, entityName, redirectPath }: DeleteBu
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" size="sm" disabled={loading}>
-          <Trash2 className="h-4 w-4 mr-2" />
-          Eliminar
+        <Button variant="destructive" size="sm" disabled={loading} title={`Eliminar ${entityName.toLowerCase()}`}>
+          <Trash2 className={compact ? "h-4 w-4" : "h-4 w-4 mr-2"} />
+          {!compact && "Eliminar"}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
