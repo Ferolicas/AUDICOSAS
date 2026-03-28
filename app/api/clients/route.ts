@@ -66,6 +66,7 @@ export async function POST(req: NextRequest){
         codigo,
         razonSocial: data.company || data.name,
         nombreComercial: data.company || data.name,
+        nombreContacto: data.name,
         nif: '',
         sector: data.sector || 'Por definir',
         tamano,
