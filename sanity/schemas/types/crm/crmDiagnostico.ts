@@ -35,6 +35,11 @@ export default defineType({
     defineField({ name: 'actividadPrincipal', title: 'Actividad principal / Productos-servicios', type: 'text', rows: 2, group: 'empresa' }),
     defineField({ name: 'mercadosOperacion', title: 'Mercados/sectores donde opera', type: 'string', group: 'empresa' }),
     defineField({ name: 'numSedes', title: 'Número de sedes', type: 'number', group: 'empresa' }),
+    defineField({ name: 'numProcesos', title: 'Número de Procesos', type: 'number', group: 'empresa' }),
+    defineField({ name: 'tierEmpleados', title: 'Tier de Empleados', type: 'string', group: 'empresa' }),
+    defineField({ name: 'empleadosAdicionales', title: 'Empleados Adicionales (>500)', type: 'number', group: 'empresa' }),
+    defineField({ name: 'porcentajeProcesos', title: 'Porcentaje adicional por Procesos (%)', type: 'number', group: 'empresa' }),
+    defineField({ name: 'aplicarProcesos', title: 'Aplicar incremento por procesos', type: 'boolean', group: 'empresa' }),
     defineField({
       name: 'nivelRegulacion', title: 'Nivel de regulación del sector', type: 'string',
       options: { list: ['Alto', 'Medio', 'Bajo'] }, group: 'empresa'
@@ -76,6 +81,7 @@ export default defineType({
     }),
     defineField({ name: 'temasCapacitacion', title: 'Temas de capacitación prioritarios', type: 'text', rows: 2, group: 'servicios' }),
     // Resultados del diagnóstico
+    defineField({ name: 'incrementoRiesgos', title: 'Incremento por Riesgos (%)', type: 'number', group: 'resultados' }),
     defineField({ name: 'cumplimientoGlobal', title: 'Cumplimiento Global (%)', type: 'number', validation: r => r.min(0).max(100), group: 'resultados' }),
     defineField({
       name: 'viabilidad', title: 'Viabilidad', type: 'string',

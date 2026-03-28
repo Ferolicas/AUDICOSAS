@@ -30,6 +30,11 @@ export const diagnosticoSchema = z.object({
   actividadPrincipal: z.string().optional(),
   mercadosOperacion: z.string().optional(),
   numSedes: z.number().int().positive().optional(),
+  numProcesos: z.number().int().min(1).optional(),
+  tierEmpleados: z.string().optional(),
+  empleadosAdicionales: z.number().int().min(0).optional(),
+  porcentajeProcesos: z.number().min(0).max(100).optional(),
+  aplicarProcesos: z.boolean().optional().default(false),
   nivelRegulacion: z.enum(['Alto', 'Medio', 'Bajo']).optional(),
   // Sección 2 - Situación actual frente a normas
   certificacionesExistentes: z.string().optional(),
@@ -52,10 +57,11 @@ export const diagnosticoSchema = z.object({
   enfoqueAuditoria: z.enum(['Integral (9001, 14001, 45001)', 'Por norma', 'Procesos críticos']).optional(),
   temasCapacitacion: z.string().optional(),
   // Resultados del diagnóstico (se rellenan al completar)
+  incrementoRiesgos: z.number().min(0).max(100).optional(),
   cumplimientoGlobal: z.number().min(0).max(100).optional(),
   viabilidad: z.enum(['Alta', 'Media', 'Baja']).optional(),
   tiempoEstimado: z.number().positive().optional(),
-  inversionEstimada: z.number().positive().optional(),
+  inversionEstimada: z.number().min(0).optional(),
   resumenEjecutivo: z.string().optional(),
 })
 

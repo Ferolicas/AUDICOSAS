@@ -24,14 +24,15 @@ export const allDiagnosticosQuery = groq`*[_type == "crmDiagnostico"] | order(fe
 }`
 
 export const diagnosticoByIdQuery = groq`*[_type == "crmDiagnostico" && _id == $id][0] {
-  _id, codigo, cliente->{_id, nombreComercial},
+  _id, codigo, cliente->{_id, nombreComercial, email},
   clienteNombre, normas, estado, fechaVisita, consultorAsignado,
   actividadPrincipal, mercadosOperacion, numSedes, nivelRegulacion,
+  numProcesos, tierEmpleados, empleadosAdicionales, porcentajeProcesos, aplicarProcesos,
   certificacionesExistentes, situacionCalidad, situacionAmbiental, situacionSST, responsableInterno,
   motivacion, objetivosPrincipales, fechaObjetivoCertificacion, experienciaPrevia,
   alcancePropuesto, recursosInternos, modalidadPreferida, restricciones,
   serviciosBuscados, enfoqueAuditoria, temasCapacitacion,
-  cumplimientoGlobal, viabilidad, tiempoEstimado, inversionEstimada, resumenEjecutivo, cotizacion
+  incrementoRiesgos, cumplimientoGlobal, viabilidad, tiempoEstimado, inversionEstimada, resumenEjecutivo, cotizacion
 }`
 
 export const diagnosticoCountQuery = groq`count(*[_type == "crmDiagnostico"])`

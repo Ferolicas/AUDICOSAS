@@ -33,7 +33,7 @@ export interface CrmCertificacionCliente {
 export interface CrmDiagnostico {
   _id: string
   codigo: string
-  cliente: { _ref: string; _id?: string }
+  cliente: { _ref: string; _id?: string; email?: string; nombreComercial?: string }
   clienteNombre: string
   normas: string[]
   estado: 'Programado' | 'En ejecución' | 'Completado' | 'Cancelado'
@@ -43,6 +43,11 @@ export interface CrmDiagnostico {
   actividadPrincipal?: string
   mercadosOperacion?: string
   numSedes?: number
+  numProcesos?: number
+  tierEmpleados?: string
+  empleadosAdicionales?: number
+  porcentajeProcesos?: number
+  aplicarProcesos?: boolean
   nivelRegulacion?: 'Alto' | 'Medio' | 'Bajo'
   // Sección 2 - Situación actual
   certificacionesExistentes?: string
@@ -65,6 +70,7 @@ export interface CrmDiagnostico {
   enfoqueAuditoria?: 'Integral (9001, 14001, 45001)' | 'Por norma' | 'Procesos críticos'
   temasCapacitacion?: string
   // Resultados
+  incrementoRiesgos?: number
   cumplimientoGlobal?: number
   viabilidad?: 'Alta' | 'Media' | 'Baja'
   tiempoEstimado?: number
