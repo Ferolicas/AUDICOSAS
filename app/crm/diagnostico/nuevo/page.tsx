@@ -218,9 +218,14 @@ export default function NuevoDiagnosticoPage() {
     }
   }
 
+  function onInvalid(errs: Record<string, unknown>) {
+    const first = Object.values(errs)[0] as { message?: string } | undefined
+    toast.error(first?.message || 'Revisa los campos requeridos antes de guardar')
+  }
+
   return (
     <>
-      <CrmFormWrapper title="Nuevo Diagnostico" backHref="/crm/diagnostico" onSubmit={handleSubmit(onSubmit)} loading={loading}>
+      <CrmFormWrapper title="Nuevo Diagnostico" backHref="/crm/diagnostico" onSubmit={handleSubmit(onSubmit, onInvalid)} loading={loading}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
           {/* General */}

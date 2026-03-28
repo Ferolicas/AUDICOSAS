@@ -33,7 +33,7 @@ export const diagnosticoSchema = z.object({
   // Sección 1 - Sobre la empresa
   actividadPrincipal: z.string().optional(),
   mercadosOperacion: z.string().optional(),
-  numSedes: optNum(z.number().int().positive()),
+  numSedes: optNum(z.number().int().min(1)),
   numProcesos: optNum(z.number().int().min(1)),
   tierEmpleados: z.string().optional(),
   empleadosAdicionales: optNum(z.number().int().min(0)),
