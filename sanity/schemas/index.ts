@@ -13,9 +13,10 @@ import crmConsultoria from './types/crm/crmConsultoria'
 import crmCapacitacion from './types/crm/crmCapacitacion'
 import crmDesarrollo from './types/crm/crmDesarrollo'
 import crmUsuario from './types/crm/crmUsuario'
+import crmGapAnalysis from './types/crm/crmGapAnalysis'
 
 export default [
   client, process, newsletter, subscriber, service, company, testimonial,
   crmCliente, crmDiagnostico, crmCertificacion, crmAuditoria,
-  crmConsultoria, crmCapacitacion, crmDesarrollo, crmUsuario,
+  crmConsultoria, crmCapacitacion, crmDesarrollo, crmUsuario, crmGapAnalysis,
 ]

@@ -144,27 +144,37 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
 
       {/* Document Generation */}
       <Card>
-        <CardHeader><CardTitle className="flex items-center gap-2"><FileText className="w-5 h-5" />Generar Documentos</CardTitle></CardHeader>
+        <CardHeader><CardTitle className="flex items-center gap-2"><FileText className="w-5 h-5" />Documentos</CardTitle></CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              { fase: 1, nombre: 'Diagnóstico y Compromiso', docs: 'Caso de negocio, compromiso, política, cronograma' },
-              { fase: 2, nombre: 'Análisis de Contexto', docs: 'PESTEL, partes interesadas, riesgos, mapa procesos' },
-              { fase: 3, nombre: 'Documentación del SGC', docs: 'Fichas de proceso, procedimientos, formatos' },
-              { fase: 4, nombre: 'Implementación y Formación', docs: 'Plan comunicación, formación, registros' },
-              { fase: 5, nombre: 'Auditoría Interna', docs: 'Programa, plan, checklist, hallazgos, informe' },
-              { fase: 6, nombre: 'Certificación', docs: 'Selección OC, preparación final, registro' },
-            ].map(f => (
-              <Link key={f.fase} href={`/crm/documentos/${f.fase}/${c._id}`} target="_blank">
-                <div className="border rounded-lg p-4 hover:bg-slate-700/50 hover:border-blue-300 transition-colors cursor-pointer">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold ${c.faseActual > f.fase ? 'bg-green-500' : c.faseActual === f.fase ? 'bg-blue-500' : 'bg-slate-600'}`}>{f.fase}</span>
-                    <span className="font-medium text-sm">{f.nombre}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link href={`/crm/documentos/gap/${c._id}`}>
+              <div className="border-2 border-blue-500/40 rounded-xl p-5 hover:bg-blue-900/30 hover:border-blue-400 transition-colors cursor-pointer">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">G</div>
+                  <div>
+                    <p className="font-semibold text-slate-100">Diagnóstico GAP</p>
+                    <p className="text-xs text-slate-400">ISO 9001:2015 — Análisis por cláusula</p>
                   </div>
-                  <p className="text-xs text-slate-400 ml-8">{f.docs}</p>
                 </div>
-              </Link>
-            ))}
+                <p className="text-xs text-slate-400 mt-1">
+                  Formulario editable con los 49 requisitos de la norma. Guarda el progreso y retoma en cualquier momento.
+                </p>
+              </div>
+            </Link>
+            <Link href={`/crm/documentos/resumen/${c._id}`}>
+              <div className="border-2 border-green-500/40 rounded-xl p-5 hover:bg-green-900/30 hover:border-green-400 transition-colors cursor-pointer">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">R</div>
+                  <div>
+                    <p className="font-semibold text-slate-100">Resumen Ejecutivo</p>
+                    <p className="text-xs text-slate-400">Informe consolidado para imprimir</p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-400 mt-1">
+                  Vista ejecutiva con porcentaje global, brechas críticas y acciones propuestas. Listo para presentar al cliente.
+                </p>
+              </div>
+            </Link>
           </div>
         </CardContent>
       </Card>
