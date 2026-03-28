@@ -1,9 +1,9 @@
-"use client"
-
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { allCapacitacionesQuery } from '@/lib/crm/queries'
+import type { CrmCapacitacion } from '@/lib/crm/types'
 import CapacitacionesListaClient from "./CapacitacionesListaClient"
 
-export default function CapacitacionesPage() {
-  const { capacitaciones } = useCrmData()
+export default async function CapacitacionesPage() {
+  const capacitaciones = await cachedFetch<CrmCapacitacion[]>(allCapacitacionesQuery)
   return <CapacitacionesListaClient capacitaciones={capacitaciones} />
 }

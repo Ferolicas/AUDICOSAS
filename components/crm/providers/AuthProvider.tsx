@@ -8,6 +8,7 @@ interface User {
   email: string
   nombre: string
   rol: string
+  mustChangePassword?: boolean
 }
 
 interface AuthContextType {
@@ -33,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         if (data?.user) setUser(data.user)
       })
       .catch(() => {})
-  }, [pathname])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   async function logout() {
     await fetch("/api/crm/auth/logout", { method: "POST" })

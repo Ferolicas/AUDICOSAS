@@ -17,7 +17,7 @@ export async function PUT(req: NextRequest, ctx: Ctx) {
   const { id } = await ctx.params
   try {
     const body = await req.json()
-    const doc = await updateDocument(id, body)
+    const doc = await updateDocument(id, body, 'crmCapacitacion')
     return jsonOk(doc)
   } catch { return jsonError('Error al actualizar capacitación', 500) }
 }
@@ -25,7 +25,7 @@ export async function PUT(req: NextRequest, ctx: Ctx) {
 export async function DELETE(_req: NextRequest, ctx: Ctx) {
   const { id } = await ctx.params
   try {
-    await deleteDocument(id)
+    await deleteDocument(id, 'crmCapacitacion')
     return jsonOk({ deleted: true })
   } catch { return jsonError('Error al eliminar capacitación', 500) }
 }

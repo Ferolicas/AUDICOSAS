@@ -1,14 +1,12 @@
-"use client"
-
-import { useParams } from "next/navigation"
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { consultoriaByIdQuery } from '@/lib/crm/queries'
+import type { CrmConsultoria } from '@/lib/crm/types'
+import { notFound } from 'next/navigation'
 import ConsultoriaDetalleClient from "./ConsultoriaDetalleClient"
-import { CrmNotFound } from "@/components/crm/shared/CrmLoading"
 
-export default function ConsultoriaDetallePage() {
-  const { id } = useParams<{ id: string }>()
-  const { consultorias } = useCrmData()
-  const consultoria = (consultorias as any[]).find((c: any) => c._id === id)
-  if (!consultoria) return <CrmNotFound message="Consultoría no encontrada" />
+export default async function ConsultoriaDetallePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const consultoria = await cachedFetch<CrmConsultoria | null>(consultoriaByIdQuery, { id })
+  if (!consultoria) notFound()
   return <ConsultoriaDetalleClient consultoria={consultoria} />
 }

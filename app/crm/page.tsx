@@ -1,9 +1,9 @@
-"use client"
-
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { dashboardStatsQuery } from '@/lib/crm/queries'
 import DashboardClient from "./DashboardClient"
 
-export default function CrmDashboardPage() {
-  const { stats } = useCrmData()
+export default async function CrmDashboardPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const stats = await cachedFetch<any>(dashboardStatsQuery)
   return <DashboardClient stats={stats} />
 }

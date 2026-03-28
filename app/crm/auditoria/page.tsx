@@ -1,9 +1,9 @@
-"use client"
-
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { allAuditoriasQuery } from '@/lib/crm/queries'
+import type { CrmAuditoria } from '@/lib/crm/types'
 import AuditoriaListaClient from "./AuditoriaListaClient"
 
-export default function AuditoriaPage() {
-  const { auditorias } = useCrmData()
+export default async function AuditoriaPage() {
+  const auditorias = await cachedFetch<CrmAuditoria[]>(allAuditoriasQuery)
   return <AuditoriaListaClient auditorias={auditorias} />
 }

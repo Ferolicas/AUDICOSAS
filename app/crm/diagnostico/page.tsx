@@ -1,9 +1,9 @@
-"use client"
-
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { allDiagnosticosQuery } from '@/lib/crm/queries'
+import type { CrmDiagnostico } from '@/lib/crm/types'
 import DiagnosticoListaClient from "./DiagnosticoListaClient"
 
-export default function DiagnosticoPage() {
-  const { diagnosticos } = useCrmData()
+export default async function DiagnosticoPage() {
+  const diagnosticos = await cachedFetch<CrmDiagnostico[]>(allDiagnosticosQuery)
   return <DiagnosticoListaClient diagnosticos={diagnosticos} />
 }

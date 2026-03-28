@@ -1,14 +1,12 @@
-"use client"
-
-import { useParams } from "next/navigation"
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { capacitacionByIdQuery } from '@/lib/crm/queries'
+import type { CrmCapacitacion } from '@/lib/crm/types'
+import { notFound } from 'next/navigation'
 import CapacitacionDetalleClient from "./CapacitacionDetalleClient"
-import { CrmNotFound } from "@/components/crm/shared/CrmLoading"
 
-export default function CapacitacionDetallePage() {
-  const { id } = useParams<{ id: string }>()
-  const { capacitaciones } = useCrmData()
-  const capacitacion = (capacitaciones as any[]).find((c: any) => c._id === id)
-  if (!capacitacion) return <CrmNotFound message="Capacitación no encontrada" />
+export default async function CapacitacionDetallePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const capacitacion = await cachedFetch<CrmCapacitacion | null>(capacitacionByIdQuery, { id })
+  if (!capacitacion) notFound()
   return <CapacitacionDetalleClient capacitacion={capacitacion} />
 }

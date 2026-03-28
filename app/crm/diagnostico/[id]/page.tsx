@@ -1,14 +1,12 @@
-"use client"
-
-import { useParams } from "next/navigation"
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { diagnosticoByIdQuery } from '@/lib/crm/queries'
+import type { CrmDiagnostico } from '@/lib/crm/types'
+import { notFound } from 'next/navigation'
 import DiagnosticoDetalleClient from "./DiagnosticoDetalleClient"
-import { CrmNotFound } from "@/components/crm/shared/CrmLoading"
 
-export default function DiagnosticoDetallePage() {
-  const { id } = useParams<{ id: string }>()
-  const { diagnosticos } = useCrmData()
-  const diagnostico = (diagnosticos as any[]).find((d: any) => d._id === id)
-  if (!diagnostico) return <CrmNotFound message="Diagnóstico no encontrado" />
+export default async function DiagnosticoDetallePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const diagnostico = await cachedFetch<CrmDiagnostico | null>(diagnosticoByIdQuery, { id })
+  if (!diagnostico) notFound()
   return <DiagnosticoDetalleClient diagnostico={diagnostico} />
 }

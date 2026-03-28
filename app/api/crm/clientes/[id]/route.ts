@@ -20,7 +20,7 @@ export async function PUT(req: NextRequest, ctx: Ctx) {
     const body = await req.json()
     const parsed = clienteSchema.partial().safeParse(body)
     if (!parsed.success) return jsonError(parsed.error.issues[0].message)
-    const doc = await updateDocument(id, parsed.data)
+    const doc = await updateDocument(id, parsed.data, 'crmCliente')
     return jsonOk(doc)
   } catch { return jsonError('Error al actualizar cliente', 500) }
 }
@@ -28,7 +28,7 @@ export async function PUT(req: NextRequest, ctx: Ctx) {
 export async function DELETE(_req: NextRequest, ctx: Ctx) {
   const { id } = await ctx.params
   try {
-    await deleteDocument(id)
+    await deleteDocument(id, 'crmCliente')
     return jsonOk({ deleted: true })
   } catch { return jsonError('Error al eliminar cliente', 500) }
 }

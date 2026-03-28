@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation"
 import { AuthProvider } from "@/components/crm/providers/AuthProvider"
-import { CrmDataProvider } from "@/components/crm/providers/SWRProvider"
+import { PusherProvider } from "@/components/crm/providers/PusherProvider"
 import { CrmShell } from "@/components/crm/layout/CrmShell"
 
 const AUTH_ROUTES = ["/crm/login", "/crm/restablecer", "/crm/cambiar-contrasena"]
@@ -17,11 +17,11 @@ export function CrmAppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthProvider>
-      <CrmDataProvider>
+      <PusherProvider>
         <CrmShell>
           {children}
         </CrmShell>
-      </CrmDataProvider>
+      </PusherProvider>
     </AuthProvider>
   )
 }

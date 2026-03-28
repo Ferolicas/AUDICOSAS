@@ -1,9 +1,9 @@
-"use client"
-
-import { useCrmData } from "@/components/crm/providers/SWRProvider"
+import { cachedFetch } from '@/lib/sanity.server'
+import { allDesarrolloQuery } from '@/lib/crm/queries'
+import type { CrmDesarrollo } from '@/lib/crm/types'
 import DesarrolloKanbanClient from "./DesarrolloKanbanClient"
 
-export default function DesarrolloPage() {
-  const { desarrollo } = useCrmData()
+export default async function DesarrolloPage() {
+  const desarrollo = await cachedFetch<CrmDesarrollo[]>(allDesarrolloQuery)
   return <DesarrolloKanbanClient proyectos={desarrollo} />
 }
