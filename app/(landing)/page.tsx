@@ -138,24 +138,6 @@ const DIFFERENTIATORS = [
 
 const FAQ_ITEMS = [
   {
-    question: '¿Cuánto cuesta realmente certificarse en ISO?',
-    answer: (
-      <div className="space-y-3">
-        <p>La inversión típica por norma incluye consultoría + acompañamiento a la auditoría de certificación, el valor varía según el tamaño y complejidad de tu empresa:</p>
-        <ul className="space-y-1">
-          <li><strong>Microempresa (1-10 empleados):</strong> COP $8.000.000 - $15.000.000</li>
-          <li><strong>Pequeña empresa (11-50 empleados):</strong> COP $15.000.000 - $28.000.000</li>
-          <li><strong>Mediana empresa (51-200 empleados):</strong> COP $28.000.000 - $55.000.000</li>
-          <li><strong>Mediana-Grande (201-500 empleados):</strong> COP $55.000.000 - $95.000.000</li>
-          <li><strong>Gran empresa (+500 empleados):</strong> COP $95.000.000 - $200.000.000+</li>
-        </ul>
-        <p className="font-medium text-slate-800">Pero aquí está lo importante:</p>
-        <p>Empresas certificadas ahorran en promedio <strong>$25.000.000-$60.000.000 anuales</strong> y ganan contratos adicionales por <strong>$40.000.000-$200.000.000 anuales</strong>.</p>
-        <p className="text-amber-700 font-semibold">ROI real: 12-18 meses. La pregunta no es &quot;cuánto cuesta?&quot; sino &quot;cuánto pierdo cada mes sin certificarme?&quot;</p>
-      </div>
-    ),
-  },
-  {
     question: '¿Es muy complicado? Requiere mucho papeleo?',
     answer: (
       <div className="space-y-3">
