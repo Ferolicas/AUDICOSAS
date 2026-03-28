@@ -1,12 +1,5 @@
-import { Resend } from 'resend'
+import { sendMail } from '@/lib/zeptomail'
 
-let _resend: Resend | null = null
-function getResend(): Resend {
-  if (!_resend) _resend = new Resend(process.env.RESEND_API_KEY)
-  return _resend
-}
-
-const FROM = 'AUDICO S.A.S. <contacto@audicoiso.com>'
 const LOGO_URL = 'https://audicoiso.com/logoaudico.png'
 const LOGIN_URL = 'https://audicoiso.com/crm/login'
 
@@ -80,18 +73,10 @@ function accountCreatedHtml({ nombre, tempPassword }: AccountEmailData): string 
 }
 
 export async function sendAccountCreatedEmail(data: AccountEmailData) {
-  if (!process.env.RESEND_API_KEY) return { sent: false, reason: 'RESEND_API_KEY no configurada' }
-  try {
-    await getResend().emails.send({
-      from: FROM,
-      to: data.to,
-      subject: 'Tu cuenta en AUDICO CRM ha sido creada',
-      html: accountCreatedHtml(data),
-    })
-    return { sent: true }
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : 'Unknown error'
-    console.error('Email account created error:', msg)
-    return { sent: false, reason: msg }
-  }
+  return sendMail({
+    to: data.to,
+    toName: data.nombre,
+    subject: 'Tu cuenta en AUDICO CRM ha sido creada',
+    htmlbody: accountCreatedHtml(data),
+  })
 }

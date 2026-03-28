@@ -1,11 +1,5 @@
-import { Resend } from 'resend'
+import { sendMail } from './zeptomail'
 
-let _resend: Resend | null = null
-function getResend(): Resend {
-  if (!_resend) _resend = new Resend(process.env.RESEND_API_KEY)
-  return _resend
-}
-const FROM = 'AUDICO S.A.S. <contacto@audicoiso.com>'
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'misamiopc@gmail.com'
 const LOGO_URL = 'https://audicoiso.com/logoaudico.png'
 const WHATSAPP_URL = 'https://wa.me/573161374657'
@@ -136,9 +130,7 @@ function adminEmailHtml(data: ClientData): string {
               </tr>
               <tr style="background:#f8fafc;">
                 <td style="padding:10px 16px;font-size:13px;color:#64748b;font-weight:700;border-bottom:1px solid #e2e8f0;">WhatsApp</td>
-                <td style="padding:10px 16px;font-size:14px;color:#1e293b;border-bottom:1px solid #e2e8f0;">
-                  ${data.phone || '—'}
-                </td>
+                <td style="padding:10px 16px;font-size:14px;color:#1e293b;border-bottom:1px solid #e2e8f0;">${data.phone || '—'}</td>
               </tr>
               <tr>
                 <td style="padding:10px 16px;font-size:13px;color:#64748b;font-weight:700;border-bottom:1px solid #e2e8f0;">Empresa</td>
@@ -195,33 +187,19 @@ function adminEmailHtml(data: ClientData): string {
 }
 
 export async function sendClientConfirmation(data: ClientData) {
-  if (!process.env.RESEND_API_KEY) return { sent: false, reason: 'RESEND_API_KEY no configurada' }
-  try {
-    await getResend().emails.send({
-      from: FROM,
-      to: data.email,
-      subject: '¡Solicitud recibida! — AUDICO S.A.S.',
-      html: clientEmailHtml(data),
-    })
-    return { sent: true }
-  } catch (err: any) {
-    console.error('Email cliente error:', err.message)
-    return { sent: false, reason: err.message }
-  }
+  return sendMail({
+    to: data.email,
+    toName: data.name,
+    subject: '¡Solicitud recibida! — AUDICO S.A.S.',
+    htmlbody: clientEmailHtml(data),
+  })
 }
 
 export async function sendAdminNotification(data: ClientData) {
-  if (!process.env.RESEND_API_KEY) return { sent: false, reason: 'RESEND_API_KEY no configurada' }
-  try {
-    await getResend().emails.send({
-      from: FROM,
-      to: ADMIN_EMAIL,
-      subject: `Nuevo cliente: ${data.name} — ${data.company || 'Sin empresa'}`,
-      html: adminEmailHtml(data),
-    })
-    return { sent: true }
-  } catch (err: any) {
-    console.error('Email admin error:', err.message)
-    return { sent: false, reason: err.message }
-  }
+  return sendMail({
+    to: ADMIN_EMAIL,
+    toName: 'AUDICO Admin',
+    subject: `Nuevo cliente: ${data.name} — ${data.company || 'Sin empresa'}`,
+    htmlbody: adminEmailHtml(data),
+  })
 }
