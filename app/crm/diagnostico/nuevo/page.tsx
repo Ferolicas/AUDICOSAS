@@ -448,7 +448,7 @@ export default function NuevoDiagnosticoPage() {
             <Select onValueChange={v => setValue('modalidadPreferida', v as FormData['modalidadPreferida'])}>
               <SelectTrigger><SelectValue placeholder="Seleccionar" /></SelectTrigger>
               <SelectContent>
-                {['Presencial', 'Virtual', 'Hibrido'].map(v => <SelectItem key={v} value={v}>{v}</SelectItem>)}
+                {['Presencial', 'Virtual', 'Híbrido'].map(v => <SelectItem key={v} value={v}>{v}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>
@@ -481,7 +481,7 @@ export default function NuevoDiagnosticoPage() {
             <Select onValueChange={v => setValue('enfoqueAuditoria', v as FormData['enfoqueAuditoria'])}>
               <SelectTrigger><SelectValue placeholder="Seleccionar (si aplica)" /></SelectTrigger>
               <SelectContent>
-                {['Integral (9001, 14001, 45001)', 'Por norma', 'Procesos criticos'].map(v => (
+                {['Integral (9001, 14001, 45001)', 'Por norma', 'Procesos críticos'].map(v => (
                   <SelectItem key={v} value={v}>{v}</SelectItem>
                 ))}
               </SelectContent>
