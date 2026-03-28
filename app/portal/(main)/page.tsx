@@ -97,7 +97,7 @@ export default function PortalDashboard() {
     <div className="space-y-6">
       {/* Welcome banner */}
       <div className="bg-gradient-to-r from-[#0F1B33] to-[#2563EB] rounded-2xl p-6 lg:p-8 text-white">
-        <h2 className="text-2xl lg:text-3xl font-bold text-white">
+        <h2 className="text-2xl lg:text-3xl font-bold !text-white">
           Bienvenido, {empresa?.nombreComercial || empresa?.razonSocial}
         </h2>
         <p className="mt-2 text-blue-200 text-sm lg:text-base">
