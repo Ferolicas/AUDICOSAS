@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const clienteSchema = z.object({
   razonSocial: z.string().min(1, 'Razón social requerida'),
   nombreComercial: z.string().min(1, 'Nombre comercial requerido'),
+  nombreContacto: z.string().optional().default(''),
   nif: z.string().min(1, 'NIF requerido'),
   sector: z.string().min(1, 'Sector requerido'),
   tamano: z.enum(['Micro', 'Pequeña', 'Mediana', 'Grande']),

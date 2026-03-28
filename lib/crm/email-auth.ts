@@ -5,11 +5,12 @@ const LOGIN_URL = 'https://audicoiso.com/crm/login'
 
 interface AccountEmailData {
   to: string
-  nombre: string
+  nombreContacto: string
+  nombreComercial: string
   tempPassword: string
 }
 
-function accountCreatedHtml({ nombre, tempPassword }: AccountEmailData): string {
+function accountCreatedHtml({ nombreContacto, nombreComercial, to, tempPassword }: AccountEmailData): string {
   return `<!DOCTYPE html>
 <html lang="es">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
@@ -27,7 +28,7 @@ function accountCreatedHtml({ nombre, tempPassword }: AccountEmailData): string 
         <tr>
           <td style="padding:40px;">
             <p style="font-size:16px;color:#1e293b;margin:0 0 16px;">
-              Hola <strong>${nombre}</strong>,
+              Hola <strong>${nombreContacto}</strong>,
             </p>
             <p style="font-size:15px;color:#475569;line-height:1.6;margin:0 0 24px;">
               Se ha creado una cuenta para ti en el CRM de AUDICO ISO. A continuación encontrarás tus credenciales de acceso:
@@ -35,7 +36,8 @@ function accountCreatedHtml({ nombre, tempPassword }: AccountEmailData): string 
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f9ff;border:2px solid #bfdbfe;border-radius:8px;margin:0 0 24px;">
               <tr><td style="padding:20px;">
                 <p style="font-size:13px;color:#1e40af;text-transform:uppercase;font-weight:700;letter-spacing:0.5px;margin:0 0 12px;">Tus credenciales</p>
-                <p style="font-size:14px;color:#334155;margin:4px 0;"><strong>Correo:</strong> ${nombre}</p>
+                <p style="font-size:14px;color:#334155;margin:4px 0;"><strong>Empresa:</strong> ${nombreComercial}</p>
+                <p style="font-size:14px;color:#334155;margin:4px 0;"><strong>Correo:</strong> ${to}</p>
                 <p style="font-size:14px;color:#334155;margin:4px 0;"><strong>Contraseña temporal:</strong>
                   <span style="font-family:monospace;background:#dbeafe;padding:2px 8px;border-radius:4px;font-size:16px;font-weight:700;color:#1e40af;">${tempPassword}</span>
                 </p>
@@ -75,7 +77,7 @@ function accountCreatedHtml({ nombre, tempPassword }: AccountEmailData): string 
 export async function sendAccountCreatedEmail(data: AccountEmailData) {
   return sendMail({
     to: data.to,
-    toName: data.nombre,
+    toName: data.nombreContacto || data.nombreComercial,
     subject: 'Tu cuenta en AUDICO CRM ha sido creada',
     htmlbody: accountCreatedHtml(data),
   })

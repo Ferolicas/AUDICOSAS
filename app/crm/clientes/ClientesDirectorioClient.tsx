@@ -182,6 +182,7 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
                 <TableRow>
                   <TableHead>Codigo</TableHead>
                   <TableHead>Nombre Comercial</TableHead>
+                  <TableHead className="hidden md:table-cell">Contacto</TableHead>
                   <TableHead className="hidden md:table-cell">Sector</TableHead>
                   <TableHead className="hidden md:table-cell">Servicio de Interés</TableHead>
                   <TableHead className="hidden lg:table-cell">Ciudad</TableHead>
@@ -208,6 +209,13 @@ export default function ClientesDirectorioClient({ clientes }: Props) {
                       >
                         {c.nombreComercial}
                       </Link>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell text-slate-300">
+                      {c.nombreContacto ? (
+                        <span>{c.nombreContacto}</span>
+                      ) : (
+                        <span className="text-slate-500">—</span>
+                      )}
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-slate-400">
                       {c.sector}

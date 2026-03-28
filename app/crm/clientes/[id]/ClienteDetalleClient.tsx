@@ -88,6 +88,7 @@ export default function ClienteDetalleClient({ cliente }: Props) {
         <CardContent>
           <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4">
             <InfoItem label="Razon Social" value={cliente.razonSocial} />
+            {cliente.nombreContacto && <InfoItem label="Contacto" value={cliente.nombreContacto} />}
             <InfoItem label="NIF / NIT" value={cliente.nif} />
             <InfoItem label="Sector" value={cliente.sector} />
             <InfoItem

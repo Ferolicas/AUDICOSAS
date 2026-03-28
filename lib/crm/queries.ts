@@ -2,13 +2,13 @@ import groq from 'groq'
 
 // Clientes
 export const allClientesQuery = groq`*[_type == "crmCliente"] | order(fechaAlta desc) {
-  _id, codigo, razonSocial, nombreComercial, nif, sector, tamano,
+  _id, codigo, razonSocial, nombreComercial, nombreContacto, nif, sector, tamano,
   numEmpleados, telefono, email, direccion, ciudad, pais,
   estado, servicioInteres, observaciones, consultorAsignado, fechaAlta, certificaciones
 }`
 
 export const clienteByIdQuery = groq`*[_type == "crmCliente" && _id == $id][0] {
-  _id, codigo, razonSocial, nombreComercial, nif, sector, tamano,
+  _id, codigo, razonSocial, nombreComercial, nombreContacto, nif, sector, tamano,
   numEmpleados, telefono, email, direccion, ciudad, pais,
   estado, servicioInteres, observaciones, consultorAsignado, fechaAlta, certificaciones
 }`

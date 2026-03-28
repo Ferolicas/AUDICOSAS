@@ -7,7 +7,7 @@ import crypto from 'crypto'
 
 const USER_EXISTS = groq`count(*[_type == "crmUsuario" && email == $email])`
 const CLIENT_BY_ID = groq`*[_type == "crmCliente" && _id == $id][0]{
-  _id, nombreComercial, razonSocial, email, telefono
+  _id, nombreComercial, razonSocial, nombreContacto, email, telefono
 }`
 
 export async function POST(req: NextRequest) {
@@ -48,9 +48,11 @@ export async function POST(req: NextRequest) {
     const tempPassword = crypto.randomBytes(4).toString('hex') // e.g. "a3f1b2c4"
     const passwordHash = await hashPassword(tempPassword)
 
+    const nombreParaCuenta = cliente.nombreContacto || cliente.nombreComercial || cliente.razonSocial
+
     const doc = await sanityWrite().create({
       _type: 'crmUsuario',
-      nombre: cliente.nombreComercial || cliente.razonSocial,
+      nombre: nombreParaCuenta,
       email: cliente.email.toLowerCase().trim(),
       passwordHash,
       rol: 'visor',
@@ -62,7 +64,8 @@ export async function POST(req: NextRequest) {
     // Send email with credentials
     const emailResult = await sendAccountCreatedEmail({
       to: cliente.email,
-      nombre: cliente.nombreComercial || cliente.razonSocial,
+      nombreContacto: cliente.nombreContacto || cliente.nombreComercial || cliente.razonSocial,
+      nombreComercial: cliente.nombreComercial || cliente.razonSocial,
       tempPassword,
     })
 

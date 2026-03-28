@@ -23,6 +23,7 @@ export default function ClienteEditarClient({ cliente }: { cliente: CrmCliente }
     defaultValues: {
       razonSocial: cliente.razonSocial,
       nombreComercial: cliente.nombreComercial,
+      nombreContacto: cliente.nombreContacto || '',
       nif: cliente.nif,
       sector: cliente.sector,
       tamano: cliente.tamano,
@@ -62,6 +63,7 @@ export default function ClienteEditarClient({ cliente }: { cliente: CrmCliente }
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div><Label>Razón Social *</Label><Input {...register('razonSocial')} />{errors.razonSocial && <p className="text-sm text-red-500 mt-1">{errors.razonSocial.message}</p>}</div>
         <div><Label>Nombre Comercial *</Label><Input {...register('nombreComercial')} />{errors.nombreComercial && <p className="text-sm text-red-500 mt-1">{errors.nombreComercial.message}</p>}</div>
+        <div><Label>Nombre del Contacto</Label><Input {...register('nombreContacto')} placeholder="Nombre de la persona de contacto" /></div>
         <div><Label>NIF / NIT *</Label><Input {...register('nif')} />{errors.nif && <p className="text-sm text-red-500 mt-1">{errors.nif.message}</p>}</div>
         <div><Label>Sector *</Label><Input {...register('sector')} />{errors.sector && <p className="text-sm text-red-500 mt-1">{errors.sector.message}</p>}</div>
         <div>

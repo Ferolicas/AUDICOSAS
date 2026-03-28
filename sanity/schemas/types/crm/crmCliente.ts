@@ -16,6 +16,7 @@ export default defineType({
       validation: r => r.required()
     }),
     defineField({ name: 'numEmpleados', title: 'Número de Empleados', type: 'number', validation: r => r.required().positive() }),
+    defineField({ name: 'nombreContacto', title: 'Nombre del Contacto', type: 'string' }),
     defineField({ name: 'telefono', title: 'Teléfono', type: 'string' }),
     defineField({ name: 'email', title: 'Email', type: 'string', validation: r => r.required().email() }),
     defineField({ name: 'direccion', title: 'Dirección', type: 'string' }),

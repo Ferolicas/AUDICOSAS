@@ -7,6 +7,7 @@ export interface CrmCliente {
   sector: string
   tamano: 'Micro' | 'Pequeña' | 'Mediana' | 'Grande'
   numEmpleados: number
+  nombreContacto: string
   telefono: string
   email: string
   direccion: string

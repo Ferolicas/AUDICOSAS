@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -21,6 +21,17 @@ export default function NuevoClientePage() {
     resolver: zodResolver(clienteSchema),
     defaultValues: { pais: 'Colombia', estado: 'Prospecto' },
   })
+
+  // Auto-detect city and country from IP
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(r => r.json())
+      .then(data => {
+        if (data.city) setValue('ciudad', data.city)
+        if (data.country_name) setValue('pais', data.country_name)
+      })
+      .catch(() => {/* silently ignore — user can fill manually */})
+  }, [setValue])
 
   const onSubmit = async (data: FormData) => {
     setLoading(true)
@@ -55,6 +66,10 @@ export default function NuevoClientePage() {
           <Label>Nombre Comercial *</Label>
           <Input {...register('nombreComercial')} placeholder="Nombre comercial" />
           {errors.nombreComercial && <p className="text-sm text-red-500 mt-1">{errors.nombreComercial.message}</p>}
+        </div>
+        <div>
+          <Label>Nombre del Contacto</Label>
+          <Input {...register('nombreContacto')} placeholder="Nombre de la persona de contacto" />
         </div>
         <div>
           <Label>NIF / NIT *</Label>
@@ -98,11 +113,11 @@ export default function NuevoClientePage() {
         </div>
         <div>
           <Label>Ciudad</Label>
-          <Input {...register('ciudad')} placeholder="Ciudad" />
+          <Input {...register('ciudad')} placeholder="Detectando..." />
         </div>
         <div>
           <Label>País</Label>
-          <Input {...register('pais')} />
+          <Input {...register('pais')} placeholder="Detectando..." />
         </div>
         <div>
           <Label>Estado</Label>
