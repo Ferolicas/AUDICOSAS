@@ -69,7 +69,11 @@ export default function Header() {
               key={link.label}
               href={link.href}
               {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : link.href.startsWith('#') ? { onClick: handleNavClick } : {})}
-              className="px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/10"
+              className={
+                link.label === 'Acceso Clientes'
+                  ? "ml-1 px-4 py-2 text-sm font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white transition-colors shadow-md"
+                  : "px-3 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/10"
+              }
             >
               {link.label}
             </a>
@@ -110,7 +114,11 @@ export default function Header() {
                 href={link.href}
                 {...(link.href.startsWith('#') ? { onClick: handleNavClick } : { onClick: () => setMobileOpen(false) })}
                 {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="px-4 py-3 text-slate-200 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                className={
+                  link.label === 'Acceso Clientes'
+                    ? "px-4 py-3 text-white font-semibold bg-green-600 hover:bg-green-500 rounded-lg transition-colors text-center"
+                    : "px-4 py-3 text-slate-200 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                }
               >
                 {link.label}
               </a>
