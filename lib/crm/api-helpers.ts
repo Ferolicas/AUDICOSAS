@@ -20,12 +20,16 @@ export function jsonError(message: string, status = 400) {
   return NextResponse.json({ error: message }, { status })
 }
 
-// ── Pusher broadcast (fire and forget) ──
+// ── Pusher broadcast (fire and forget, never throws) ──
 
 function broadcast(action: 'created' | 'updated' | 'deleted', type: string) {
-  getPusherServer()
-    .trigger(CRM_CHANNEL, CRM_EVENT, { action, type })
-    .catch((err) => console.error('[Pusher] broadcast error:', err))
+  try {
+    getPusherServer()
+      .trigger(CRM_CHANNEL, CRM_EVENT, { action, type })
+      .catch((err) => console.error('[Pusher] trigger error:', err))
+  } catch (err) {
+    console.error('[Pusher] init error:', err)
+  }
 }
 
 // ── Fetch con cache en memoria ──
@@ -55,7 +59,7 @@ export async function createDocument(type: string, countQuery: string, data: Rec
   const codigo = generateCodigo(type, count)
   const doc = await client.create({ _type: type, codigo, ...data })
   invalidateAllCaches()
-  revalidateTag('crm')
+  try { revalidateTag('crm') } catch { /* no-op outside Next.js context */ }
   broadcast('created', type)
   return doc
 }
@@ -65,7 +69,7 @@ export async function updateDocument(id: string, data: Record<string, unknown>, 
   const client = sanityWrite()
   const result = await client.patch(id).set(data).commit()
   invalidateAllCaches()
-  revalidateTag('crm')
+  try { revalidateTag('crm') } catch { /* no-op outside Next.js context */ }
   broadcast('updated', type)
   return result
 }
@@ -73,9 +77,27 @@ export async function updateDocument(id: string, data: Record<string, unknown>, 
 export async function deleteDocument(id: string, type = 'unknown') {
   requireWrite()
   const client = sanityWrite()
-  const result = await client.delete(id)
+
+  // Find all documents that reference this id and delete them first (cascade)
+  const referencingDocs = await client.fetch<{ _id: string }[]>(
+    `*[references($id)]{ _id }`,
+    { id }
+  )
+
+  if (referencingDocs.length > 0) {
+    // Delete all referencing documents in a single transaction
+    const tx = client.transaction()
+    for (const doc of referencingDocs) {
+      tx.delete(doc._id)
+    }
+    tx.delete(id)
+    await tx.commit()
+  } else {
+    await client.delete(id)
+  }
+
   invalidateAllCaches()
-  revalidateTag('crm')
+  try { revalidateTag('crm') } catch { /* no-op outside Next.js context */ }
   broadcast('deleted', type)
-  return result
+  return { deleted: true }
 }
