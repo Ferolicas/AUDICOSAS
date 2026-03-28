@@ -1,5 +1,9 @@
 import { z } from 'zod'
 
+// Converts NaN (from valueAsNumber on empty inputs) to undefined before Zod validates
+const optNum = (inner: z.ZodNumber) =>
+  z.preprocess(v => (typeof v === 'number' && isNaN(v)) ? undefined : v, inner.optional())
+
 export const clienteSchema = z.object({
   razonSocial: z.string().min(1, 'Razón social requerida'),
   nombreComercial: z.string().min(1, 'Nombre comercial requerido'),
@@ -29,11 +33,11 @@ export const diagnosticoSchema = z.object({
   // Sección 1 - Sobre la empresa
   actividadPrincipal: z.string().optional(),
   mercadosOperacion: z.string().optional(),
-  numSedes: z.number().int().positive().optional(),
-  numProcesos: z.number().int().min(1).optional(),
+  numSedes: optNum(z.number().int().positive()),
+  numProcesos: optNum(z.number().int().min(1)),
   tierEmpleados: z.string().optional(),
-  empleadosAdicionales: z.number().int().min(0).optional(),
-  porcentajeProcesos: z.number().min(0).max(100).optional(),
+  empleadosAdicionales: optNum(z.number().int().min(0)),
+  porcentajeProcesos: optNum(z.number().min(0).max(100)),
   aplicarProcesos: z.boolean().optional().default(false),
   nivelRegulacion: z.enum(['Alto', 'Medio', 'Bajo']).optional(),
   // Sección 2 - Situación actual frente a normas
@@ -57,11 +61,11 @@ export const diagnosticoSchema = z.object({
   enfoqueAuditoria: z.enum(['Integral (9001, 14001, 45001)', 'Por norma', 'Procesos críticos']).optional(),
   temasCapacitacion: z.string().optional(),
   // Resultados del diagnóstico (se rellenan al completar)
-  incrementoRiesgos: z.number().min(0).max(100).optional(),
-  cumplimientoGlobal: z.number().min(0).max(100).optional(),
+  incrementoRiesgos: optNum(z.number().min(0).max(100)),
+  cumplimientoGlobal: optNum(z.number().min(0).max(100)),
   viabilidad: z.enum(['Alta', 'Media', 'Baja']).optional(),
-  tiempoEstimado: z.number().positive().optional(),
-  inversionEstimada: z.number().min(0).optional(),
+  tiempoEstimado: optNum(z.number().positive()),
+  inversionEstimada: optNum(z.number().min(0)),
   resumenEjecutivo: z.string().optional(),
 })
 
