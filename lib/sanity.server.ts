@@ -21,7 +21,7 @@ let _read: SanityClient | null = null
 let _write: SanityClient | null = null
 
 export function sanityRead(): SanityClient {
-  if (!_read) _read = buildClient(true, false)
+  if (!_read) _read = buildClient(false, false)
   return _read
 }
 

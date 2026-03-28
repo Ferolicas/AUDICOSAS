@@ -37,6 +37,7 @@ export function DeleteButton({ id, apiPath, entityName, redirectPath }: DeleteBu
         throw new Error(e.error || `Error al eliminar ${entityName}`)
       }
       toast.success(`${entityName} eliminado exitosamente`)
+      router.refresh()
       router.push(redirectPath)
     } catch (err) {
       toast.error(err instanceof Error ? err.message : `Error al eliminar ${entityName}`)
