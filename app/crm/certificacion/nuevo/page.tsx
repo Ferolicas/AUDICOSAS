@@ -22,6 +22,7 @@ interface DiagnosticoOption {
   codigo: string
   normas: string[]
   fechaVisita: string
+  inversionEstimada?: number
 }
 
 export default function NuevaCertificacionPage() {
@@ -109,7 +110,16 @@ export default function NuevaCertificacionPage() {
         <div><Label>Valor Proyecto (COP) *</Label><Input type="number" {...register('valorProyecto', { valueAsNumber: true })} placeholder="0" /></div>
         <div>
           <Label>Diagnostico de Origen</Label>
-          <Select onValueChange={v => setValue('diagnosticoOrigen', v)} disabled={!clienteId || diagnosticosCliente.length === 0}>
+          <Select
+            onValueChange={v => {
+              setValue('diagnosticoOrigen', v)
+              const diag = diagnosticosCliente.find(d => d._id === v)
+              if (diag?.inversionEstimada) {
+                setValue('valorProyecto', diag.inversionEstimada)
+              }
+            }}
+            disabled={!clienteId || diagnosticosCliente.length === 0}
+          >
             <SelectTrigger>
               <SelectValue placeholder={clienteId ? (diagnosticosCliente.length === 0 ? 'Sin diagnosticos' : 'Seleccionar diagnostico') : 'Primero selecciona un cliente'} />
             </SelectTrigger>
