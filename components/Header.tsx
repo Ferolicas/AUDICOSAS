@@ -82,7 +82,7 @@ export default function Header() {
             onClick={() => setOpen(true)}
             className="ml-3 px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-all shadow-md hover:shadow-lg cursor-pointer text-sm animate-pulse-glow"
           >
-            Diagnóstico Gratis
+            Sesión de Viabilidad
           </button>
         </nav>
 
@@ -128,7 +128,7 @@ export default function Header() {
                 onClick={() => { setOpen(true); setMobileOpen(false) }}
                 className="w-full px-5 py-3 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors cursor-pointer"
               >
-                Diagnóstico Gratis
+                Sesión de Viabilidad
               </button>
             </div>
           </nav>

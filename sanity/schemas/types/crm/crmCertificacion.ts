@@ -31,6 +31,19 @@ export default defineType({
     }),
     defineField({ name: 'diagnosticoOrigen', title: 'Diagnóstico Origen', type: 'string' }),
     defineField({
+      name: 'documentos', title: 'Documentos', type: 'array',
+      of: [{
+        type: 'object', name: 'documentoAdjunto',
+        fields: [
+          defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
+          defineField({ name: 'url', title: 'URL', type: 'url' }),
+          defineField({ name: 'assetId', title: 'Asset ID', type: 'string' }),
+          defineField({ name: 'fechaSubida', title: 'Fecha', type: 'datetime' }),
+          defineField({ name: 'tipo', title: 'Tipo (extensión)', type: 'string' }),
+        ]
+      }]
+    }),
+    defineField({
       name: 'fases', title: 'Fases', type: 'array',
       of: [{
         type: 'object',

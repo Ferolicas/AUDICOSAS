@@ -3,7 +3,8 @@ import { certificacionByIdQuery } from '@/lib/crm/queries'
 import { notFound } from 'next/navigation'
 import groq from 'groq'
 import Link from 'next/link'
-import { ArrowLeft, Printer } from 'lucide-react'
+import { ArrowLeft, Download } from 'lucide-react'
+import PrintButton from './PrintButton'
 import type { CrmCertificacion } from '@/lib/crm/types'
 
 const gapByCertQuery = groq`*[_type == "crmGapAnalysis" && certId == $certId][0]`
@@ -93,9 +94,14 @@ export default async function ResumenEjecutivoPage({ params }: { params: Promise
           <ArrowLeft className="w-4 h-4" />Volver
         </Link>
         <span className="flex-1 font-semibold">Resumen Ejecutivo — {cert.clienteNombre}</span>
-        <button onClick={() => {}} className="flex items-center gap-2 text-sm bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded">
-          <Printer className="w-4 h-4" />Imprimir
-        </button>
+        <a
+          href={`/api/crm/resumen-ejecutivo/${certId}`}
+          download
+          className="flex items-center gap-2 text-sm bg-green-600 hover:bg-green-700 px-3 py-1.5 rounded transition-colors"
+        >
+          <Download className="w-4 h-4" />Descargar .docx
+        </a>
+        <PrintButton />
       </div>
 
       <div className="max-w-4xl mx-auto py-10 px-6 space-y-8" style={{ fontFamily: 'system-ui, sans-serif' }}>

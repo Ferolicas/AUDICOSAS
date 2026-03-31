@@ -10,7 +10,7 @@ export const allClientesQuery = groq`*[_type == "crmCliente"] | order(fechaAlta 
 export const clienteByIdQuery = groq`*[_type == "crmCliente" && _id == $id][0] {
   _id, codigo, razonSocial, nombreComercial, nombreContacto, nif, sector, tamano,
   numEmpleados, telefono, email, direccion, ciudad, pais,
-  estado, servicioInteres, observaciones, consultorAsignado, fechaAlta, certificaciones
+  estado, servicioInteres, observaciones, consultorAsignado, fechaAlta, certificaciones, documentos
 }`
 
 export const clienteCountQuery = groq`count(*[_type == "crmCliente"])`
@@ -49,7 +49,7 @@ export const certificacionByIdQuery = groq`*[_type == "crmCertificacion" && _id 
   _id, codigo, cliente->{_id, nombreComercial},
   clienteNombre, normas, faseActual, avanceGlobal,
   consultorLider, fechaInicio, fechaObjetivo,
-  estado, valorProyecto, prioridad, diagnosticoOrigen, fases
+  estado, valorProyecto, prioridad, diagnosticoOrigen, fases, documentos
 }`
 
 export const certificacionCountQuery = groq`count(*[_type == "crmCertificacion"])`

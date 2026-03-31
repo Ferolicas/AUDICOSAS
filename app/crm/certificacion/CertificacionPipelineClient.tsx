@@ -11,11 +11,11 @@ import { PriorityIndicator } from "@/components/crm/shared/PriorityIndicator"
 import type { CrmCertificacion } from "@/lib/crm/types"
 
 const FASES = [
-  { num: 1, nombre: 'Diagnóstico', color: 'bg-blue-500' },
-  { num: 2, nombre: 'Diseño', color: 'bg-purple-500' },
-  { num: 3, nombre: 'Implementación', color: 'bg-orange-500' },
-  { num: 4, nombre: 'Preparación', color: 'bg-yellow-500' },
-  { num: 5, nombre: 'Certificación', color: 'bg-green-500' },
+  { num: 1, nombre: 'Auditoría de Brechas y Potencial de ROI', color: 'bg-blue-500' },
+  { num: 2, nombre: 'Arquitectura de Procesos de Alto Rendimiento', color: 'bg-purple-500' },
+  { num: 3, nombre: 'Despliegue Estratégico y Cultura Organizacional', color: 'bg-orange-500' },
+  { num: 4, nombre: 'Blindaje ISO (Simulacro de Auditoría)', color: 'bg-yellow-500' },
+  { num: 5, nombre: 'Validación de Activos y Mejora Continua', color: 'bg-green-500' },
 ]
 
 export default function CertificacionPipelineClient({ certificaciones }: { certificaciones: CrmCertificacion[] }) {

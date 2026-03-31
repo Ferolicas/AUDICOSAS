@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
-import { ArrowLeft, Pencil, Building2, Phone, Mail, MapPin, Target, MessageSquare, Send, Plus } from "lucide-react"
+import { ArrowLeft, Pencil, Building2, Phone, Mail, MapPin, Target, MessageSquare, Send, Plus, Paperclip } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/crm/ui/card"
 import {
   Table, TableBody, TableCell, TableHead,
@@ -20,6 +20,8 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/crm/ui/select"
 import { StatusBadge } from "@/components/crm/shared/StatusBadge"
 import { DeleteButton } from "@/components/crm/shared/DeleteButton"
+import DocumentosSection from "@/components/crm/shared/DocumentosSection"
+import type { Documento } from "@/components/crm/shared/DocumentosSection"
 import type { CrmCliente } from "@/lib/crm/types"
 import { toast } from "sonner"
 
@@ -193,6 +195,9 @@ export default function ClienteDetalleClient({ cliente, diagnosticos, auditorias
             </TabsTrigger>
             <TabsTrigger value="consultorias">
               Consultorias {consultorias.length > 0 && <Badge variant="secondary" className="ml-1.5 text-xs">{consultorias.length}</Badge>}
+            </TabsTrigger>
+            <TabsTrigger value="documentos">
+              <Paperclip className="w-3.5 h-3.5 mr-1.5" />Documentos
             </TabsTrigger>
           </TabsList>
 
@@ -460,6 +465,22 @@ export default function ClienteDetalleClient({ cliente, diagnosticos, auditorias
                     </TableBody>
                   </Table>
                 )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+          {/* Tab: Documentos */}
+          <TabsContent value="documentos" className="mt-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Paperclip className="w-5 h-5" />Archivos Adjuntos
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <DocumentosSection
+                  docId={cliente._id}
+                  documentos={(cliente.documentos ?? []) as Documento[]}
+                />
               </CardContent>
             </Card>
           </TabsContent>

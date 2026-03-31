@@ -33,6 +33,19 @@ export default defineType({
     defineField({ name: 'consultorAsignado', title: 'Consultor Asignado', type: 'string' }),
     defineField({ name: 'fechaAlta', title: 'Fecha de Alta', type: 'date' }),
     defineField({
+      name: 'documentos', title: 'Documentos', type: 'array',
+      of: [{
+        type: 'object', name: 'documentoAdjunto',
+        fields: [
+          defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
+          defineField({ name: 'url', title: 'URL', type: 'url' }),
+          defineField({ name: 'assetId', title: 'Asset ID', type: 'string' }),
+          defineField({ name: 'fechaSubida', title: 'Fecha', type: 'datetime' }),
+          defineField({ name: 'tipo', title: 'Tipo (extensión)', type: 'string' }),
+        ]
+      }]
+    }),
+    defineField({
       name: 'certificaciones', title: 'Certificaciones', type: 'array',
       of: [{
         type: 'object',

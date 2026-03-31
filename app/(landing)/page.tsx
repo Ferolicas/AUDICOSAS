@@ -39,40 +39,39 @@ const STATS = [
 
 const PHASES = [
   {
-    num: 1, title: 'Diagnóstico Gratuito', duration: '1 semana', investment: '$0 (GRATIS)',
+    num: 1, title: 'Auditoría de Brechas y Potencial de ROI', duration: '1 semana',
     icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
-    tasks: ['Visitamos tu empresa', 'Analizamos procesos actuales', 'Identificamos brechas vs. requisitos ISO', 'Detectamos oportunidades de ahorro', 'Calculamos ROI potencial para TU caso'],
-    deliverables: ['Reporte detallado de situación actual', 'Plan de acción personalizado', 'Cotización transparente', 'Respuestas a todas tus dudas'],
+    logros: ['Realizamos una inmersión técnica en tu operación actual para identificar exactamente qué te separa de la certificación.', 'Identificamos dónde estás perdiendo dinero por falta de control.'],
+    resultado: 'Un mapa de ruta claro y la cuantificación del ahorro operativo que tu empresa obtendrá tras la implementación.',
+    beneficio: 'Certeza absoluta de viabilidad antes de invertir un solo peso en la ejecución.',
   },
   {
-    num: 2, title: 'Planificación del sistema', duration: '3-4 semanas', investment: null,
+    num: 2, title: 'Arquitectura de Procesos de Alto Rendimiento', duration: '3-4 semanas',
     icon: 'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z',
-    tasks: ['Diseñamos procedimientos adaptados a tu realidad', 'Creamos documentación que tu equipo entienda', 'Aprovechamos lo que ya funciona bien', 'Definimos indicadores relevantes'],
-    deliverables: ['Sistema de gestión personalizado', 'Procedimientos operativos claros', 'Formatos prácticos y usables', 'Mapa de procesos de tu empresa'],
+    logros: ['Diseñamos una estructura documental y operativa que se adapta a tu realidad, no al revés.', 'Eliminamos la burocracia innecesaria y estandarizamos lo que realmente genera valor.'],
+    resultado: 'Procesos que funcionan sin depender de personas específicas, permitiendo que la gerencia delegue con total confianza.',
+    beneficio: 'Una empresa organizada, escalable y lista para auditorías internacionales.',
   },
   {
-    num: 3, title: 'Diseño', duration: '3-5 meses', investment: null,
+    num: 3, title: 'Despliegue Estratégico y Cultura Organizacional', duration: '3-5 meses',
     icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
-    tasks: ['Capacitamos a tu equipo completo', 'Implementamos sistemas paso a paso', 'Trabajamos codo a codo contigo', 'Medimos avances semanalmente'],
-    deliverables: ['Equipo capacitado y comprometido', 'Sistemas funcionando en operación real', 'Indicadores siendo monitoreados', 'Cultura de mejora continua iniciada'],
+    logros: ['Acompañamos a tu equipo en la adopción de los nuevos estándares.', 'No solo entregamos manuales; transformamos la mentalidad de tu personal para que la calidad y el cuidado ambiental sean parte de su ADN diario.'],
+    resultado: 'Un equipo alineado, capacitado y comprometido con la eficiencia operativa.',
+    beneficio: 'Reducción drástica en errores, reprocesos y desperdicios desde el primer mes de implementación.',
   },
   {
-    num: 4, title: 'Implementación', duration: '2-4 semanas', investment: null,
+    num: 4, title: 'Blindaje ISO (Simulacro de Auditoría)', duration: '2-4 semanas',
     icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
-    tasks: ['Auditoría interna simulada', 'Identificamos áreas de mejora', 'Corregimos no conformidades', 'Preparamos a tu equipo para auditoría externa'],
-    deliverables: ['Tu empresa 100% lista', 'Equipo confiado y preparado', 'Documentación completa y ordenada', 'Cero sorpresas en auditoría'],
+    logros: ['Como Auditores Internos certificados, realizamos un examen riguroso previo a la visita oficial.', 'Detectamos cualquier detalle suelto y blindamos tu sistema contra posibles no conformidades.'],
+    resultado: 'Tu empresa llega a la auditoría de certificación con el 100% de confianza y preparación técnica.',
+    beneficio: 'Cero sorpresas y la garantía de que tu inversión está protegida frente al ente certificador.',
   },
   {
-    num: 5, title: 'Verificación', duration: 'Permanente', investment: null,
+    num: 5, title: 'Validación de Activos y Mejora Continua', duration: null,
     icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2',
-    tasks: ['Acompañamos en auditoría de certificación', 'Soporte post-certificación incluido', 'Asesoría para mantener sistemas', 'Preparación para auditorías de seguimiento'],
-    deliverables: ['Certificado ISO oficial', 'Sistema que sigue generando valor', 'Soporte cuando lo necesites', 'Evolución continua de tu empresa'],
-  },
-  {
-    num: 6, title: 'Certificación', duration: 'Permanente', investment: null,
-    icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2',
-    tasks: ['Acompañamos en auditoría de certificación', 'Soporte post-certificación incluido - Primeros 15 días'],
-    deliverables: ['Certificado ISO oficial', 'Sistema que sigue generando valor', 'Evolución continua de tu empresa'],
+    logros: ['Te acompañamos durante la auditoría externa de certificación (ICONTEC, SGS, etc.).', 'Establecemos el sistema de monitoreo para que los beneficios obtenidos se mantengan y crezcan en el tiempo.'],
+    resultado: 'Obtención del certificado oficial y un sistema de gestión que genera rentabilidad año tras año.',
+    beneficio: 'Apertura inmediata a mercados corporativos, licitaciones estatales y una reputación imbatible.',
   },
 ]
 
@@ -313,7 +312,7 @@ export default function Page() {
               </div>
               <div className="mt-10 flex flex-wrap gap-4">
                 <button onClick={() => setOpen(true)} className="btn-primary text-base px-8 py-4 animate-pulse-glow">
-                  Agenda Tu Diagnóstico GRATUITO
+                  Agenda Tu Sesión de Viabilidad
                 </button>
                 <a href="#casos" className="btn-secondary text-base px-8 py-4">
                   Ver Casos de Éxito
@@ -494,7 +493,7 @@ export default function Page() {
 
           <div className="mt-10 text-center">
             <button onClick={() => setOpen(true)} className="btn-primary text-base px-8 py-4">
-              Solicita Tu Diagnóstico GRATUITO
+              Solicita Tu Sesión de Viabilidad GRATIS
             </button>
           </div>
         </div>
@@ -539,10 +538,10 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Nuestro Método: Simple, Práctico y Efectivo
+              Nuestra Metodología:<br />El Camino <span className="text-green-500">Blindado</span> hacia la <span className="text-green-500">Certificación</span>
             </h2>
-            <p className="mt-4 text-slate-600 text-lg text-justify">
-              En 6 fases estratégicas preparamos y acompañamos a tu organización para transformar sus procesos en sistemas de alto rendimiento. Aseguramos tu éxito en la auditoría con el organismo certificador de tu elección, garantizando resultados que potencian tu competitividad.
+            <p className="mt-4 text-slate-600 text-lg text-center">
+              Transformamos tu operación en un activo de clase mundial en 5 etapas estratégicas.
             </p>
           </div>
 
@@ -551,10 +550,10 @@ export default function Page() {
               <div key={phase.num} className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden card-hover">
                 <div className="flex flex-col md:flex-row">
                   {/* Phase number sidebar */}
-                  <div className="md:w-48 flex-shrink-0 p-6 flex flex-col items-center justify-center text-center" style={{ background: 'linear-gradient(135deg, #1B2A4A, #2563EB)' }}>
+                  <div className="md:w-64 flex-shrink-0 p-6 flex flex-col items-center justify-center text-center" style={{ background: 'linear-gradient(135deg, #1B2A4A, #2563EB)' }}>
                     <div className="text-4xl font-extrabold text-amber-400">0{phase.num}</div>
                     <div className="text-white font-bold text-sm mt-1">{phase.title}</div>
-                    <div className="text-blue-200 text-xs mt-2">{phase.duration}</div>
+                    {phase.duration && <div className="text-blue-200 text-xs mt-2">{phase.duration}</div>}
                     {phase.investment && (
                       <div className="mt-2 px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full">
                         {phase.investment}
@@ -564,29 +563,31 @@ export default function Page() {
 
                   {/* Content */}
                   <div className="flex-1 p-6">
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-5">
+                      {/* Lo que logramos */}
                       <div>
-                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Qué hacemos</h4>
-                        <ul className="space-y-2">
-                          {phase.tasks.map((t) => (
-                            <li key={t} className="flex items-start gap-2 text-sm text-slate-600">
-                              <span className="text-blue-500 mt-0.5">
+                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Lo que logramos</h4>
+                        <ul className="space-y-1.5">
+                          {phase.logros.map((l) => (
+                            <li key={l} className="flex items-start gap-2 text-sm text-slate-600">
+                              <span className="text-blue-500 mt-0.5 flex-shrink-0">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                               </span>
-                              {t}
+                              {l}
                             </li>
                           ))}
                         </ul>
                       </div>
-                      <div>
-                        <h4 className="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">Qué obtienes</h4>
-                        <ul className="space-y-2">
-                          {phase.deliverables.map((d) => (
-                            <li key={d} className="flex items-start gap-2 text-sm text-slate-600">
-                              <CheckIcon />{d}
-                            </li>
-                          ))}
-                        </ul>
+                      {/* El Resultado + Tu Beneficio */}
+                      <div className="grid md:grid-cols-2 gap-3">
+                        <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
+                          <h4 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-1.5">El Resultado</h4>
+                          <p className="text-sm text-slate-700 leading-relaxed">{phase.resultado}</p>
+                        </div>
+                        <div className="bg-green-50 border border-green-100 rounded-xl p-4">
+                          <h4 className="text-xs font-bold text-green-700 uppercase tracking-widest mb-1.5">Tu Beneficio</h4>
+                          <p className="text-sm text-slate-700 leading-relaxed">{phase.beneficio}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -602,7 +603,7 @@ export default function Page() {
             </div>
             <div className="mt-6">
               <button onClick={() => setOpen(true)} className="btn-primary text-base">
-                Comienza Tu Fase 1 GRATIS Ahora
+                Agenda Tu Sesión de Viabilidad
               </button>
             </div>
           </div>
@@ -683,7 +684,7 @@ export default function Page() {
           <div className="mt-12 text-center">
             <p className="text-lg text-slate-700 font-semibold mb-4">Tu empresa puede ser nuestro próximo caso de éxito.</p>
             <button onClick={() => setOpen(true)} className="btn-primary text-base">
-              Agenda Tu Diagnóstico Gratuito
+              Agenda Tu Sesión de Viabilidad
             </button>
           </div>
         </div>
@@ -740,9 +741,9 @@ export default function Page() {
 
           <div className="mt-10 text-center bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
             <p className="text-lg font-semibold text-slate-800">¿Tienes otra pregunta?</p>
-            <p className="text-sm text-slate-600 mt-1">Agenda tu diagnóstico gratuito y resolvemos TODAS tus dudas personalmente.</p>
+            <p className="text-sm text-slate-600 mt-1">Agenda tu sesión de viabilidad y resolvemos TODAS tus dudas personalmente.</p>
             <button onClick={() => setOpen(true)} className="mt-4 btn-primary">
-              Agendar Diagnóstico y Resolver Mis Dudas
+              Agendar Sesión de Viabilidad y Resolver Mis Dudas
             </button>
           </div>
         </div>
@@ -785,11 +786,12 @@ export default function Page() {
                 ¿Listo Para Transformar Tu Empresa?
               </h2>
               <p className="mt-4 text-xl text-blue-100">
-                El primer paso es el más fácil. Y es completamente <strong className="text-amber-400">GRATIS</strong>.
+                El primer paso es el más estratégico.<br />
+                <strong className="text-amber-400">Es tu Sesión de Viabilidad - GRATIS</strong>
               </p>
 
               <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                <div className="text-amber-400 font-bold text-sm mb-3">EN TU DIAGNÓSTICO PERSONALIZADO:</div>
+                <div className="text-amber-400 font-bold text-sm mb-3">En tu Auditoría de Brechas y Potencial de ROI</div>
                 <ul className="space-y-2.5">
                   {[
                     'Visitamos tu empresa y conocemos tu operación real',
@@ -806,8 +808,8 @@ export default function Page() {
                   ))}
                 </ul>
                 <div className="mt-4 flex items-center gap-3">
-                  <span className="text-slate-400 line-through text-sm">Valor: $1.500.000</span>
-                  <span className="text-amber-400 font-extrabold text-xl">$0 GRATIS</span>
+                  <span className="text-blue-100 text-sm font-semibold">Valor de la sesión:</span>
+                  <span className="text-amber-400 font-extrabold text-xl">$1.500.000</span>
                 </div>
               </div>
 
@@ -837,16 +839,16 @@ export default function Page() {
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
               <div className="text-center mb-6">
                 <div className="inline-block px-4 py-1.5 bg-amber-100 text-amber-700 text-xs font-bold rounded-full mb-3">
-                  CUPOS LIMITADOS: 8 DIAGNÓSTICOS AL MES
+                  CUPOS LIMITADOS: 8 SESIONES DE VIABILIDAD AL MES
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Solicita Tu Diagnóstico</h3>
+                <h3 className="text-xl font-bold text-slate-900">Solicita Tu Sesión de Viabilidad</h3>
               </div>
 
               <button
                 onClick={() => setOpen(true)}
                 className="w-full py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold transition-all shadow-lg hover:shadow-xl text-lg cursor-pointer animate-pulse-glow"
               >
-                SOLICITAR DIAGNÓSTICO GRATUITO
+                SOLICITAR SESIÓN DE VIABILIDAD
               </button>
 
               <div className="mt-6 space-y-3 text-sm text-slate-600">

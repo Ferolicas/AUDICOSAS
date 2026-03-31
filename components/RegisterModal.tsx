@@ -48,24 +48,18 @@ export default function RegisterModal() {
         className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden animate-[modalIn_0.3s_ease-out] max-h-[90vh] flex flex-col"
         onClick={e => e.stopPropagation()}
       >
-        <div className="px-8 pt-6 pb-5 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #1B2A4A, #2563EB)' }}>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <img src="/logoaudico.png" alt="AUDICO" className="h-10 w-auto flex-shrink-0 hidden sm:block" />
-              <div>
-                <div className="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-1.5">
-                  DIAGNÓSTICO VALORADO EN $1.500.000 &mdash; HOY SIN COSTO
-                </div>
-                <h2 className="text-lg font-bold text-white leading-tight">Agenda tu Evaluación ISO Personalizada</h2>
-                <p className="text-blue-200 text-sm mt-0.5">Un consultor experto visitará tu empresa sin compromiso.</p>
-              </div>
-            </div>
-            <button
-              onClick={() => setOpen(false)}
-              className="text-white/70 hover:text-white transition-colors text-2xl leading-none font-light h-8 w-8 flex items-center justify-center rounded-full hover:bg-white/10 flex-shrink-0 ml-2"
-            >
-              &times;
-            </button>
+        <div className="relative px-8 pt-6 pb-5 flex-shrink-0 text-center" style={{ background: 'linear-gradient(135deg, #1B2A4A, #2563EB)' }}>
+          <button
+            onClick={() => setOpen(false)}
+            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors text-2xl leading-none font-light h-8 w-8 flex items-center justify-center rounded-full hover:bg-white/10"
+          >
+            &times;
+          </button>
+          <img src="/logoaudico.png" alt="AUDICO" className="h-12 w-auto mx-auto mb-3" />
+          <h2 className="text-lg font-bold text-white leading-tight">¿Listo Para Transformar Tu Empresa?</h2>
+          <p className="text-blue-200 text-sm mt-0.5">El primer paso es el más estratégico.</p>
+          <div className="inline-block mt-2 px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full">
+            SESIÓN DE VIABILIDAD &mdash; GRATIS
           </div>
         </div>
 
@@ -77,7 +71,7 @@ export default function RegisterModal() {
               </svg>
             </div>
             <h3 className="text-xl font-bold text-slate-900">¡Solicitud Recibida!</h3>
-            <p className="text-slate-600 mt-2">Un agente de AUDICO te contactará en las próximas <strong>24 horas</strong> para agendar tu diagnóstico gratuito.</p>
+            <p className="text-slate-600 mt-2">Un agente de AUDICO te contactará en las próximas <strong>24 horas</strong> para agendar tu sesión de viabilidad.</p>
           </div>
         ) : (
           <form onSubmit={onSubmit} className="px-8 py-5 space-y-4 overflow-y-auto">
@@ -160,7 +154,7 @@ export default function RegisterModal() {
               disabled={loading}
               className="w-full py-3.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold transition-all shadow-lg hover:shadow-xl text-sm disabled:opacity-60 cursor-pointer"
             >
-              {loading ? 'Enviando...' : 'SOLICITAR MI DIAGNÓSTICO GRATUITO'}
+              {loading ? 'Enviando...' : 'SOLICITAR MI SESIÓN DE VIABILIDAD'}
             </button>
 
             <div className="flex items-center justify-center gap-4 text-[11px] text-slate-400 pt-1">

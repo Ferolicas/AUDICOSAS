@@ -19,6 +19,16 @@ export interface CrmCliente {
   consultorAsignado: string
   fechaAlta: string
   certificaciones: CrmCertificacionCliente[]
+  documentos?: CrmDocumentoAdjunto[]
+}
+
+export interface CrmDocumentoAdjunto {
+  _key: string
+  nombre: string
+  url: string
+  assetId?: string
+  fechaSubida?: string
+  tipo?: string
 }
 
 export interface CrmCertificacionCliente {
@@ -98,6 +108,7 @@ export interface CrmCertificacion {
   prioridad: 'Urgente' | 'Alta' | 'Media' | 'Baja'
   diagnosticoOrigen?: string
   fases?: CrmFaseCertificacion[]
+  documentos?: CrmDocumentoAdjunto[]
 }
 
 export interface CrmFaseCertificacion {

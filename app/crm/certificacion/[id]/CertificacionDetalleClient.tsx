@@ -1,7 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowLeft, Pencil, FileText, CheckCircle2, Circle } from "lucide-react"
+import { ArrowLeft, Pencil, FileText, CheckCircle2, Circle, CheckCheck, Paperclip } from "lucide-react"
+import DocumentosSection from "@/components/crm/shared/DocumentosSection"
+import type { Documento } from "@/components/crm/shared/DocumentosSection"
+import { useState } from "react"
+import { toast } from "sonner"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/crm/ui/card"
 import { Button } from "@/components/crm/ui/button"
 import { Badge } from "@/components/crm/ui/badge"
@@ -14,14 +18,45 @@ import type { CrmCertificacion } from "@/lib/crm/types"
 import { format } from "date-fns"
 import { es } from "date-fns/locale"
 
-const FASE_NOMBRES = ['Diagnóstico Gratuito', 'Diseño a Tu Medida', 'Implementación Acompañada', 'Preparación Auditoría', 'Certificación y Mejora']
+const FASE_NOMBRES = ['Auditoría de Brechas y Potencial de ROI', 'Arquitectura de Procesos de Alto Rendimiento', 'Despliegue Estratégico y Cultura Organizacional', 'Blindaje ISO (Simulacro de Auditoría)', 'Validación de Activos y Mejora Continua']
 const FASE_COLORS = ['bg-blue-500', 'bg-purple-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500']
 
 function formatCOP(value: number) {
   return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(value)
 }
 
-export default function CertificacionDetalleClient({ certificacion: c }: { certificacion: CrmCertificacion }) {
+export default function CertificacionDetalleClient({ certificacion: inicial }: { certificacion: CrmCertificacion }) {
+  const [faseActual, setFaseActual] = useState(inicial.faseActual)
+  const [avanceGlobal, setAvanceGlobal] = useState(inicial.avanceGlobal)
+  const [completing, setCompleting] = useState<number | null>(null)
+  const c = { ...inicial, faseActual, avanceGlobal }
+
+  async function completarFase(num: number) {
+    if (completing) return
+    setCompleting(num)
+    try {
+      const nuevaFase = Math.min(num + 1, 5)
+      const nuevoAvance = num >= 5 ? 100 : Math.round((num / 5) * 100)
+      const res = await fetch(`/api/crm/certificaciones/${inicial._id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          faseActual: nuevaFase,
+          avanceGlobal: nuevoAvance,
+          ...(num >= 5 ? { estado: 'Completado' } : {}),
+        }),
+      })
+      if (!res.ok) throw new Error('Error al actualizar')
+      setFaseActual(nuevaFase)
+      setAvanceGlobal(nuevoAvance)
+      toast.success(`Fase ${num} completada`)
+    } catch {
+      toast.error('No se pudo completar la fase')
+    } finally {
+      setCompleting(null)
+    }
+  }
+
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center gap-4">
@@ -98,7 +133,7 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
               return (
                 <div key={num} className={`p-4 rounded-lg border-2 ${isCurrent ? 'border-blue-500 bg-blue-900/30' : isComplete ? 'border-green-200 bg-green-50' : 'border-slate-700'}`}>
                   <div className="flex items-center gap-3 mb-2">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold ${isComplete ? 'bg-green-500' : isCurrent ? 'bg-blue-500' : 'bg-slate-600'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 ${isComplete ? 'bg-green-500' : isCurrent ? 'bg-blue-500' : 'bg-slate-600'}`}>
                       {isComplete ? <CheckCircle2 className="w-5 h-5" /> : num}
                     </div>
                     <div className="flex-1">
@@ -106,6 +141,17 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
                       {isCurrent && <Badge className="bg-blue-500 text-white text-xs">Fase actual</Badge>}
                     </div>
                     {faseData && <span className="text-sm font-medium">{faseData.avance}%</span>}
+                    {isCurrent && (
+                      <button
+                        onClick={() => completarFase(num)}
+                        disabled={completing === num}
+                        title="Marcar fase como completada"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-600 hover:bg-green-500 disabled:opacity-50 text-white text-xs font-semibold transition-colors"
+                      >
+                        <CheckCheck className="w-4 h-4" />
+                        {completing === num ? 'Guardando...' : 'Completar'}
+                      </button>
+                    )}
                   </div>
 
                   {faseData && (isCurrent || isComplete) && (
@@ -161,6 +207,34 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
                 </p>
               </div>
             </Link>
+            <Link href={`/crm/documentos/propuesta/${c._id}`}>
+              <div className="border-2 border-amber-500/40 rounded-xl p-5 hover:bg-amber-900/30 hover:border-amber-400 transition-colors cursor-pointer">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center text-white font-bold">P</div>
+                  <div>
+                    <p className="font-semibold text-slate-100">Propuesta</p>
+                    <p className="text-xs text-slate-400">Propuesta comercial del proyecto</p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-400 mt-1">
+                  Documento de propuesta personalizada con alcance, cronograma e inversión para el cliente.
+                </p>
+              </div>
+            </Link>
+            <Link href={`/crm/documentos/contrato/${c._id}`}>
+              <div className="border-2 border-purple-500/40 rounded-xl p-5 hover:bg-purple-900/30 hover:border-purple-400 transition-colors cursor-pointer">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold">C</div>
+                  <div>
+                    <p className="font-semibold text-slate-100">Contrato</p>
+                    <p className="text-xs text-slate-400">Contrato de prestación de servicios</p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-400 mt-1">
+                  Contrato formal entre AUDICO y el cliente con condiciones, alcance y términos del proyecto.
+                </p>
+              </div>
+            </Link>
             <Link href={`/crm/documentos/resumen/${c._id}`}>
               <div className="border-2 border-green-500/40 rounded-xl p-5 hover:bg-green-900/30 hover:border-green-400 transition-colors cursor-pointer">
                 <div className="flex items-center gap-3 mb-2">
@@ -176,6 +250,21 @@ export default function CertificacionDetalleClient({ certificacion: c }: { certi
               </div>
             </Link>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* Archivos adjuntos */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Paperclip className="w-5 h-5" />Archivos Adjuntos
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <DocumentosSection
+            docId={inicial._id}
+            documentos={(inicial.documentos ?? []) as Documento[]}
+          />
         </CardContent>
       </Card>
     </div>

@@ -12,16 +12,15 @@ interface Props {
 }
 
 const FASE_NOMBRES: Record<number, string> = {
-  1: 'Diagnóstico y Compromiso',
-  2: 'Análisis de Contexto',
-  3: 'Documentación del SGC',
-  4: 'Implementación y Formación',
-  5: 'Auditoría Interna',
-  6: 'Certificación',
+  1: 'Auditoría de Brechas y Potencial de ROI',
+  2: 'Arquitectura de Procesos de Alto Rendimiento',
+  3: 'Despliegue Estratégico y Cultura Organizacional',
+  4: 'Blindaje ISO (Simulacro de Auditoría)',
+  5: 'Validación de Activos y Mejora Continua',
 }
 
 const FASE_DOCUMENTOS: Record<number, string[]> = {
-  1: ['Caso de Negocio', 'Compromiso de la Dirección', 'Política de Calidad', 'Cronograma del Proyecto'],
+  1: ['Diagnóstico GAP', 'Propuesta', 'Contrato', 'Resumen Ejecutivo'],
   2: ['Análisis de Contexto (PESTEL)', 'Partes Interesadas', 'Análisis de Riesgos y Oportunidades', 'Mapa de Procesos'],
   3: ['Fichas de Proceso', 'Procedimientos Documentados', 'Formatos y Registros'],
   4: ['Plan de Comunicación', 'Plan de Formación', 'Registros de Capacitación'],
