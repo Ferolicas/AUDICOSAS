@@ -5,7 +5,7 @@ import groq from 'groq'
 
 const ADMIN_EMAIL = 'contacto@audicoiso.com'
 const LOGO_URL = 'https://audicoiso.com/logoaudico.png'
-const WHATSAPP_URL = 'https://wa.me/573161374657'
+const WHATSAPP_URL = 'https://wa.me/+573180066892'
 
 // Colombia is UTC-5 year-round (no DST)
 function getTomorrowColombia(): string {

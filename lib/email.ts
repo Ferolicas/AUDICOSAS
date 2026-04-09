@@ -2,7 +2,7 @@ import { sendMail } from './zeptomail'
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'misamiopc@gmail.com'
 const LOGO_URL = 'https://audicoiso.com/logoaudico.png'
-const WHATSAPP_URL = 'https://wa.me/573161374657'
+const WHATSAPP_URL = 'https://wa.me/+573180066892'
 const PHONE = '+57 316 137 4657'
 
 interface ClientData {

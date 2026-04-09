@@ -17,16 +17,17 @@ const XIcon = () => <span className="text-red-500 font-bold text-lg leading-none
 /* ═══════════════════════════════════════════════ */
 
 const PROBLEMS = [
-  'Has perdido contratos porque te piden certificación ISO y no la tienes',
-  'Tus procesos varían según quien los ejecute, sin estándares claros',
+  'Has perdido contratos y licitaciones públicas porque te piden certificación ISO y no la tienes',
+  'Tus procesos varían según quien los ejecuta, o carecen de estándares claros',
   'Desperdicias dinero en reprocesos, errores y materiales sin control',
   'Tus costos energéticos están fuera de control',
   'Clientes se quejan de inconsistencias en calidad o entregas',
   'Todo depende de 2-3 personas clave y si faltan hay caos',
-  'Quieres participar en licitaciones públicas pero no cumples requisitos',
   'Sabes que tu competencia está certificándose y quedas rezagado',
   'Has recibido multas o sanciones por no cumplir con las normas ambientales',
   'Te han hecho reclamaciones por incumplir los tiempos de entrega',
+  'Ha aumentado el índice de accidentes laborales',
+  'La productividad ha sido afectada por casos de accidentes de trabajo',
 ]
 
 const STATS = [
@@ -124,15 +125,15 @@ const CASES = [
 ]
 
 const DIFFERENTIATORS = [
-  { title: 'Consultores Certificados', desc: 'Especialistas certificados en ISO 9001, ISO 14001 e ISO 45001 con años de experiencia práctica real.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
+  { title: 'Consultores Certificados', desc: 'Especialistas y auditores certificados en las normas ISO 9001, ISO 14001 e ISO 45001 con años de experiencia práctica real.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
   { title: 'Sistemas a Tu Medida', desc: 'Cero plantillas genéricas. Diseñamos cada procedimiento específicamente para TU empresa, TU sector, TU realidad operativa.', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
   { title: 'Enfoque 100% Práctico', desc: 'Trabajamos con resultados medibles desde el primer mes. Si no genera valor, no lo hacemos. Simple.', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
   { title: 'Sin Paralizar Operación', desc: 'Implementamos sistemas de forma paralela a tu operación diaria. Como remodelar tu casa mientras sigues viviendo en ella.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
   { title: 'Plazos Realistas y Cumplidos', desc: 'Cronograma claro desde día uno con hitos medibles. Cumplimos lo que prometemos o extendemos soporte sin costo.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
   { title: 'Empoderamos a Tu Equipo', desc: 'No creamos dependencia. Capacitamos a tu gente para que ELLOS sean los protagonistas.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
   { title: 'Comunicación Transparente', desc: 'Siempre sabrás en qué etapa estamos, qué sigue y cómo vamos. Reuniones semanales. Acceso directo a tu consultor. Cero sorpresas.', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
-  { title: 'Garantía de Resultados', desc: 'Si no obtienes tu certificación siguiendo nuestro método, seguimos trabajando sin costo adicional.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
-  { title: 'Soporte Post-Certificación', desc: 'Incluimos soporte post-certificación para auditorías de seguimiento, dudas y mejora continua. Estamos contigo a largo plazo.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
+  { title: 'Garantía de Resultados', desc: 'Si no obtienes tu certificación siguiendo nuestro método, seguimos trabajando sin costo adicional hasta que la logres.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+  { title: 'Soporte Post-Certificación', desc: 'Una vez logres la certificación, te ofrecemos servicios de: mantenimiento del sistema de gestión, preparación y acompañamiento para auditorías de seguimiento, para auditorias de recertificación, auditoría externa y mejora continua. Estamos contigo a largo plazo.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
 ]
 
 const FAQ_ITEMS = [
@@ -159,8 +160,8 @@ const FAQ_ITEMS = [
     question: '¿Mi empresa es muy pequeña para certificarse?',
     answer: (
       <div className="space-y-3">
-        <p>Tamaño NO es el factor decisivo. <strong>Lo determinante es la visión de tu organización y los mercados en donde desees incursionar; </strong> para ello es importante investigar si ellos valoran o exigen certificación en normas ISO.</p>
-        <p>Probablemente SI tiene sentido si: vendes o quieres vender a gobierno/corporaciones, buscas profesionalizar para crecer, o has perdido contratos por falta de certificación.</p>
+        <p>El tamaño NO es el factor decisivo. <strong>Lo determinante es la visión de tu organización y los mercados en donde desees incursionar; </strong> para ello es importante investigar si ellos valoran o exigen certificación en normas ISO.</p>
+        <p>Es conveniente certificarte Si: vendes o quieres vender a gobierno/corporaciones, buscas profesionalizarte para crecer, o has perdido contratos o licitaciones públicas por falta de certificación.</p>
         <p>Hemos certificado empresas desde <strong>8 hasta 300 empleados</strong> éxitosamente.</p>
       </div>
     ),
@@ -295,7 +296,7 @@ export default function Page() {
           <div className="grid lg:grid-cols-[1fr_45%] gap-12 items-center">
             <div className="max-w-3xl">
               <div className="inline-block px-4 py-1.5 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full mb-6 tracking-wide">
-                AUDITORIAS &middot; CONSULTORIA &middot; CERTIFICACIÓN ISO
+                AUDITORIAS &middot; CONSULTORIA &middot; PREPARACION PARA CERTIFICACIÓN ISO
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
                 ¿Tu Empresa Pierde Contratos por No Tener{' '}
@@ -409,6 +410,7 @@ export default function Page() {
                 {[
                   { norm: 'ISO 9001:2015', desc: 'Sistema de Gestión de Calidad' },
                   { norm: 'ISO 14001:2015', desc: 'Sistema de Gestión Ambiental' },
+                  { norm: 'ISO 45001:2018', desc: 'Sistema de Gestión de Seguridad y Salud en el Trabajo' },
                 ].map((item) => (
                   <li key={item.norm} className="flex items-start gap-2 text-sm text-slate-600">
                     <CheckIcon />
@@ -816,11 +818,11 @@ export default function Page() {
               <div className="mt-8 space-y-3">
                 <div className="text-blue-100 text-sm font-semibold">Contacto directo:</div>
                 <div className="flex flex-wrap gap-4 text-sm">
-                  <a href="tel:+573161374657" className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors">
+                  <a href="tel:+573180066892" className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
-                    +57 316 137 4657
+                    +57 318 006 6892
                   </a>
-                  <a href="https://wa.me/573161374657" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-green-300 hover:text-green-200 transition-colors">
+                  <a href="https://wa.me/+573180066892" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-green-300 hover:text-green-200 transition-colors">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.332-1.543l-.382-.228-2.65.889.889-2.65-.228-.382A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" /></svg>
                     WhatsApp
                   </a>
